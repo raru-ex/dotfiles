@@ -1,6 +1,15 @@
+" マウス選択時visualモードを解除
 set mouse=
 set modifiable
 set write
+" 行を強調表示
+set cursorline
+" TABキーを押した際にタブ文字の代わりにスペースを入れる
+set expandtab
+set tabstop=4
+set shiftwidth=4
+" autoindentを解除
+" set noautoindent
 
 "dein Scripts-----------------------------
 if &compatible
@@ -37,6 +46,12 @@ call dein#add('airblade/vim-gitgutter')
 call dein#add('vim-airline/vim-airline')
 " color to atom
 call dein#add('joshdick/onedark.vim')
+" space
+call dein#add('bronson/vim-trailing-whitespace')
+" scala
+call dein#add('derekwyatt/vim-scala')
+" 補完
+call dein#add('Shougo/neocomplete.vim')
 
 
 " ---------- add settings ----------
@@ -44,6 +59,8 @@ call dein#add('joshdick/onedark.vim')
 runtime! vimrcs/unite.vim
 runtime! vimrcs/nerdtree.vim
 runtime! vimrcs/onedark.vim
+runtime! vimrcs/filetype.vim
+runtime! vimrcs/neocomplete.vim
 
 " Required:
 call dein#end()
