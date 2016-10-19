@@ -41,6 +41,7 @@ call dein#add('Shougo/neomru.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('jistr/vim-nerdtree-tabs')
 call dein#add('Xuyuanp/nerdtree-git-plugin')
+" vimで差分(+, -)を左側に表示
 call dein#add('airblade/vim-gitgutter')
 " customize bar
 call dein#add('vim-airline/vim-airline')
@@ -52,6 +53,12 @@ call dein#add('bronson/vim-trailing-whitespace')
 call dein#add('derekwyatt/vim-scala')
 " 補完
 call dein#add('Shougo/neocomplete.vim')
+" コメント補完
+call dein#add('tomtom/tcomment_vim')
+" php
+call dein#add('violetyk/neocomplete-php.vim')
+call dein#add('thinca/vim-ref')
+
 
 
 " ---------- add settings ----------
@@ -61,6 +68,7 @@ runtime! vimrcs/nerdtree.vim
 runtime! vimrcs/onedark.vim
 runtime! vimrcs/filetype.vim
 runtime! vimrcs/neocomplete.vim
+runtime! vimrcs/neocomplete-php.vim
 
 " Required:
 call dein#end()
