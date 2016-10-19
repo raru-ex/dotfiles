@@ -1,3 +1,9 @@
+" 文字コードセット
+set encoding=utf-8
+scriptencoding utf-8
+set fileencoding=utf-8
+set ambiwidth=double
+
 " マウス選択時visualモードを解除
 set mouse=
 set modifiable
@@ -10,6 +16,20 @@ set tabstop=4
 set shiftwidth=4
 " autoindentを解除
 " set noautoindent
+
+" paste時にインデントが崩れないよう設定
+if &term =~ "xterm"
+    let &t_SI .= "\e[?2004h"
+    let &t_EI .= "\e[?2004l"
+    let &pastetoggle = "\e[201~"
+
+    function XTermPasteBegin(ret)
+        set paste
+        return a:ret
+    endfunction
+
+    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+endif
 
 "dein Scripts-----------------------------
 if &compatible
