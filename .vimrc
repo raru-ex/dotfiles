@@ -2,10 +2,12 @@
 set encoding=utf-8
 scriptencoding utf-8
 set fileencoding=utf-8
+" 記号等の表示が崩れるものに対応
 set ambiwidth=double
 
 " マウス選択時visualモードを解除
 set mouse=
+" nerdtree上で入力を受け付けるように変更
 set modifiable
 set write
 " 行を強調表示
@@ -89,6 +91,7 @@ runtime! vimrcs/onedark.vim
 runtime! vimrcs/filetype.vim
 runtime! vimrcs/neocomplete.vim
 runtime! vimrcs/neocomplete-php.vim
+runtime! vimrcs/ctags.vim
 
 " Required:
 call dein#end()
