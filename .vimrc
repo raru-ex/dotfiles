@@ -19,6 +19,9 @@ set shiftwidth=4
 " autoindentを解除
 " set noautoindent
 
+" ファイルを右側で開く
+set splitright
+
 " paste時にインデントが崩れないよう設定
 if &term =~ "xterm"
     let &t_SI .= "\e[?2004h"
