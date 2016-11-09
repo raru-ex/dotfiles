@@ -4,8 +4,8 @@ set tags=./tags;
 " [tag jump] カーソルの単語の定義先にジャンプ（複数候補はリスト表示）
 nnoremap tj :exe("tjump ".expand('<cword>'))<CR>
 
-" [tag back] tag stack を戻る -> tp(tag pop)よりもtbの方がしっくりきた
-nnoremap tb :pop<CR>
+" [tag prev] tag stack を戻る
+nnoremap tp :pop<CR>
 
 " [tag next] tag stack を進む
 nnoremap tn :tag<CR>

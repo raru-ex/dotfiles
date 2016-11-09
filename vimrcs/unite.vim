@@ -22,10 +22,10 @@ autocmd FileType unite call s:unite_opened_settings()
 function! s:unite_opened_settings()"{{{
     " Ctrl+cでunite終了
     nmap <buffer> <C-c> <Plug>(unite_exit)
-    " Ctrl+vで横に分割で開く
+    " Ctrl+iで横に分割で開く
     nnoremap <silent> <buffer> <expr> <C-i> unite#do_action('split')
     inoremap <silent> <buffer> <expr> <C-i> unite#do_action('split')
-    " Ctrl+hで縦に分割して開く
+    " Ctrl+sで縦に分割して開く
     nnoremap <silent> <buffer> <expr> <C-s> unite#do_action('vsplit')
     inoremap <silent> <buffer> <expr> <C-s> unite#do_action('vsplit')
     " Ctrl+oで横に分割して開く
