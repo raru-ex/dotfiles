@@ -21,4 +21,10 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+# node
+[[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh
+nvm use 6.11.3
+npm_dir=${NVM_PATH}_modules
+export NODE_PATH=$npm_dir
+
 stty stop undef
