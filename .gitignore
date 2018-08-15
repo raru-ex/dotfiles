@@ -1,2 +1,19 @@
+# 全てを管理対象から除外する
+/*
+/.*
+
+# 管理対象にしたいファイルだけignoreから除外する
+!/.vim
+!/.vimrc
+!/.config
+!/.ctags
+!/bin
+
+# 管理対象のディレクトリ内でも除外したいものはこの下に追加する
+.vim/dein
 .DS_Store
+.svn
+*.pyc
+.netrwhist
 .*.un~
+
