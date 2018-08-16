@@ -1,6 +1,4 @@
-dotfiles
-====
-
+# dotfiles
 ## Overview
 自分用dotfiles  
 主に簡易利用のためのvim設定  
