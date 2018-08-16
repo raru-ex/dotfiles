@@ -6,13 +6,13 @@
 
 ## Description
 vimにはNeoCompleteを利用しているためvimはwith luaでインストール  
-PHPの辞書利用をする場合php, svnのインストールが必要
+PHPの辞書利用をする場合php, svnのインストールが必要  
 
 ## Requirement
-Vim with lua
-Git
-Svn
-PHP
+Vim with lua  
+Git  
+Svn  
+PHP  
 
 ## Install
 $ sh bin/install.sh
