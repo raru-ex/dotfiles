@@ -17,5 +17,8 @@ PHP
 ## Install
 $ sh bin/install.sh
 
+## Install PHP Dict
+Vimを開いた状態で :PhpMakeDict ja
+
 ## Author
 raru
