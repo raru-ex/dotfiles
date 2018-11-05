@@ -21,6 +21,9 @@ set shiftwidth=4
 " autoindentを解除
 " set noautoindent
 
+" onedark読み込み前にsyntaxを有効にする
+syntax on
+
 " ファイルを右側で開く
 set splitright
 
@@ -162,7 +165,6 @@ call dein#end()
 " Required:
 filetype plugin indent on
 " syntax enable
-syntax on
 
 
 " If you want to install not installed plugins on startup.
