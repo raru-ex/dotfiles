@@ -161,7 +161,8 @@ call dein#end()
 
 " Required:
 filetype plugin indent on
-syntax enable
+" syntax enable
+syntax on
 
 
 " If you want to install not installed plugins on startup.
