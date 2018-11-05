@@ -3,7 +3,7 @@ source ~/dotfiles/.zsh/.zplug.zsh
 
 # promt
 autoload -Uz colors && colors
-PROMPT="%{$fg[cyan]%}%c %{$fg[green]%}> "
+PROMPT="%{$fg_bold[cyan]%}%c %{$fg_bold[green]%}> "
 
 # right prompt
 source ~/dotfiles/.zsh/.rprompt.zsh
@@ -37,10 +37,10 @@ bindkey '^[[Z' reverse-menu-complete # Shift-Tabで候補を逆順に補完す�
 
 # aliases
 alias ls='ls -FhG'
-alias syrup_ssh='ssh -p 56765 raru@syrup16g.net -i ~/.ssh/id_rsa_syrup16g'
-alias syrup_sftp='sftp -oPort=56765 -oIdentityFile=/Users/raru/.ssh/id_rsa_syrup16g raru@syrup16g.net'
+# alias syrup_ssh='ssh -p 56765 raru@syrup16g.net -i ~/.ssh/id_rsa_syrup16g'
+# alias syrup_sftp='sftp -oPort=56765 -oIdentityFile=/Users/raru/.ssh/id_rsa_syrup16g raru@syrup16g.net'
 alias findgrep='find . -type f -name \* | xargs grep -I'
-alias vi='env LANG=ja_JP.UTF-8 /usr/local/Cellar/macvim/8.1-147/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /usr/local/Cellar/macvim/8.1-147/MacVim.app/Contents/MacOS/Vim "$@"'
+# alias vi='env LANG=ja_JP.UTF-8 /usr/local/Cellar/macvim/8.1-147/MacVim.app/Contents/MacOS/Vim "$@"'
+# alias vim='env LANG=ja_JP.UTF-8 /usr/local/Cellar/macvim/8.1-147/MacVim.app/Contents/MacOS/Vim "$@"'
 
 stty stop undef
