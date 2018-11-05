@@ -15,16 +15,16 @@ Svn
 PHP  
 
 ## Install Vim
-$ sh bin/install.sh
+$ sh bin/install.sh  
 
 ## Install zsh settings
-$ sh bin/install_zsh.sh
+$ sh bin/install_zsh.sh  
 
 ## Install PHP Dict
-Vimを開いた状態で :PhpMakeDict ja
+Vimを開いた状態で :PhpMakeDict ja  
 
 ## Author
-raru
+raru  
 
 ## TODO
-vimの色がおかしい
+vimの色がおかしい  
