@@ -2,8 +2,11 @@
 source ~/dotfiles/.zsh/.zplug.zsh
 
 # promt
-autoload colors && colors
-PROMPT='[%n %c]%# '
+autoload -Uz colors && colors
+PROMPT="%{$fg[cyan]%}%c %{$fg[green]%}> "
+
+# right prompt
+source ~/dotfiles/.zsh/.rprompt.zsh
 
 # lang setting
 export LANG=ja_JP.UTF-8
@@ -32,7 +35,7 @@ setopt no_beep # beep音を無効化
 # key bind
 bindkey '^[[Z' reverse-menu-complete # Shift-Tabで候補を逆順に補完する
 
- aliases
+# aliases
 alias ls='ls -FhG'
 alias syrup_ssh='ssh -p 56765 raru@syrup16g.net -i ~/.ssh/id_rsa_syrup16g'
 alias syrup_sftp='sftp -oPort=56765 -oIdentityFile=/Users/raru/.ssh/id_rsa_syrup16g raru@syrup16g.net'
