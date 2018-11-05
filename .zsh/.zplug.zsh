@@ -11,6 +11,7 @@ zplug "zsh-users/zsh-autosuggestions" # 薄く補完を表示
 zplug "zsh-users/zsh-completions" # 補完を強化
 zplug "zsh-users/zsh-syntax-highlighting", defer:2 # コマンドの色付け
 zplug "zsh-users/zsh-history-substring-search", defer:3 # history補完強化
+# zplug "dracula/zsh", as:theme
 
 # 自分自身をプラグインとして管理
 zplug "zplug/zplug", hook-build:'zplug --self-manage'
@@ -25,4 +26,4 @@ if ! zplug check --verbose; then
 fi
 
 # コマンドをリンクして、PATH に追加し、プラグインは読み込む
-zplug load –verbose
+zplug load --verbose
