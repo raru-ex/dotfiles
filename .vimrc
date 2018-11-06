@@ -24,6 +24,9 @@ set shiftwidth=4
 " onedark読み込み前にsyntaxを有効にする
 syntax on
 
+" backspaceが効かないのへ対応
+set backspace=indent,eol,start
+
 " ファイルを右側で開く
 set splitright
 
