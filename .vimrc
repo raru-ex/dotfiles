@@ -16,8 +16,8 @@ set number
 set cursorline
 " TABキーを押した際にタブ文字の代わりにスペースを入れる
 set expandtab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 " autoindentを解除
 " set noautoindent
 
@@ -149,6 +149,8 @@ call dein#add('tomtom/tcomment_vim')
 " php
 call dein#add('violetyk/neocomplete-php.vim')
 call dein#add('thinca/vim-ref')
+" typescript
+call dein#add('leafgarland/typescript-vim')
 
 
 
@@ -161,6 +163,7 @@ runtime! vimrcs/filetype.vim
 runtime! vimrcs/neocomplete.vim
 runtime! vimrcs/neocomplete-php.vim
 runtime! vimrcs/ctags.vim
+runtime! vimrcs/typescript.vim
 
 " Required:
 call dein#end()
