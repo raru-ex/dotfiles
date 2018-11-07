@@ -1,3 +1,11 @@
+" autocmdによる重複読み込み防止用グループ
+augroup MyVimrc
+  autocmd!
+augroup END
+
+" filetypeを明示的に有効化
+filetype on
+
 " 文字コードセット
 set encoding=utf-8
 scriptencoding utf-8
@@ -20,6 +28,11 @@ set tabstop=2
 set shiftwidth=2
 " autoindentを解除
 " set noautoindent
+" 検索結果をハイライト
+set hlsearch
+" インクリメントサーチ有効
+set incsearch
+
 
 " onedark読み込み前にsyntaxを有効にする
 syntax on
@@ -150,9 +163,13 @@ call dein#add('tomtom/tcomment_vim')
 call dein#add('violetyk/neocomplete-php.vim')
 call dein#add('thinca/vim-ref')
 " typescript
-call dein#add('leafgarland/typescript-vim')
-
-
+call dein#add('pangloss/vim-javascript')
+call dein#add('othree/yajs')
+call dein#add('HerringtonDarkholme/yats.vim')
+call dein#add('othree/es.next.syntax.vim')
+call dein#add('othree/javascript-libraries-syntax.vim')
+" pug
+call dein#add('digitaltoad/vim-pug')
 
 " ---------- add settings ----------
 "  Unite.vim setting
@@ -164,6 +181,7 @@ runtime! vimrcs/neocomplete.vim
 runtime! vimrcs/neocomplete-php.vim
 runtime! vimrcs/ctags.vim
 runtime! vimrcs/typescript.vim
+runtime! vimrcs/view-content.vim
 
 " Required:
 call dein#end()

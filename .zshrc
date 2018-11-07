@@ -36,7 +36,7 @@ setopt no_beep # beep音を無効化
 bindkey '^[[Z' reverse-menu-complete # Shift-Tabで候補を逆順に補完する
 
 # aliases
-alias ls='ls -Fh --color '
+alias ls='ls -FhG'
 # alias syrup_ssh='ssh -p 56765 raru@syrup16g.net -i ~/.ssh/id_rsa_syrup16g'
 # alias syrup_sftp='sftp -oPort=56765 -oIdentityFile=/Users/raru/.ssh/id_rsa_syrup16g raru@syrup16g.net'
 alias findgrep='find . -type f -name \* | xargs grep -I'
