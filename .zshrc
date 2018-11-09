@@ -8,8 +8,11 @@ PROMPT="%{$fg_bold[cyan]%}%c %{$fg_bold[green]%}> "
 # right prompt
 source ~/dotfiles/.zsh/.rprompt.zsh
 
+# exports
 # lang setting
 export LANG=ja_JP.UTF-8
+export PAGER=less
+export EDITOR=vim
 
 # history settings
 HISTFILE=~/.zsh_history
@@ -36,7 +39,11 @@ setopt no_beep # beep音を無効化
 bindkey '^[[Z' reverse-menu-complete # Shift-Tabで候補を逆順に補完する
 
 # aliases
-alias ls='ls -FhG'
+if type brew > /dev/null 2>&1; then
+  alias ls='ls -FhG'
+else
+  alias ls='ls -Fh --color=auto'
+fi
 # alias syrup_ssh='ssh -p 56765 raru@syrup16g.net -i ~/.ssh/id_rsa_syrup16g'
 # alias syrup_sftp='sftp -oPort=56765 -oIdentityFile=/Users/raru/.ssh/id_rsa_syrup16g raru@syrup16g.net'
 alias findgrep='find . -type f -name \* | xargs grep -I'
