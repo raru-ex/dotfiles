@@ -42,5 +42,6 @@ alias ls='ls -FhG'
 alias findgrep='find . -type f -name \* | xargs grep -I'
 # alias vi='env LANG=ja_JP.UTF-8 /usr/local/Cellar/macvim/8.1-147/MacVim.app/Contents/MacOS/Vim "$@"'
 # alias vim='env LANG=ja_JP.UTF-8 /usr/local/Cellar/macvim/8.1-147/MacVim.app/Contents/MacOS/Vim "$@"'
+alias jqless="/usr/bin/pbpaste | /usr/local/bin/jq '.' -C | less -R "
 
 stty stop undef
