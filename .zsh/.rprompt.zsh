@@ -8,4 +8,5 @@ zstyle ':vcs_info:git:*' check-for-changes false # コミットされてない�
 zstyle ':vcs_info:*' formats "%F{green}[%b]%f" # current branchを表示
 zstyle ':vcs_info:*' actionformats '%F{red}[%b|%a]%f' #[master|merge]みたいに表示
 precmd () { vcs_info } # prompt表示ごとに最新のinfoを取得
-RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
+# RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
+RPROMPT='${vcs_info_msg_0_}'
