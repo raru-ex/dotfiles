@@ -1,0 +1,88 @@
+# [dein.toml]
+
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# sunippet ----------
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+depends = ['neosnippet-snippets']
+on_i = 1
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+on_i = 1
+
+#[[plugins]]
+# repo = 'Shougo/vimshell', { 'rev': '3787e5' }
+
+# NERDTree ----------
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+depends =['vim-nerdtree-tabs', 'nerdtree-git-plugin']
+hook_add = '''
+  source ~/.vim/vimrcs/nerdtree.vim
+'''
+
+[[plugins]]
+repo = 'jistr/vim-nerdtree-tabs'
+
+[[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
+
+# Git ----------
+# vimで差分(+, -)を左側に表示
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+# Airline ----------
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+
+# ColorSheme ----------
+[[plugins]]
+repo = 'joshdick/onedark.vim'
+hook_add = '''
+  source ~/.vim/vimrcs/onedark.vim
+'''
+
+# Common Editor ----------
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+on_i = 1
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+on_i = 1
+
+# Scala ----------
+[[plugins]]
+repo = 'derekwyatt/vim-scala'
+on_ft = 'scala'
+
+# Typescript, Javascript ----------
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = ['javascript', 'typescript']
+
+[[plugins]]
+repo = 'othree/yajs'
+on_ft = ['javascript', 'typescript']
+
+[[plugins]]
+repo = 'HerringtonDarkholme/yats.vim'
+on_ft = ['javascript', 'typescript']
+
+[[plugins]]
+repo = 'othree/es.next.syntax.vim'
+on_ft = ['javascript', 'typescript']
+
+[[plugins]]
+repo = 'othree/javascript-libraries-syntax.vim'
+on_ft = ['javascript', 'typescript']
+
+# HTML, CSS,etc ----------
+[[plugins]]
+# pug syntax
+repo = 'digitaltoad/vim-pug'
+on_ft = 'pug'
