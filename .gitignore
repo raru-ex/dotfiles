@@ -10,6 +10,7 @@
 !/.zshrc
 !/.zsh
 !/bin
+!/.config
 !/README.md
 
 # 管理対象のディレクトリ内でも除外したいものはこの下に追加する
@@ -20,3 +21,5 @@
 .netrwhist
 .*.un~
 *.swp
+# symlinkを排除
+.vim/init.vim

@@ -13,6 +13,7 @@ source ~/dotfiles/.zsh/.rprompt.zsh
 export LANG=ja_JP.UTF-8
 export PAGER=less
 export EDITOR=vim
+export XDG_CONFIG_HOME=~/.config
 
 # history settings
 HISTFILE=~/.zsh_history
