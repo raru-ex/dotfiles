@@ -1,9 +1,3 @@
-" 補完
-call dein#add('Shougo/neocomplete.vim')
-" php
-call dein#add('violetyk/neocomplete-php.vim')
-call dein#add('thinca/vim-ref')
-
 "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0

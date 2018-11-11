@@ -14,7 +14,13 @@
 !/README.md
 
 # 管理対象のディレクトリ内でも除外したいものはこの下に追加する
-.vim/dein
+.vim/dein/.cache
+.vim/dein/repos
+.vim/dein/cache_vim
+.vim/dein/cache_nvim
+.vim/dein/state_vim.vim
+.vim/dein/state_nvim.vim
+
 .DS_Store
 .svn
 *.pyc

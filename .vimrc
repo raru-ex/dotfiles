@@ -14,6 +14,8 @@ endif
 
 "プラグインが実際にインストールされるディレクトリ
 let s:dein_dir = expand('~/.vim/dein')
+" tomlファイル置き場
+let s:dein_toml_dir = s:dein_dir . '/toml'
 " dein.vim 本体
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
@@ -26,72 +28,41 @@ if &runtimepath !~# '/dein.vim'
  execute 'set runtimepath^=' . s:dein_repo_dir
 endif
 
-" Required:
-call dein#begin('~/.vim/dein')
+" dein settings
+if dein#load_state(s:dein_dir)
+  " Required:
+  call dein#begin(s:dein_dir)
 
-" Let dein manage dein
-" Required:
-call dein#add('Shougo/dein.vim')
+  " Load toml
+  let s:common_toml = s:dein_toml_dir . '/common.toml'
+  let s:common_lazy = s:dein_toml_dir . '/common_lazy.toml'
+  let s:vim_toml = s:dein_toml_dir . '/vim.toml'
+  let s:nvim_toml = s:dein_toml_dir . '/nvim.toml'
 
-" Add or remove your plugins here:
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/neosnippet-snippets')
+  call dein#load_toml(s:common_toml, {'lazy': 0})
 
-" You can specify revision/branch/tag.
-" call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+  " toml側でif処理をするのが面倒なのでこちら側で処理
+  if has('nvim')
+    call dein#load_toml(s:nvim_toml, {'lazy': 0})
+  else
+    call dein#load_toml(s:vim_toml,  {'lazy': 0})
+  endif
 
-" ---------- add modules ----------
-" Unite
-call dein#add('Shougo/unite.vim')
-call dein#add('Shougo/denite.nvim')
-call dein#add('Shougo/neomru.vim')
-" NERDTree
-call dein#add('scrooloose/nerdtree')
-call dein#add('jistr/vim-nerdtree-tabs')
-call dein#add('Xuyuanp/nerdtree-git-plugin')
-" vimで差分(+, -)を左側に表示
-call dein#add('airblade/vim-gitgutter')
-" customize bar
-call dein#add('vim-airline/vim-airline')
-" color to atom
-call dein#add('joshdick/onedark.vim')
-" space
-call dein#add('bronson/vim-trailing-whitespace')
-" scala
-call dein#add('derekwyatt/vim-scala')
-call dein#add('tomtom/tcomment_vim')
-" typescript
-call dein#add('pangloss/vim-javascript')
-call dein#add('othree/yajs')
-call dein#add('HerringtonDarkholme/yats.vim')
-call dein#add('othree/es.next.syntax.vim')
-call dein#add('othree/javascript-libraries-syntax.vim')
-" pug
-call dein#add('digitaltoad/vim-pug')
+  call dein#load_toml(s:common_lazy, {'lazy': 1})
 
-" ---------- loac settings ----------
+  " finalize
+  call dein#end()
+  call dein#save_state()
+endif
+
+" ---------- load settings ----------
 runtime! vimrcs/default-functions-keymap.vim
-if has('python3')
-  runtime! vimrcs/denite.vim
-else
-  runtime! vimrcs/unite.vim
-endif
-runtime! vimrcs/nerdtree.vim
-runtime! vimrcs/onedark.vim
-if has('nvim')
-  runtime! vimrcs/deoplete.vim
-else
-  runtime! vimrcs/neocomplete.vim
-endif
 runtime! vimrcs/php.vim
 runtime! vimrcs/scala.vim
 runtime! vimrcs/ruby.vim
 runtime! vimrcs/ctags.vim
 runtime! vimrcs/typescript.vim
 runtime! vimrcs/html-css.vim
-
-" Required:
-call dein#end()
 
 " Required:
 filetype plugin indent on
