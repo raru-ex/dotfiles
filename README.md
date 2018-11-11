@@ -2,30 +2,31 @@
 
 ## Overview
 自分用dotfiles  
-主に簡易利用のためのvim設定  
+主に簡易利用のためのvim設定とzsh設定  
 
 ## Description
-vimにはNeoCompleteを利用しているためvimはwith luaでインストール  
-PHPの辞書利用をする場合php, svnのインストールが必要  
+vim, nvimどちらでも使えるように設定している  
+vim利用時は neocomplete を利用するようになっているため lua付きでインストール  
+zshはframeworkは利用してない (はず)
 
 ## Requirement
-Vim with lua  
+homebrew  
+Vim with python3  
 Git  
 Svn  
-PHP  
 
-## Install Vim
-$ sh bin/install.sh  
+##  install for mac
+$ brew install vim --with-lua  
+$ brew install nvim  
+$ pip3 install --upgrade neovim  
 
-## Install zsh settings
-$ sh bin/install_zsh.sh  
+### vim起動時にエラーが起きる場合
+$ brew unlink ruby
+$ brew install ruby
 
-
-## Install PHP Dict
-Vimを開いた状態で :PhpMakeDict ja  
+## Install 
+bin以下にインストール用のシェルを配置してあるため任意に利用  
+※ 中身は単純なシンボリックリンク  
 
 ## Author
 raru  
-
-## TODO
-vimの色がおかしい  
