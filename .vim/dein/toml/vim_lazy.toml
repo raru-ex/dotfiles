@@ -1,0 +1,23 @@
+# Complete ----------
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+if = "has('lua')"
+depends = ['neocomplete-php', 'vim-ref']
+on_i = 1
+hook_source = '''
+  source ~/.vim/vimrcs/neocomplete.vim
+'''
+
+# PHP ----------
+[[plugins]]
+repo = 'violetyk/neocomplete-php.vim'
+on_ft = 'php'
+on_i = 1
+on_source = ['neocomplete.vim']
+
+[[plugins]]
+repo = 'thinca/vim-ref'
+on_ft = 'php'
+on_i = 1
+on_source = ['neocomplete.vim']
+

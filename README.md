@@ -20,13 +20,20 @@ $ brew install vim --with-lua
 $ brew install nvim  
 $ pip3 install --upgrade neovim  
 
+// nvimでは:UpdateRemotePluginsを初期化時や再設定時に実行  
+
 ### vim起動時にエラーが起きる場合
+以下はrubyでエラーが発生していた例。  
+brewのrん苦を貼り直すと動いた  
 $ brew unlink ruby  
 $ brew install ruby  
 
 ## Install 
 bin以下にインストール用のシェルを配置してあるため任意に利用  
 ※ 中身は単純なシンボリックリンク  
+
+## TODO
+deopleteのlazy loadがうまく動作しないため一旦lazy 0にて設定
 
 ## Author
 raru  
