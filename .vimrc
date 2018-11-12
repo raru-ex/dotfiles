@@ -34,21 +34,28 @@ if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
   " Load toml
-  let s:common_toml = s:dein_toml_dir . '/common.toml'
-  let s:common_lazy = s:dein_toml_dir . '/common_lazy.toml'
-  let s:vim_toml = s:dein_toml_dir . '/vim.toml'
-  let s:nvim_toml = s:dein_toml_dir . '/nvim.toml'
+  let s:common_toml    = s:dein_toml_dir . '/common.toml'
+  let s:common_lazy_toml    = s:dein_toml_dir . '/common_lazy.toml'
 
+  let s:vim_toml       = s:dein_toml_dir . '/vim.toml'
+  let s:vim_lazy_toml  = s:dein_toml_dir . '/vim_lazy.toml'
+
+  let s:nvim_toml      = s:dein_toml_dir . '/nvim.toml'
+  let s:nvim_lazy_toml = s:dein_toml_dir . '/nvim_lazy.toml'
+
+  " 共通ライブラリ
   call dein#load_toml(s:common_toml, {'lazy': 0})
 
   " toml側でif処理をするのが面倒なのでこちら側で処理
   if has('nvim')
     call dein#load_toml(s:nvim_toml, {'lazy': 0})
+    call dein#load_toml(s:nvim_lazy_toml, {'lazy': 1})
   else
     call dein#load_toml(s:vim_toml,  {'lazy': 0})
+    call dein#load_toml(s:vim_lazy_toml,  {'lazy': 1})
   endif
 
-  call dein#load_toml(s:common_lazy, {'lazy': 1})
+  call dein#load_toml(s:common_lazy_toml, {'lazy': 1})
 
   " finalize
   call dein#end()

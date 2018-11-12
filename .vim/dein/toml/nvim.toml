@@ -1,20 +1,18 @@
 # Complete ----------
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
+if = "has('python3')"
 depends = ['neco-syntax', 'phpcd.vim']
 on_i = 1
 hook_add = '''
   source ~/.vim/vimrcs/deoplete.vim
 '''
 
-# Filer ----------
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-
 # syntax
 [[plugins]]
 repo = 'Shougo/neco-syntax'
 on_i = 1
+on_souce = ['deoplete.nvim']
 
 # PHP ----------
 [[plugins]]
@@ -23,9 +21,15 @@ on_ft = 'php'
 on_i = 1
 on_souce = ['deoplete.nvim']
 
+
+# Finder ----------
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+
 # Terminal ----------
 [[plugins]]
 repo = 'kassio/neoterm'
 hook_add = '''
   source ~/.vim/vimrcs/neoterm.vim
 '''
+

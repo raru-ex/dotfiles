@@ -1,13 +1,3 @@
-# Complete ----------
-[[plugins]]
-repo = 'Shougo/neocomplete.vim'
-if = "has('lua')"
-depends = ['neocomplete-php', 'vim-ref']
-on_i = 1
-hook_add = '''
-  source ~/.vim/vimrcs/neocomplete.vim
-'''
-
 # Unite ----------
 [[plugins]]
 repo = 'Shougo/unite.vim'
@@ -20,15 +10,3 @@ hook_add ='''
 repo = 'Shougo/neomru.vim'
 on_source = ['unite.vim']
 
-# PHP ----------
-[[plugins]]
-repo = 'violetyk/neocomplete-php.vim'
-on_ft = 'php'
-on_i = 1
-on_source = ['neocomplete.vim']
-
-[[plugins]]
-repo = 'thinca/vim-ref'
-on_ft = 'php'
-on_i = 1
-on_source = ['neocomplete.vim']
