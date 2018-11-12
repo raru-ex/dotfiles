@@ -22,3 +22,10 @@ repo = 'lvht/phpcd.vim'
 on_ft = 'php'
 on_i = 1
 on_souce = ['deoplete.nvim']
+
+# Terminal ----------
+[[plugins]]
+repo = 'kassio/neoterm'
+hook_add = '''
+  source ~/.vim/vimrcs/neoterm.vim
+'''
