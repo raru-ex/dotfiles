@@ -1,2 +1,2 @@
-ln -sf ~/dotfiles/.zshrc ~/.zshrc
+ln -nfs ~/dotfiles/.zshrc ~/.zshrc
 source ~/.zshrc
