@@ -3,7 +3,7 @@
 repo = 'Shougo/deoplete.nvim'
 depends = ['neco-syntax', 'phpcd.vim']
 on_i = 1
-hook_source = '''
+hook_add = '''
   source ~/.vim/vimrcs/deoplete.vim
 '''
 
