@@ -40,11 +40,15 @@ setopt no_beep # beep音を無効化
 bindkey '^[[Z' reverse-menu-complete # Shift-Tabで候補を逆順に補完する
 
 # aliases
-if type brew > /dev/null 2>&1; then
-  alias ls='ls -FhG'
+if [ -d /usr/local/opt/coreutils/libexec/gnubin ] ; then
+  export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+  export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+  alias ls='ls --color=auto -Fh'
 else
-  alias ls='ls -Fh --color=auto'
+  export LSCOLORS=gxfxcxdxbxegedabagacad
+  alias ls='ls -FhG'
 fi
+
 # alias syrup_ssh='ssh -p 56765 raru@syrup16g.net -i ~/.ssh/id_rsa_syrup16g'
 # alias syrup_sftp='sftp -oPort=56765 -oIdentityFile=/Users/raru/.ssh/id_rsa_syrup16g raru@syrup16g.net'
 alias findgrep='find . -type f -name \* | xargs grep -I'
@@ -53,3 +57,4 @@ alias findgrep='find . -type f -name \* | xargs grep -I'
 alias jqless="/usr/bin/pbpaste | /usr/local/bin/jq '.' -C | less -R "
 
 stty stop undef
+export PATH="/usr/local/opt/gettext/bin:$PATH"
