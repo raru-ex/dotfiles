@@ -8,6 +8,8 @@ let g:neoterm_autoscroll = 1
 " let g:neoterm_default_mod='vertical'
 " 横分割する
 let g:neoterm_default_mod='belowright'
+" 起動するwindowのサイズを指定
+let g:neoterm_size=20
 
 " :Tnew 実行
 nnoremap <silent> <C-t><C-t> :Ttoggle<CR>

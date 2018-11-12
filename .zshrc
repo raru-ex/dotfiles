@@ -52,8 +52,8 @@ fi
 # alias syrup_ssh='ssh -p 56765 raru@syrup16g.net -i ~/.ssh/id_rsa_syrup16g'
 # alias syrup_sftp='sftp -oPort=56765 -oIdentityFile=/Users/raru/.ssh/id_rsa_syrup16g raru@syrup16g.net'
 alias findgrep='find . -type f -name \* | xargs grep -I'
-# alias vi='env LANG=ja_JP.UTF-8 /usr/local/Cellar/macvim/8.1-147/MacVim.app/Contents/MacOS/Vim "$@"'
-# alias vim='env LANG=ja_JP.UTF-8 /usr/local/Cellar/macvim/8.1-147/MacVim.app/Contents/MacOS/Vim "$@"'
+alias vi='nvim'
+alias vim='nvim'
 alias jqless="/usr/bin/pbpaste | /usr/local/bin/jq '.' -C | less -R "
 
 stty stop undef
