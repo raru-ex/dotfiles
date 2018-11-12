@@ -21,8 +21,8 @@ $ brew install nvim
 $ pip3 install --upgrade neovim  
 
 ### vim起動時にエラーが起きる場合
-$ brew unlink ruby
-$ brew install ruby
+$ brew unlink ruby  
+$ brew install ruby  
 
 ## Install 
 bin以下にインストール用のシェルを配置してあるため任意に利用  
