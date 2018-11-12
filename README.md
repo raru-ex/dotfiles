@@ -11,7 +11,7 @@ zshはframeworkは利用してない (はず)
 
 ## Requirement
 homebrew  
-Vim with python3  
+Vim with lua or NeoVim   
 Git  
 Svn  
 
