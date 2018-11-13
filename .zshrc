@@ -1,5 +1,5 @@
 # load plugin
-source ~/dotfiles/.zsh/.zplug.zsh
+source ~/dotfiles/.zsh/zplug.zsh
 
 # prompt
 source ~/dotfiles/.zsh/prompt.zsh
