@@ -1,12 +1,8 @@
 # load plugin
 source ~/dotfiles/.zsh/.zplug.zsh
 
-# promt
-autoload -Uz colors && colors
-PROMPT="%{$fg_bold[cyan]%}%c %{$fg_bold[green]%}> "
-
-# right prompt
-source ~/dotfiles/.zsh/.rprompt.zsh
+# prompt
+source ~/dotfiles/.zsh/prompt.zsh
 
 # exports
 # lang setting
@@ -55,6 +51,18 @@ alias findgrep='find . -type f -name \* | xargs grep -I'
 alias vi='nvim'
 alias vim='nvim'
 alias jqless="/usr/bin/pbpaste | /usr/local/bin/jq '.' -C | less -R "
+
+
+function color () {
+  for i in {0..255}
+  do
+    if [ `expr $i % 16` -eq 15 ]; then
+      printf "\x1b[38;5;%03dm%03d\n" $i $i
+    else
+      printf "\x1b[38;5;%03dm%03d  " $i $i
+    fi
+  done
+}
 
 stty stop undef
 export PATH="/usr/local/opt/gettext/bin:$PATH"
