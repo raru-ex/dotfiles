@@ -25,6 +25,13 @@ on_souce = ['deoplete.nvim']
 # Finder ----------
 [[plugins]]
 repo = 'Shougo/denite.nvim'
+hook_add = '''
+  source ~/.vim/vimrcs/denite.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_source = ['denite.vim']
 
 # Terminal ----------
 [[plugins]]
