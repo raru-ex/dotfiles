@@ -1,5 +1,4 @@
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
-
 " ブックマークを初期表示
 let g:NERDTreeShowBookmarks=1
 " 起動時にNERDTreeを起動
@@ -9,6 +8,8 @@ autocmd MyVimrc vimenter * NERDTree
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable  = '▶'
 let g:NERDTreeDirArrowCollapsible = '▼'
+" 縦分割でファイルを開くのをsからv(vertical)に
+let g:NERDTreeMapOpenVSplit = 'v'
 
 " 不可視ファイルを表示 (Shift+i)
 " let NERDTreeShowHidden = 1
