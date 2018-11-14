@@ -6,14 +6,16 @@ let g:deoplete#auto_completion_start_length = 3
 let g:deoplete#auto_complete_delay = 10
 " 大文字小文字は区別しない
 let g:deoplete#enable_smart_case = 1
-
+" sqlファイルでC-cがomnifuncとバッティングしているようなのでsqlは外す
+let g:omni_sql_no_default_maps = 1
 " 候補をtabで選択
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " shift-tabで逆順選択
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
 
 " IDE風にでオムニ補完
-imap <C-space> <C-x><C-o>
+inoremap <C-space> <C-x><C-o>
+
 
 " Enable omni completion
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
