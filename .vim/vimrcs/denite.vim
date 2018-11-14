@@ -24,8 +24,10 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
       \ '.git/', 'build/', '__pycache__/',
       \ 'node_modules/',
       \ 'repos/',
+      \ '.ivy/',
       \ 'images/', '*.o', '*.make',
       \ '*.min.*',
+      \ '.cache/',
       \ 'img/', 'fonts/'])
 
 " バッファ一覧
