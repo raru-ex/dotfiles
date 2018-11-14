@@ -12,6 +12,9 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " shift-tabで逆順選択
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
 
+" IDE風にでオムニ補完
+imap <C-space> <C-x><C-o>
+
 " Enable omni completion
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
