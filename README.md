@@ -7,7 +7,7 @@
 ## Description
 vim, nvimどちらでも使えるように設定している  
 vim利用時は neocomplete を利用するようになっているため lua付きでインストール  
-zshはframeworkは利用してない (はず)
+zshはシンプルにしている
 
 ## Requirement
 homebrew  
@@ -24,7 +24,7 @@ $ pip3 install --upgrade neovim
 
 ### vim起動時にエラーが起きる場合
 以下はrubyでエラーが発生していた例。  
-brewのrん苦を貼り直すと動いた  
+brewのlinkを貼り直すと動いた  
 $ brew unlink ruby  
 $ brew install ruby  
 
@@ -33,7 +33,7 @@ bin以下にインストール用のシェルを配置してあるため任意�
 ※ 中身は単純なシンボリックリンク  
 
 ## TODO
-deopleteのlazy loadがうまく動作しないため一旦lazy 0にて設定
+tmuxを使いたい
 
 ## Author
 raru  
