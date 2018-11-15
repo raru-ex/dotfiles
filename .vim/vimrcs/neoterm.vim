@@ -13,11 +13,11 @@ let g:neoterm_size=20
 
 " :Tnew 実行
 nnoremap <silent> <C-t><C-t> :Ttoggle<CR>
-" :Tnew 実行(縦分割)
-nnoremap <silent> <C-t><C-s> :vertical Tnew<CR>
+" :Tnew 実行(縦分割) power lineが壊れるので使わない
+" nnoremap <silent> <C-t><C-s> :vertical Tnew<CR>
 " 非ビジュアルモード
-nnoremap <silent> <C-t><C-e> :TREPLSendLine<CR>
+nnoremap <silent> <C-t><C-p> :TREPLSendLine<CR>
 " ビジュアルモード
-vnoremap <silent> <C-t><C-e> V:TREPLSendSelection<CR>
+vnoremap <silent> <C-t><C-v> V:TREPLSendSelection<CR>
 " ファイル送信
 nnoremap <silent> <C-t><C-f> :TREPLSendFile<CR>
