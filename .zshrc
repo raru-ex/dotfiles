@@ -45,8 +45,6 @@ else
   alias ls='ls -FhG'
 fi
 
-# alias syrup_ssh='ssh -p 56765 raru@syrup16g.net -i ~/.ssh/id_rsa_syrup16g'
-# alias syrup_sftp='sftp -oPort=56765 -oIdentityFile=/Users/raru/.ssh/id_rsa_syrup16g raru@syrup16g.net'
 alias findgrep='find . -type f -name \* | xargs grep -I'
 alias vi='nvim'
 alias vim='nvim'
