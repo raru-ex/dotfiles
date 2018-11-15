@@ -1,4 +1,5 @@
-"Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+" Githubを流用して変更
+" https://github.com/Shougo/neocomplete.vim
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplete.

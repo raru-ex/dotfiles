@@ -2,22 +2,21 @@
 nnoremap [denite]    <Nop>
 nmap     <C-s> [denite]
 
-" プロンプトの左端に表示される文字を指定
+" promptが#なのが嫌なので指定
 call denite#custom#option('default', 'prompt', '>')
 
-" denite/insert モードのときは，C- で移動できるようにする
+" insertのときにもCを押しながら上下に移動できるようにする
 call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')
 call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>')
 
-" tabopen や vsplit のキーバインドを割り当て
-call denite#custom#map('insert', "<C-t>", '<denite:do_action:tabopen>')
+" 選択したファイルをvertical分割で開く
 call denite#custom#map('insert', "<C-v>", '<denite:do_action:vsplit>')
 call denite#custom#map('normal', "v", '<denite:do_action:vsplit>')
 
-" jj で denite/insert を抜けるようにする
-call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
+" insertを抜ける
+call denite#custom#map('insert', '<C-[>', '<denite:enter_mode:normal>')
 
-" customize ignore globs
+" fuzzyに検索する時に対象外とするフォルダ
 call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy','matcher_ignore_globs'])
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
       \ [

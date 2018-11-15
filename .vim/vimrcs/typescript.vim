@@ -1,3 +1,4 @@
+" 参考: https://qiita.com/park-jh/items/b353319efb1823c36c05
 function! EnableJavascript()
   " Setup used libraries
   let g:used_javascript_libs = 'jquery,angularjs,angularui,angularuirouter'
