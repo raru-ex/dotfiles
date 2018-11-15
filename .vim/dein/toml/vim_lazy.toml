@@ -2,7 +2,7 @@
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 if = "has('lua')"
-depends = ['neocomplete-php', 'vim-ref']
+depends = ['neocomplete-php.vim', 'vim-ref']
 on_i = 1
 hook_source = '''
   source ~/.vim/vimrcs/neocomplete.vim
