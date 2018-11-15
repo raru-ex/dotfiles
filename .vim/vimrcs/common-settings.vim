@@ -3,6 +3,7 @@ set encoding=utf-8
 " マルチコードに対応
 scriptencoding utf-8
 set fileencoding=utf-8
+set fileencodings=utf-8
 
 " autocmdによる重複読み込み防止用グループ
 augroup MyVimrc
