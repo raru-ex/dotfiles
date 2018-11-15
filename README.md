@@ -7,7 +7,7 @@
 ## Description
 vim, nvimどちらでも使えるように設定している  
 vim利用時は neocomplete を利用するようになっているため lua付きでインストール  
-zshはシンプルにしている
+zshはシンプルにしている  
 
 ## Requirement
 homebrew  
@@ -33,7 +33,7 @@ bin以下にインストール用のシェルを配置してあるため任意�
 ※ 中身は単純なシンボリックリンク  
 
 ## TODO
-tmuxを使いたい
+tmuxを使いたい  
 
 ## Author
 raru  
