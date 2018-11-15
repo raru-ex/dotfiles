@@ -1,3 +1,9 @@
+" 文字コードセット
+set encoding=utf-8
+" マルチコードに対応
+scriptencoding utf-8
+set fileencoding=utf-8
+
 " autocmdによる重複読み込み防止用グループ
 augroup MyVimrc
   autocmd!
@@ -7,10 +13,6 @@ augroup END
 filetype on
 
 " ========== vim basic settings ==========
-" 文字コードセット
-set encoding=utf-8
-scriptencoding utf-8
-set fileencoding=utf-8
 " 記号等の表示が崩れるものに対応
 set ambiwidth=double
 
@@ -33,9 +35,6 @@ set shiftwidth=2
 set hlsearch
 " インクリメントサーチ有効
 set incsearch
-
-" onedark読み込み前にsyntaxを有効にする
-syntax on
 
 " backspaceが効かないのへ対応
 set backspace=indent,eol,start

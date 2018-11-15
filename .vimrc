@@ -74,6 +74,9 @@ runtime! vimrcs/html-css.vim
 " Required:
 filetype plugin indent on
 
+" onedark読み込み前にsyntaxを有効にする
+syntax on
+
 " If you want to install not installed plugins on startup.
 if dein#check_install()
   call dein#install()
