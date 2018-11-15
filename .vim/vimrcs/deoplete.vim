@@ -6,9 +6,6 @@ let g:deoplete#auto_completion_start_length = 3
 let g:deoplete#auto_complete_delay = 10
 " 大文字小文字は区別しない
 let g:deoplete#enable_smart_case = 1
-" sqlファイルでC-cがomnifuncとバッティングしているようなのでsqlは外す
-" そもそもC-cで戻るのはよくない by Shougoさん
-let g:omni_sql_no_default_maps = 1
 " 候補をtabで選択
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " shift-tabで逆順選択

@@ -60,3 +60,7 @@ if &term =~ "xterm"
   cnoremap <special> <Esc>[200~ <nop>
   cnoremap <special> <Esc>[201~ <nop>
 endif
+
+" sqlファイルでC-cがomnifuncとバッティングしているようなのでsqlは外す
+" そもそもC-cで戻るのはよくない by Shougoさん
+let g:ftplugin_sql_omni_key = '<C-space>'
