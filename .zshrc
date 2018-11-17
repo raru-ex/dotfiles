@@ -51,7 +51,7 @@ alias vim='nvim'
 alias jqless="/usr/bin/pbpaste | /usr/local/bin/jq '.' -C | less -R "
 
 
-function color () {
+function displayColors () {
   for i in {0..255}
   do
     if [ `expr $i % 16` -eq 15 ]; then
