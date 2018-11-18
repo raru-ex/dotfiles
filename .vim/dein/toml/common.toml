@@ -55,34 +55,3 @@ on_i = 1
 repo = 'tomtom/tcomment_vim'
 on_i = 1
 
-# Scala ----------
-[[plugins]]
-repo = 'derekwyatt/vim-scala'
-on_ft = 'scala'
-
-# Typescript, Javascript ----------
-[[plugins]]
-repo = 'pangloss/vim-javascript'
-on_ft = ['javascript', 'typescript']
-
-[[plugins]]
-repo = 'othree/yajs'
-on_ft = ['javascript', 'typescript']
-
-[[plugins]]
-repo = 'HerringtonDarkholme/yats.vim'
-on_ft = ['javascript', 'typescript']
-
-[[plugins]]
-repo = 'othree/es.next.syntax.vim'
-on_ft = ['javascript', 'typescript']
-
-[[plugins]]
-repo = 'othree/javascript-libraries-syntax.vim'
-on_ft = ['javascript', 'typescript']
-
-# HTML, CSS,etc ----------
-[[plugins]]
-# pug syntax
-repo = 'digitaltoad/vim-pug'
-on_ft = 'pug'

@@ -36,6 +36,8 @@ set shiftwidth=2
 set hlsearch
 " インクリメントサーチ有効
 set incsearch
+" 折り畳みが嫌いなので無効化
+set nofoldenable
 
 " backspaceが効かないのへ対応
 set backspace=indent,eol,start

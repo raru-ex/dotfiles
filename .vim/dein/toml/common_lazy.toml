@@ -1,0 +1,56 @@
+# Scala ----------
+[[plugins]]
+repo = 'derekwyatt/vim-scala'
+on_ft = 'scala'
+
+# Typescript, Javascript ----------
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = ['javascript', 'typescript']
+
+[[plugins]]
+repo = 'othree/yajs'
+on_ft = ['javascript', 'typescript']
+
+[[plugins]]
+repo = 'HerringtonDarkholme/yats.vim'
+on_ft = ['javascript', 'typescript']
+
+[[plugins]]
+repo = 'othree/es.next.syntax.vim'
+on_ft = ['javascript', 'typescript']
+
+[[plugins]]
+repo = 'othree/javascript-libraries-syntax.vim'
+on_ft = ['javascript', 'typescript']
+
+# HTML, CSS,etc ----------
+# pug syntax
+[[plugins]]
+repo = 'digitaltoad/vim-pug'
+on_ft = 'pug'
+
+# Markdown
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+depends = ['previm', 'tabular']
+on_ft = ['md', 'mkd']
+hook_add = '''
+  source ~/.vim/vimrcs/markdown.vim
+'''
+
+[[plugins]]
+repo = 'kannokanno/previm'
+depens = ['open-browser.vim']
+on_source = 'vim-markdown'
+on_ft = ['md', 'mkd']
+
+[[plugins]]
+repo = 'godlygeek/tabular'
+on_source = 'vim-markdown'
+on_ft = ['md', 'mkd']
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_source = 'previm'
+on_ft = ['md', 'mkd']
