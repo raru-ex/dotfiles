@@ -39,15 +39,16 @@ bindkey '^[[Z' reverse-menu-complete # Shift-Tabで候補を逆順に補完す�
 if [ -d /usr/local/opt/coreutils/libexec/gnubin ] ; then
   export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
   export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
-  alias ls='ls --color=auto -Fh'
+  alias ls='ls --color=auto -lFh'
 else
   export LSCOLORS=gxfxcxdxbxegedabagacad
-  alias ls='ls -FhG'
+  alias ls='ls -lFhG'
 fi
 
 alias findgrep='find . -type f -name \* | xargs grep -I'
 alias vi='nvim'
 alias vim='nvim'
+alias view='nvim -R'
 alias jqless="/usr/bin/pbpaste | /usr/local/bin/jq '.' -C | less -R "
 
 
