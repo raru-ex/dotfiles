@@ -7,6 +7,9 @@ on_ft = 'scala'
 repo = 'ensime/ensime-vim'
 depends = ['syntastic']
 on_ft = 'scala'
+hook_post_source = '''
+  souce ~/.vim/vimrcs/scala.vim
+'''
 
 [[plugins]]
 repo = 'vim-syntastic/syntastic'
