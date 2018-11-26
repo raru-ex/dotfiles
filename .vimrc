@@ -34,14 +34,14 @@ if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
   " Load toml
-  let s:common_toml    = s:dein_toml_dir . '/common.toml'
-  let s:common_lazy_toml    = s:dein_toml_dir . '/common_lazy.toml'
+  let s:common_toml      = s:dein_toml_dir . '/common.toml'
+  let s:common_lazy_toml = s:dein_toml_dir . '/common_lazy.toml'
 
-  let s:vim_toml       = s:dein_toml_dir . '/vim.toml'
-  let s:vim_lazy_toml  = s:dein_toml_dir . '/vim_lazy.toml'
+  let s:vim_toml         = s:dein_toml_dir . '/vim.toml'
+  let s:vim_lazy_toml    = s:dein_toml_dir . '/vim_lazy.toml'
 
-  let s:nvim_toml      = s:dein_toml_dir . '/nvim.toml'
-  let s:nvim_lazy_toml = s:dein_toml_dir . '/nvim_lazy.toml'
+  let s:nvim_toml        = s:dein_toml_dir . '/nvim.toml'
+  let s:nvim_lazy_toml   = s:dein_toml_dir . '/nvim_lazy.toml'
 
   " 共通ライブラリ
   call dein#load_toml(s:common_toml, {'lazy': 0})
@@ -73,9 +73,6 @@ runtime! vimrcs/html-css.vim
 
 " Required:
 filetype plugin indent on
-
-" onedark読み込み前にsyntaxを有効にする
-syntax on
 
 " If you want to install not installed plugins on startup.
 if dein#check_install()
