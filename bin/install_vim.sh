@@ -22,4 +22,7 @@ grep ensime ~/.sbt/1.0/global.sbt > /dev/null
 if [ $? -eq 1 ]; then
   echo 'ensimeIgnoreMissingDirectories := true' >> ~/.sbt/1.0/global.sbt
   echo 'ensimeIgnoreSourcesInBase := true' >> ~/.sbt/1.0/global.sbt
+else
+  echo 'ensimeIgnoreMissingDirectories := true' > ~/.sbt/1.0/global.sbt
+  echo 'ensimeIgnoreSourcesInBase := true' >> ~/.sbt/1.0/global.sbt
 fi
