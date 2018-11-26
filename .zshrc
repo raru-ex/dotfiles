@@ -33,6 +33,7 @@ setopt print_eight_bit # 日本語ファイル名を表示可能
 setopt no_beep # beep音を無効化
 
 # key bind
+bindkey -e
 bindkey '^[[Z' reverse-menu-complete # Shift-Tabで候補を逆順に補完する
 
 # aliases
