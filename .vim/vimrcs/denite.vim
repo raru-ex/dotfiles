@@ -27,6 +27,7 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
       \ 'images/', '*.o', '*.make',
       \ '*.min.*',
       \ '.cache/',
+      \ '*.log',
       \ 'img/', 'fonts/'])
 
 " バッファ一覧
