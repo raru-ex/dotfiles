@@ -55,3 +55,15 @@ on_i = 1
 repo = 'tomtom/tcomment_vim'
 on_i = 1
 
+# fzf ----------
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+merged = '0'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+hook_add = '''
+  source ~/dotfiles/.vim/vimrcs/fzf.vim
+'''

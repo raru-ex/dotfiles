@@ -9,5 +9,5 @@ let g:vim_markdown_math = 0
 
 " previm, open-browserが存在する前提
 " markdownをpreview
-nnoremap <silent> <C-p> :PrevimOpen<CR>
+nnoremap <silent> <C-m><C-p> :PrevimOpen<CR>
 

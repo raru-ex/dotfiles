@@ -66,3 +66,6 @@ endif
 " sqlファイルでC-cがomnifuncとバッティングしているようなのでsqlは外す
 " そもそもC-cで戻るのはよくない by Shougoさん
 let g:ftplugin_sql_omni_key = '<C-space>'
+
+" fzf
+set rtp+=~/.fzf
