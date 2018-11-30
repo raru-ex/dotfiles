@@ -19,7 +19,7 @@ Svn
 $ brew install vim --with-lua  
 $ brew install nvim  
 $ pip3 install --upgrade neovim  
-$ pip3 install sexpdata websocket-client  # for ensime  
+$ pip3 install sexpdata websocket-client pynvim # for ensime  
 
 // nvimでは:UpdateRemotePluginsを初期化時や再設定時に実行  
 
