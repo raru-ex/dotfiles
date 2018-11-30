@@ -17,10 +17,12 @@ fi
 
 echo "[INFO] install pip libs for ensime"
 if type pip2 > /dev/null 2>&1; then
-  pip2 install sexpdata websocket-client
+  pip2 install --upgrade neovim
+  pip2 install sexpdata websocket-client pynvim
 fi
 if type pip3 > /dev/null 2>&1; then
-  pip3 install sexpdata websocket-client
+  pip3 install --upgrade neovim
+  pip3 install sexpdata websocket-client pynvim
 fi
 
 echo "[INFO] add sbt settings"
