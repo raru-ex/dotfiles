@@ -2,11 +2,16 @@
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 if = "has('python3')"
-depends = ['neco-syntax', 'phpcd.vim']
+depends = ['neco-syntax', 'phpcd.vim', 'deoplete-tabnine']
 on_i = 1
 hook_source = '''
   source ~/.vim/vimrcs/deoplete.vim
 '''
+
+[[plugins]]
+repo = 'tbodt/deoplete-tabnine'
+build = './install.sh'
+on_souce = ['deoplete.nvim']
 
 # syntax
 [[plugins]]
