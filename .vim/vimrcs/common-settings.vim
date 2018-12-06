@@ -45,6 +45,11 @@ set backspace=indent,eol,start
 " ファイルを右側で開く
 set splitright
 
+" 検索時に小文字入力では大小区別しない
+" 大文字入力時には区別する
+set ignorecase
+set smartcase
+
 " paste時にインデントが崩れないよう設定
 " 参照: https://qiita.com/ryoff/items/ad34584e41425362453e
 if &term =~ "xterm"
