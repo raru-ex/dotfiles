@@ -55,6 +55,17 @@ on_i = 1
 repo = 'tomtom/tcomment_vim'
 on_i = 1
 
+[[plugins]]
+repo = 'kana/vim-operator-user'
+on_source = ['vim-vim-operator-surround']
+
+[[plugins]]
+repo = 'rhysd/vim-operator-surround'
+depends = ['vim-operator-user']
+hook_add = '''
+  source ~/.vim/vimrcs/surround.vim
+'''
+
 # fzf ----------
 [[plugins]]
 repo = 'junegunn/fzf'
