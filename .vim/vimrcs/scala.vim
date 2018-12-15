@@ -1,3 +1,5 @@
+let g:ensime_deps_valid = 1
+let ensime_server_v2=1
 " scalaが拡張子のファイルはファイルタイプをscalaとして読みこむ
 autocmd MyVimrc BufNewFile,BufRead *.scala setf scala
 " ensimeを有効にする
