@@ -23,18 +23,24 @@ $ pip3 install sexpdata websocket-client pynvim # for ensime
 
 // nvimでは:UpdateRemotePluginsを初期化時や再設定時に実行  
 
+## Install 
+bin以下にインストール用のシェルを配置してあるため任意に利用  
+※ 中身は単純なシンボリックリンク  
+
+## Author
+raru  
+
+## tips
+
 ### vim起動時にエラーが起きる場合
 以下はrubyでエラーが発生していた例。  
 brewのlinkを貼り直すと動いた  
 $ brew unlink ruby  
 $ brew install ruby  
 
-## Install 
-bin以下にインストール用のシェルを配置してあるため任意に利用  
-※ 中身は単純なシンボリックリンク  
+### UpdateRemotePluginsエラー時
+pip3 upgrade後にエラーが発生した場合  
+以下のようにキャッシュを無視してインストールすると治る(場合がある)  
+$ pip3 --no-cache-dir install -I {libs}  
 
-## TODO
-tmuxを使いたい  
 
-## Author
-raru  
