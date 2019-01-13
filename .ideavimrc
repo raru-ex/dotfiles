@@ -36,6 +36,8 @@ nnoremap <C-]> :<C-u>action GotoDeclaration<CR>
 " terminalを表示
 nnoremap <C-t> :<C-u>action ActivateTerminalToolWindow<CR>
 
+nnoremap <C-e> : :<C-u>action SelectIn<CR>
+
 " ----- refactor系
 nnoremap [refactor]   <Nop>
 nmap <Space>r [refactor]
