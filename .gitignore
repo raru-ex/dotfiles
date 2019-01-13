@@ -5,6 +5,7 @@
 # 管理対象にしたいファイルだけignoreから除外する
 !/.vim
 !/.vimrc
+!/.ideavimrc
 !/.config
 !/.ctags
 !/.zshrc
