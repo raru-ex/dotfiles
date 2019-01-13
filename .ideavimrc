@@ -1,0 +1,46 @@
+" ---------- set variables
+" ヤンクでクリップボードにコピー
+set clipboard+=unnamed
+
+" 対応する括弧を強調表示
+set showmatch
+
+" ウィンドウの右下にまだ実行していない入力中のコマンドを表示
+set showcmd
+
+" ---------- set keymaps
+" IDEの折り畳みを無効
+nnoremap zM <Nop>
+nnoremap zc <Nop>
+nnoremap zC <Nop>
+nnoremap zR <Nop>
+nnoremap zo <Nop>
+nnoremap zO <Nop>
+
+" 検索にIDEのものを利用
+nnoremap / :<C-u>action Find<CR>
+
+" ジャンプ履歴の進む、戻るをIDEのものに
+nnoremap <C-o> :<C-u>action Back<CR>
+nnoremap <C-i> :<C-u>action Forward<CR>
+
+" fzfのgrep的なもの
+nnoremap <C-g> :<C-u>action FindInPath<CR>
+
+" fzfのファイル検索にプラスその他したやつ
+nnoremap <C-p> :<C-u>action SearchEverywhere<CR>
+
+" 定義元へジャンプ
+nnoremap <C-]> :<C-u>action GotoDeclaration<CR>
+
+" terminalを表示
+nnoremap <C-t> :<C-u>action ActivateTerminalToolWindow<CR>
+
+" ----- refactor系
+nnoremap [refactor]   <Nop>
+nmap <Space>r [refactor]
+
+nnoremap [refactor]n :<C-u>action RenameElement<CR>
+nnoremap [refactor]f :<C-u>action FindUsages<CR>
+
+
