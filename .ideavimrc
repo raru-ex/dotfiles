@@ -1,6 +1,21 @@
+" 参考
+" https://qiita.com/iwaseasahi/items/4b19bdf1885801649460
+" https://ikenox.info/2017-12-25-ideavim-introduction/
 " ---------- set variables
 " ヤンクでクリップボードにコピー
 set clipboard+=unnamed
+
+" 検索するときに大文字小文字を区別しない
+set ignorecase
+
+" 検索時に大文字を含んでいたら大/小を区別
+set smartcase
+
+" インクリメンタル検索 (検索ワードの最初の文字を入力した時点で検索が開始)
+set incsearch
+
+" 検索対象をハイライト
+set hlsearch
 
 " 対応する括弧を強調表示
 set showmatch
@@ -16,9 +31,6 @@ nnoremap zC <Nop>
 nnoremap zR <Nop>
 nnoremap zo <Nop>
 nnoremap zO <Nop>
-
-" 検索にIDEのものを利用
-nnoremap / :<C-u>action Find<CR>
 
 " ジャンプ履歴の進む、戻るをIDEのものに
 nnoremap <C-o> :<C-u>action Back<CR>
@@ -43,6 +55,6 @@ nnoremap [refactor]   <Nop>
 nmap <Space>r [refactor]
 
 nnoremap [refactor]n :<C-u>action RenameElement<CR>
-nnoremap [refactor]f :<C-u>action FindUsages<CR>
+nnoremap [refactor]u :<C-u>action FindUsages<CR>
 
 
