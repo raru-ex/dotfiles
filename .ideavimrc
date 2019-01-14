@@ -54,7 +54,7 @@ nnoremap <C-e> : :<C-u>action SelectIn<CR>
 nnoremap [refactor]   <Nop>
 nmap <Space>r [refactor]
 
-nnoremap [refactor]n :<C-u>action RenameElement<CR>
+nnoremap [refactor]r :<C-u>action RenameElement<CR>
 nnoremap [refactor]u :<C-u>action FindUsages<CR>
 
 
