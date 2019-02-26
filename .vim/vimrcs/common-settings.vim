@@ -57,6 +57,11 @@ if has('nvim')
   set termguicolors
 endif
 
+" yankをクリップボードに
+if has('nvim')
+  set clipboard=unnamed
+endif
+
 " paste時にインデントが崩れないよう設定
 " 参照: https://qiita.com/ryoff/items/ad34584e41425362453e
 if &term =~ "xterm"
