@@ -50,6 +50,13 @@ set splitright
 set ignorecase
 set smartcase
 
+syntax on
+colorscheme darcula
+" vimではこれがあるとcolorが死ぬ
+if has('nvim')
+  set termguicolors
+endif
+
 " paste時にインデントが崩れないよう設定
 " 参照: https://qiita.com/ryoff/items/ad34584e41425362453e
 if &term =~ "xterm"

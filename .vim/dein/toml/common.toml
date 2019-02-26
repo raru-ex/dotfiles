@@ -40,11 +40,11 @@ repo = 'airblade/vim-gitgutter'
 repo = 'vim-airline/vim-airline'
 
 # ColorSheme ----------
-[[plugins]]
-repo = 'joshdick/onedark.vim'
-hook_add = '''
-  source ~/.vim/vimrcs/onedark.vim
-'''
+# [[plugins]]
+# repo = 'joshdick/onedark.vim'
+# hook_add = '''
+#   source ~/.vim/vimrcs/onedark.vim
+# '''
 
 # Common Editor ----------
 [[plugins]]
