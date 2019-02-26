@@ -68,3 +68,5 @@ export PATH="/usr/local/opt/gettext/bin:$PATH"
 
 # fzf. 何かの設定が先に必要っぽいので一旦一番下に書く
 source ~/dotfiles/.zsh/fzf.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
