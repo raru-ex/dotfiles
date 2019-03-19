@@ -54,6 +54,7 @@ syntax on
 " colorscheme darcula
 " vimではこれがあるとcolorが死ぬ
 if has('nvim')
+" darulaの場合、gui colorでないほうが見やすい
   set termguicolors
 endif
 
