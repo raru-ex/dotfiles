@@ -10,20 +10,21 @@ ln -nfs ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 ln -nfs ~/dotfiles/.ctags ~/.ctags
 
 # set up ensime
-echo "[INFO] set up ensime"
-if [ -e ~/.sbt/1.0/plugins ]; then
-  mkdir -p ~/.sbt/1.0/plugins/
-fi
-
-echo "[INFO] install pip libs for ensime"
-if type pip2 > /dev/null 2>&1; then
-  pip2 install --upgrade neovim
-  pip2 install sexpdata websocket-client pynvim
-fi
-if type pip3 > /dev/null 2>&1; then
-  pip3 install --upgrade neovim
-  pip3 install sexpdata websocket-client pynvim
-fi
+## delete ensime install section
+# echo "[INFO] set up ensime"
+# if [ -e ~/.sbt/1.0/plugins ]; then
+#   mkdir -p ~/.sbt/1.0/plugins/
+# fi
+# 
+# echo "[INFO] install pip libs for ensime"
+# if type pip2 > /dev/null 2>&1; then
+#   pip2 install --upgrade neovim
+#   pip2 install sexpdata websocket-client pynvim
+# fi
+# if type pip3 > /dev/null 2>&1; then
+#   pip3 install --upgrade neovim
+#   pip3 install sexpdata websocket-client pynvim
+# fi
 
 echo "[INFO] add sbt settings"
 grep sbt-ensime ~/.sbt/1.0/plugins/plugins.sbt > /dev/null

@@ -6,11 +6,6 @@ hook_post_source = '''
   source ~/.vim/vimrcs/scala.vim
 '''
 
-[[plugins]]
-repo = 'natebosch/vim-lsc'
-on_ft = 'scala'
-on_source = 'vim-scala'
-
 # Typescript, Javascript ----------
 [[plugins]]
 repo = 'pangloss/vim-javascript'
