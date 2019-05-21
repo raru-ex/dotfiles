@@ -1,31 +1,3 @@
-# Complete ----------
-# [[plugins]]
-# repo = 'Shougo/deoplete.nvim'
-# if = "has('python3')"
-# depends = ['neco-syntax', 'phpcd.vim', 'deoplete-tabnine']
-# on_i = 1
-# hook_source = '''
-#   source ~/.vim/vimrcs/deoplete.vim
-# '''
-# 
-# [[plugins]]
-# repo = 'tbodt/deoplete-tabnine'
-# build = './install.sh'
-# on_souce = ['deoplete.nvim']
-# 
-# # syntax
-# [[plugins]]
-# repo = 'Shougo/neco-syntax'
-# on_i = 1
-# on_souce = ['deoplete.nvim']
-# 
-# # PHP ----------
-# [[plugins]]
-# repo = 'lvht/phpcd.vim'
-# on_ft = 'php'
-# on_i = 1
-# on_souce = ['deoplete.nvim']
-
 # deopleteからcoc + lspに移行
 [[plugins]]
 repo = 'neoclide/coc.nvim'
