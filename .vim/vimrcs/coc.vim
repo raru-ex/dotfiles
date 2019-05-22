@@ -58,18 +58,18 @@ nmap <silent> [coc]r <Plug>(coc-references)
 nmap <space>rn <Plug>(coc-rename)
 
 " Remap for do codeAction of current line
-nmap <space>ac <Plug>(coc-codeaction)
+" nmap <space>ac <Plug>(coc-codeaction)
 
 " Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> [coc]a  :<C-u>CocList diagnostics<cr>
 " Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent> [coc]o  :<C-u>CocList outline<cr>
 " Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> [coc]s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent> [coc]j  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent> [coc]k  :<C-u>CocPrev<CR>
 " Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent> [coc]p  :<C-u>CocListResume<CR>
 
