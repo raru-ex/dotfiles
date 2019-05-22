@@ -2,19 +2,9 @@
 [[plugins]]
 repo = 'derekwyatt/vim-scala'
 on_ft = 'scala'
-
-[[plugins]]
-repo = 'ensime/ensime-vim'
-depends = ['syntastic']
-on_ft = 'scala'
 hook_post_source = '''
   source ~/.vim/vimrcs/scala.vim
 '''
-
-[[plugins]]
-repo = 'vim-syntastic/syntastic'
-on_ft = 'scala'
-on_source = 'ensime/ensime-vim'
 
 # Typescript, Javascript ----------
 [[plugins]]

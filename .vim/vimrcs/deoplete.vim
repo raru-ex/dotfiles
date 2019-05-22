@@ -11,7 +11,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " shift-tabで逆順選択
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
 
-" IDE風にでオムニ補完
+" IDE風にオムニ補完
 inoremap <C-space> <C-x><C-o>
 
 

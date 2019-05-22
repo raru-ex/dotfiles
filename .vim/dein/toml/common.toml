@@ -3,19 +3,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# sunippet ----------
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-depends = ['neosnippet-snippets']
-on_i = 1
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-on_i = 1
-
-#[[plugins]]
-# repo = 'Shougo/vimshell', { 'rev': '3787e5' }
-
 # NERDTree ----------
 [[plugins]]
 repo = 'scrooloose/nerdtree'
