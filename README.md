@@ -34,6 +34,13 @@ bin以下にインストール用のシェルを配置してあるため任意�
 1. install_tmux.sh
 1. install_install_lsps.sh
 
+## CocList
+
+- coc-tsserver
+- coc-tslint
+- coc-css
+- coc-json
+
 ## Author
 
 raru  
