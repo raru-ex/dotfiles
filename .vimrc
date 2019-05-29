@@ -65,10 +65,7 @@ endif
 " ---------- load settings ----------
 runtime! vimrcs/default-functions-keymap.vim
 runtime! vimrcs/php.vim
-runtime! vimrcs/scala.vim
-runtime! vimrcs/ruby.vim
 runtime! vimrcs/ctags.vim
-runtime! vimrcs/typescript.vim
 runtime! vimrcs/html-css.vim
 
 " Required:

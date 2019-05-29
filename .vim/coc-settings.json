@@ -12,5 +12,7 @@
       // "args": ["-c", "/path/to/your/config.yaml"],
       "filetypes": ["vim", "markdown"]
     }
-  }
+  },
+  // global settings
+  "suggest.timeout": 5000,
 }

@@ -40,6 +40,7 @@ bin以下にインストール用のシェルを配置してあるため任意�
 - coc-tslint
 - coc-css
 - coc-json
+- coc-angular
 
 ## Author
 

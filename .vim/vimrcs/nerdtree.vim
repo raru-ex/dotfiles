@@ -1,18 +1,18 @@
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " ブックマークを初期表示
 let g:NERDTreeShowBookmarks=1
+
 " 起動時にNERDTreeを起動
-autocmd MyVimrc vimenter * NERDTree
+" autocmd MyVimrc vimenter * NERDTree
 
 " ディレクトリ記号変更
 let g:NERDTreeDirArrows = 1
-let g:NERDTreeDirArrowExpandable  = '▶'
-let g:NERDTreeDirArrowCollapsible = '▼'
+
 " 縦分割でファイルを開くのをsからv(vertical)に
 let g:NERDTreeMapOpenVSplit = 'v'
 
 " 不可視ファイルを表示 (Shift+i)
-" let NERDTreeShowHidden = 1
+let NERDTreeShowHidden = 1
 
 " tab利用時に別タブ移動時に自動でタブを開く
 let g:nerdtree_tabs_open_on_console_startup=1
