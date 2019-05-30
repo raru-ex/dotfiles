@@ -41,6 +41,7 @@ bin以下にインストール用のシェルを配置してあるため任意�
 - coc-css
 - coc-json
 - coc-angular
+- coc-vetur
 
 ## Author
 
