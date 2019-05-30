@@ -15,6 +15,10 @@ if [ -e ~/.config/coc ]; then
   mkdir -p ~/.config/coc/extensions
 fi
 
+if [ -e ~/.config/efm-langserver ]; then
+  mkdir -p ~/.config/efm-langserver
+fi
+
 echo "[INFO] Execute coursier for metals"
 /usr/local/bin/coursier bootstrap \
   --java-opt -Xss4m \
