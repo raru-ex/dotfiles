@@ -15,6 +15,7 @@
 !/README.md
 !/.tmux.conf
 !/.tmux/
+!/configs
 
 # 管理対象のディレクトリ内でも除外したいものはこの下に追加する
 .vim/dein/.cache
