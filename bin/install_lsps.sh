@@ -39,7 +39,7 @@ if type brew > /dev/null 2>&1; then
   echo "[INFO] Install go and efm"
   brew install go
   echo "export GOPATH=\$HOME/go" >> ~/.zprofile
-  echo "export PATH=\"\$PATH:\$GOPATH/bin\"" >> ~/.zprofile
+  echo "export PATH=\$PATH:\$GOPATH/bin" >> ~/.zprofile
   go get github.com/mattn/efm-langserver/cmd/efm-langserver
 
   # lintインストール
