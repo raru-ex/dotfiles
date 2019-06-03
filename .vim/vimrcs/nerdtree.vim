@@ -1,4 +1,9 @@
+
+nnoremap [nerd]   <Nop>
+nmap <Space>n [nerd]
+
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+nnoremap <silent>[nerd]f :NERDTreeFind<CR>
 " ブックマークを初期表示
 let g:NERDTreeShowBookmarks=1
 

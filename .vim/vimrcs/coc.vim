@@ -53,7 +53,8 @@ nmap <Space>r [refactor]
 nmap <silent> [coc]d <Plug>(coc-definition)
 nmap <silent> [coc]y <Plug>(coc-type-definition)
 nmap <silent> [coc]i <Plug>(coc-implementation)
-nmap <silent> [coc]r <Plug>(coc-references)
+" refactor: find usage
+nmap <silent> [refactor]u <Plug>(coc-references)
 
 nmap <space>rn <Plug>(coc-rename)
 
