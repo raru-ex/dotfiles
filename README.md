@@ -38,6 +38,7 @@ bin以下にインストール用のシェルを配置してあるため任意�
 
 - coc-tsserver
 - coc-tslint
+- coc-html
 - coc-css
 - coc-json
 - coc-angular
