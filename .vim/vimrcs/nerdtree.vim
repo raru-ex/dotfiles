@@ -11,7 +11,7 @@ nnoremap <silent>[nerd]h :call NERDTreeHighlight()<CR>
 function! NERDTreeFindAndHighlight()
   NERDTreeFind
   :setlocal isk+=.
-  normal! 0W
+  normal! 0w
   exe printf('match IncSearch /\<%s\>/', expand('<cword>'))
   :setlocal isk-=.
 endfunction
