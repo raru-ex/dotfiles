@@ -4,7 +4,23 @@ nmap <Space>n [nerd]
 
 " NERDTreeTabsを利用するように変更
 nnoremap <silent><C-e> :NERDTreeTabsToggle<CR>
-nnoremap <silent>[nerd]f :NERDTreeFind<CR>
+nnoremap <silent>[nerd]f :call NERDTreeFindAndHighlight()<CR>
+nnoremap <silent>[nerd]h :call NERDTreeHighlight()<CR>
+
+" Findしつつファイルをハイライトする
+function! NERDTreeFindAndHighlight()
+  NERDTreeFind
+  :setlocal isk+=.
+  normal! 0W
+  exe printf('match IncSearch /\<%s\>/', expand('<cword>'))
+  :setlocal isk-=.
+endfunction
+
+" 開いてるファイルをハイライトする
+function! NERDTreeHighlight()
+  :call NERDTreeFindAndHighlight()
+  :wincmd p
+endfunction
 
 " ブックマークを初期表示
 let g:NERDTreeShowBookmarks=1
