@@ -5,7 +5,7 @@ nmap <Space>n [nerd]
 " NERDTreeTabsを利用するように変更
 nnoremap <silent><C-e> :NERDTreeTabsToggle<CR>
 
-nnoremap <silent>[nerd]f :NERDTreeFind<CR>
+nnoremap <silent>[nerd]f :NERDTreeFind<CR>0wgd
 
 " ブックマークを初期表示
 let g:NERDTreeShowBookmarks=1
