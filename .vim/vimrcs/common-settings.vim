@@ -51,10 +51,10 @@ set ignorecase
 set smartcase
 
 syntax on
-" colorscheme darcula
-" vimではこれがあるとcolorが死ぬ
-if has('nvim')
-" darulaの場合、gui colorでないほうが見やすい
+  " colorscheme darcula256
+  " vimではこれがあるとcolorが死ぬ
+  if has('nvim')
+  " darulaの場合、gui colorでないほうが見やすい
   set termguicolors
 endif
 

@@ -10,28 +10,22 @@ endif
 
 let g:colors_name = "darcula"
 
-hi scalaAnnotation          ctermfg=226  guifg=#bbb529 guibg=NONE cterm=bold  gui=bold
-hi scalaIdentifier          ctermfg=104  guifg=#9876aa guibg=NONE cterm=bold  gui=bold
-hi scalaInstanceDeclaration ctermfg=188  guifg=#a9b7c6 guibg=NONE cterm=none  gui=italic
-hi scalaNumber              ctermfg=80   guifg=#6897bb guibg=NONE cterm=bold  gui=italic
-hi scalaMultilineComment    ctermfg=82   guifg=#80D600 guibg=NONE cterm=none  gui=italic
-
 hi Cursor ctermfg=188 ctermbg=250 cterm=NONE guifg=#2b2b2b guibg=#a9b7c6 gui=NONE
 hi Visual ctermfg=NONE ctermbg=24 cterm=NONE guifg=NONE guibg=#214283 gui=NONE
-hi CursorLine ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#31383f gui=NONE
+hi CursorLine ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#323232 gui=NONE
 hi CursorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#313335 gui=NONE
 hi ColorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#313335 gui=NONE
 hi CursorLineNr ctermfg=NONE ctermbg=24 cterm=NONE guifg=NONE guibg=#214283 gui=NONE
 hi VertSplit ctermfg=60 ctermbg=236 cterm=NONE guifg=#555555 guibg=#323232 gui=NONE
 hi MatchParen ctermfg=173 ctermbg=NONE cterm=underline guifg=#c57825 guibg=NONE gui=underline
-hi StatusLine ctermfg=67 ctermbg=236 cterm=bold guifg=#a9b7c6 guibg=#31383f gui=bold
-hi StatusLineNC ctermfg=188 ctermbg=236 cterm=NONE guifg=#a9b7c6 guibg=#31383f gui=NONE
-hi Search term=reverse ctermfg=188 ctermbg=24 guifg=#000000 guibg=#ffffff gui=none
+hi StatusLine ctermfg=67 ctermbg=236 cterm=bold guifg=#a9b7c6 guibg=#323232 gui=bold
+hi StatusLineNC ctermfg=188 ctermbg=236 cterm=NONE guifg=#a9b7c6 guibg=#323232 gui=NONE
+hi Search term=reverse ctermfg=188 ctermbg=24 guifg=#a9b7c6 guibg=#214283 gui=none
 hi IncSearch term=reverse ctermfg=188 ctermbg=24 guifg=#323232 guibg=#b1c73d gui=none
 hi Directory ctermfg=103 ctermbg=NONE cterm=NONE guifg=#9676ac guibg=NONE gui=italic
 hi Folded ctermfg=244 ctermbg=235 cterm=NONE guifg=#8e9292 guibg=#2b2b2b gui=NONE
 
-hi Normal ctermfg=188 ctermbg=235 cterm=NONE guifg=#a9b7c6 guibg=#23282d gui=NONE
+hi Normal ctermfg=188 ctermbg=235 cterm=NONE guifg=#a9b7c6 guibg=#2b2b2b gui=NONE
 hi Boolean ctermfg=103 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
 hi Character ctermfg=103 ctermbg=NONE cterm=NONE guifg=#9676ac guibg=NONE gui=italic
 hi Comment ctermfg=244 ctermbg=NONE cterm=NONE guifg=#8e9292 guibg=NONE gui=none
@@ -41,11 +35,11 @@ hi Define ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
 hi DiffAdd ctermfg=188 ctermbg=64 cterm=bold guifg=#a9b7c6 guibg=#365546 gui=bold
 hi DiffDelete ctermfg=88 ctermbg=NONE cterm=NONE guifg=#8c0909 guibg=NONE gui=NONE
 hi DiffChange ctermfg=188 ctermbg=23 cterm=NONE guifg=#a9b7c6 guibg=#263b59 gui=NONE
-hi DiffText ctermfg=188 ctermbg=24 cterm=bold guifg=#ea3f33 guibg=#204a87 gui=bold
+hi DiffText ctermfg=188 ctermbg=24 cterm=bold guifg=#a9b7c6 guibg=#204a87 gui=bold
 hi ErrorMsg ctermfg=15 ctermbg=88 cterm=NONE guifg=#ffffff guibg=#990000 gui=NONE
 hi WarningMsg ctermfg=15 ctermbg=88 cterm=NONE guifg=#ffffff guibg=#990000 gui=NONE
 hi Float ctermfg=67 ctermbg=NONE cterm=NONE guifg=#7ca8c6 guibg=NONE gui=NONE
-hi Function ctermfg=221 ctermbg=NONE cterm=bold guifg=#ffc66d guibg=NONE gui=NONE
+hi Function ctermfg=221 ctermbg=NONE cterm=bold guifg=#c57825 guibg=NONE gui=bold
 hi Identifier ctermfg=222 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=NONE
 hi Keyword ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
 hi Label ctermfg=103 ctermbg=NONE cterm=NONE guifg=#9676ac guibg=NONE gui=NONE
@@ -86,7 +80,7 @@ hi cssBraces ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 " Adjust the gutter.
 let g:gitgutter_override_sign_column_highlight = 0 " Tell git gutter to leave the background alone.
 hi SignColumn ctermfg=60 ctermbg=236 cterm=NONE guifg=#888888 guibg=#323232 gui=NONE
-hi LineNr ctermfg=60 ctermbg=236 cterm=NONE guifg=#888888 guibg=#31383f gui=NONE
+hi LineNr ctermfg=60 ctermbg=236 cterm=NONE guifg=#888888 guibg=#323232 gui=NONE
 
 " Extra Ruby highlighting.
 hi rubyClass ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
@@ -204,4 +198,3 @@ hi TabLine ctermfg=146 ctermbg=16 cterm=NONE guifg=#a9b7c6 guibg=#2b2b2b gui=NON
 hi TabLineSel ctermfg=146 ctermbg=59 cterm=NONE guifg=#a9b7c6 guibg=#515658 gui=NONE
 
 set background=dark
-

@@ -8,28 +8,28 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let g:colors_name = "darcula"
+let g:colors_name = "darcula256"
 
-hi scalaAnnotation          ctermfg=226  guifg=#bbb529 guibg=NONE cterm=bold  gui=bold
-hi scalaIdentifier          ctermfg=104  guifg=#9876aa guibg=NONE cterm=bold  gui=bold
-hi scalaInstanceDeclaration ctermfg=188  guifg=#a9b7c6 guibg=NONE cterm=none  gui=italic
-hi scalaNumber              ctermfg=80   guifg=#6897bb guibg=NONE cterm=bold  gui=italic
-hi scalaMultilineComment    ctermfg=82   guifg=#80D600 guibg=NONE cterm=none  gui=italic
+hi scalaAnnotation          ctermfg=226  guifg=#bbb529 ctermbg=None guibg=NONE cterm=bold  gui=bold
+hi scalaIdentifier          ctermfg=104  guifg=#9876aa ctermbg=None guibg=NONE cterm=bold  gui=bold
+hi scalaInstanceDeclaration ctermfg=188  guifg=#a9b7c6 ctermbg=None guibg=NONE cterm=none  gui=italic
+hi scalaNumber              ctermfg=80   guifg=#6897bb ctermbg=None guibg=NONE cterm=bold  gui=italic
+hi scalaMultilineComment    ctermfg=82   guifg=#80D600 ctermbg=None guibg=NONE cterm=none  gui=italic
 
-hi Cursor ctermfg=188 ctermbg=250 cterm=NONE guifg=#2b2b2b guibg=#a9b7c6 gui=NONE
-hi Visual ctermfg=NONE ctermbg=24 cterm=NONE guifg=NONE guibg=#214283 gui=NONE
-hi CursorLine ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#31383f gui=NONE
-hi CursorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#313335 gui=NONE
-hi ColorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#313335 gui=NONE
-hi CursorLineNr ctermfg=NONE ctermbg=24 cterm=NONE guifg=NONE guibg=#214283 gui=NONE
-hi VertSplit ctermfg=60 ctermbg=236 cterm=NONE guifg=#555555 guibg=#323232 gui=NONE
-hi MatchParen ctermfg=173 ctermbg=NONE cterm=underline guifg=#c57825 guibg=NONE gui=underline
-hi StatusLine ctermfg=67 ctermbg=236 cterm=bold guifg=#a9b7c6 guibg=#31383f gui=bold
-hi StatusLineNC ctermfg=188 ctermbg=236 cterm=NONE guifg=#a9b7c6 guibg=#31383f gui=NONE
-hi Search term=reverse ctermfg=188 ctermbg=24 guifg=#000000 guibg=#ffffff gui=none
-hi IncSearch term=reverse ctermfg=188 ctermbg=24 guifg=#323232 guibg=#b1c73d gui=none
-hi Directory ctermfg=103 ctermbg=NONE cterm=NONE guifg=#9676ac guibg=NONE gui=italic
-hi Folded ctermfg=244 ctermbg=235 cterm=NONE guifg=#8e9292 guibg=#2b2b2b gui=NONE
+hi Cursor       ctermfg=188  ctermbg=250  cterm=NONE      guifg=#2b2b2b guibg=#a9b7c6 gui=NONE
+hi Visual       ctermfg=NONE ctermbg=24   cterm=NONE      guifg=NONE    guibg=#214283 gui=NONE
+hi CursorLine   ctermfg=NONE ctermbg=236  cterm=NONE      guifg=NONE    guibg=#31383f gui=NONE
+hi CursorColumn ctermfg=NONE ctermbg=236  cterm=NONE      guifg=NONE    guibg=#313335 gui=NONE
+hi ColorColumn  ctermfg=NONE ctermbg=236  cterm=NONE      guifg=NONE    guibg=#313335 gui=NONE
+hi CursorLineNr ctermfg=NONE ctermbg=24   cterm=NONE      guifg=NONE    guibg=#214283 gui=NONE
+hi VertSplit    ctermfg=60   ctermbg=236  cterm=NONE      guifg=#555555 guibg=#323232 gui=NONE
+hi MatchParen   ctermfg=173  ctermbg=NONE cterm=underline guifg=#c57825 guibg=NONE    gui=underline
+hi StatusLine   ctermfg=67   ctermbg=236  cterm=bold      guifg=#a9b7c6 guibg=#31383f gui=bold
+hi StatusLineNC ctermfg=188  ctermbg=236  cterm=NONE      guifg=#a9b7c6 guibg=#31383f gui=NONE
+hi Directory    ctermfg=103  ctermbg=NONE cterm=NONE      guifg=#9676ac guibg=NONE    gui=italic
+hi Folded       ctermfg=244  ctermbg=235  cterm=NONE      guifg=#8e9292 guibg=#2b2b2b gui=NONE
+hi Search       term=reverse ctermfg=188  ctermbg=24      guifg=#000000 guibg=#ffffff gui=none
+hi IncSearch    term=reverse ctermfg=188  ctermbg=24      guifg=#323232 guibg=#b1c73d gui=none
 
 hi Normal ctermfg=188 ctermbg=235 cterm=NONE guifg=#a9b7c6 guibg=#23282d gui=NONE
 hi Boolean ctermfg=103 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
