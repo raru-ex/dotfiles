@@ -51,9 +51,10 @@ set ignorecase
 set smartcase
 
 syntax on
-  " colorscheme darcula256
-  " vimではこれがあるとcolorが死ぬ
-  if has('nvim')
+
+" colorscheme darcula256
+" vimではこれがあるとcolorが死ぬ
+if has('nvim')
   " darulaの場合、gui colorでないほうが見やすい
   set termguicolors
 endif
@@ -86,7 +87,7 @@ nnoremap <Esc><Esc> :noh<CR>
 
 " sqlファイルでC-cがomnifuncとバッティングしているようなのでsqlは外す
 " そもそもC-cで戻るのはよくない by Shougoさん
-let g:ftplugin_sql_omni_key = '<C-space>'
+" let g:ftplugin_sql_omni_key = '<C-space>'
 
 " fzf
 set rtp+=~/.fzf
