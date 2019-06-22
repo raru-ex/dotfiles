@@ -15,4 +15,4 @@ else
 fi
 
 # tmux用のバッテリー表示スクリプトの権限修正
-chmod 755 ~/dotfiles/.tmux/battery
+chmod 755 ~/dotfiles/.tmux/bin/battery
