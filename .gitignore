@@ -16,6 +16,7 @@
 !/.tmux.conf
 !/.tmux/
 !/configs
+!com.googlecode.iterm2.plist
 
 # 管理対象のディレクトリ内でも除外したいものはこの下に追加する
 .vim/dein/.cache
