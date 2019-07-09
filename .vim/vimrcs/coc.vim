@@ -44,19 +44,13 @@ nmap <silent> ]c <Plug>(coc-diagnostic-next)
 nnoremap [coc]   <Nop>
 nmap <Space>g [coc]
 
-" refactor系
-nnoremap [refactor]   <Nop>
-nmap <Space>r [refactor]
-
 " Remap keys for gotos
 " intellijに合わせて設定
 nmap <silent> [coc]d <Plug>(coc-definition)
 nmap <silent> [coc]y <Plug>(coc-type-definition)
 nmap <silent> [coc]i <Plug>(coc-implementation)
-" refactor: find usage
-nmap <silent> [refactor]u <Plug>(coc-references)
-
-nmap <space>rn <Plug>(coc-rename)
+nmap <silent> [coc]r <Plug>(coc-references)
+nmap <silent> [coc]n <Plug>(coc-rename)
 
 " Remap for do codeAction of current line
 " nmap <space>ac <Plug>(coc-codeaction)
