@@ -55,8 +55,8 @@ nmap <silent> [coc]n <Plug>(coc-rename)
 " Remap for do codeAction of current line
 " nmap <space>ac <Plug>(coc-codeaction)
 
-" Show all diagnostics
-nnoremap <silent> [coc]a  :<C-u>CocList diagnostics<cr>
+" Show all diagnostics(error)
+nnoremap <silent> [coc]e  :<C-u>CocList diagnostics<cr>
 " Find symbol of current document
 nnoremap <silent> [coc]o  :<C-u>CocList outline<cr>
 " Search workspace symbols
@@ -67,4 +67,14 @@ nnoremap <silent> [coc]j  :<C-u>CocNext<CR>
 nnoremap <silent> [coc]k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> [coc]p  :<C-u>CocListResume<CR>
+
+nnoremap <silent> [coc]h  :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 

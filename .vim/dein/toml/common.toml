@@ -11,13 +11,12 @@ hook_add = '''
   source ~/.vim/vimrcs/nerdtree.vim
 '''
 
-# 動きが怪しいので使わない。
-# [[plugins]]
-# repo = 'jistr/vim-nerdtree-tabs'
-# on_source = ['nerdtree']
-# hook_add = '''
-#   source ~/.vim/vimrcs/nerdtree.vim
-# '''
+[[plugins]]
+repo = 'jistr/vim-nerdtree-tabs'
+on_source = ['nerdtree']
+hook_add = '''
+  source ~/.vim/vimrcs/nerdtree.vim
+'''
 
 [[plugins]]
 repo = 'Xuyuanp/nerdtree-git-plugin'
