@@ -14,8 +14,8 @@ augroup END
 filetype on
 
 " ========== vim basic settings ==========
-" 記号等の表示が崩れるものに対応
-set ambiwidth=double
+" 記号等の表示が崩れるものに対応(有効にした方がむしろ崩れるので無効化)
+" set ambiwidth=double
 
 " マウス選択時visualモードを解除
 set mouse=
