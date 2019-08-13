@@ -60,9 +60,7 @@ if has('nvim')
 endif
 
 " yankをクリップボードに
-if has('nvim')
-  set clipboard=unnamed
-endif
+set clipboard=unnamed
 
 " paste時にインデントが崩れないよう設定
 " 参照: https://qiita.com/ryoff/items/ad34584e41425362453e

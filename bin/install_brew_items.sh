@@ -10,7 +10,7 @@ fi
 
 # 現在のbrewは自動でlua付きのvimを入れる
 echo "[INFO] install any tools"
-brew install tig tree nvim
+brew install lazygit tree nvim
 brew install vim
 brew install ripgrep
 brew install zsh
