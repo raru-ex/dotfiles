@@ -85,9 +85,6 @@ endif
 " 検索のハイライトを解除
 nnoremap <Esc><Esc> :noh<CR>
 
-" ctrl + spaceのnulを無効
-imap <Nul> <Nop>
-
 " sqlファイルでC-cがomnifuncとバッティングしているようなのでsqlは外す
 " そもそもC-cで戻るのはよくない by Shougoさん
 " let g:ftplugin_sql_omni_key = '<C-space>'
