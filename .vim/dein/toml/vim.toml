@@ -1,12 +1,1 @@
-# Unite ----------
-[[plugins]]
-repo = 'Shougo/unite.vim'
-depends = ['neomru.vim']
-hook_add ='''
-  source ~/.vim/vimrcs/unite.vim
-'''
-
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-on_source = ['unite.vim']
 

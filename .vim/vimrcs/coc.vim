@@ -78,3 +78,8 @@ function! s:show_documentation()
   endif
 endfunction
 
+" sbtの再読み込み
+function! SbtReload()
+  call CocRequestAsync('metals', 'workspace/executeCommand', { 'command': 'build-import' })
+endfunction
+

@@ -69,3 +69,12 @@ depends = 'fzf'
 hook_add = '''
   source ~/dotfiles/.vim/vimrcs/fzf.vim
 '''
+
+# auto complete ----------
+# deopleteからcoc + lspに移行
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+build = './install.sh nightly'
+hook_add = '''
+  source ~/.vim/vimrcs/coc.vim
+'''

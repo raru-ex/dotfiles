@@ -1,5 +1,6 @@
 #!/bin/sh
 # vim
+echo "[INFO] Create symlink for vim"
 ln -nfs ~/dotfiles/.vimrc ~/.vimrc
 ln -nfs ~/dotfiles/.vim ~/.vim
 # nvim
