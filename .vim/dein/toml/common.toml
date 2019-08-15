@@ -78,3 +78,9 @@ build = './install.sh nightly'
 hook_add = '''
   source ~/.vim/vimrcs/coc.vim
 '''
+
+# formatter  ----------
+[[plugins]]
+repo = 'Chiel92/vim-autoformat'
+
+

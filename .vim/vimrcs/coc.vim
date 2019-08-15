@@ -52,7 +52,7 @@ nmap <Space>g [coc]
 " Remap keys for gotos
 " intellijに合わせて設定
 nmap <silent> [coc]d <Plug>(coc-definition)
-nmap <silent> [coc]y <Plug>(coc-type-definition)
+nmap <silent> [coc]t <Plug>(coc-type-definition)
 nmap <silent> [coc]i <Plug>(coc-implementation)
 nmap <silent> [coc]r <Plug>(coc-references)
 nmap <silent> [coc]n <Plug>(coc-rename)

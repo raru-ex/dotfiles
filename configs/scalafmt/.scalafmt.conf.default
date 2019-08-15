@@ -1,0 +1,14 @@
+docstrings = ScalaDoc
+continuationIndent.defnSite = 2
+align = more
+align.openParenCallSite = false
+align.openParenDefnSite = false
+newlines.alwaysBeforeTopLevelStatements = true
+
+rewrite.rules = [
+  SortImports
+]
+
+project.git = true
+project.excludeFilters = ["target/"]
+

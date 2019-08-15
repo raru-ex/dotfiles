@@ -30,6 +30,11 @@ echo "[INFO] Execute coursier for metals"
   -r sonatype:snapshots \
   -o /usr/local/bin/metals-vim -f
 
+echo "[INFO] Execute coursier for scalafmt"
+/usr/local/bin/coursier bootstrap org.scalameta:scalafmt-cli_2.12:2.0.1 \
+    -r sonatype:snapshots \
+    -o /usr/local/bin/scalafmt --standalone --main org.scalafmt.cli.Cli
+
 echo "[INFO] Install finished"
 echo "[INFO] Please export  metals-vim command path to your \$PATH"
 
