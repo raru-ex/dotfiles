@@ -10,7 +10,7 @@
       "args": [],
       // custom config path
       // "args": ["-c", "/path/to/your/config.yaml"],
-      "filetypes": ["vim", "markdown"]
+      "filetypes": ["vim", "markdown", "yaml"]
     }
   },
   // global settings

@@ -49,10 +49,10 @@ if type brew > /dev/null 2>&1; then
 
   # lintインストール
   if type pip2 > /dev/null 2>&1; then
-    pip2 install vim-vint
+    pip2 install vim-vint yamllint
   fi
   if type pip3 > /dev/null 2>&1; then
-    pip3 install vim-vint
+    pip3 install vim-vint yamllint
   fi
 
   if type npm > /dev/null 2>&1; then
