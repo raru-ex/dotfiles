@@ -3,17 +3,17 @@
 ## Overview
 
 自分用dotfiles  
-主に簡易利用のためのvim設定とzsh設定  
+vim設定とzsh設定  
 
 ## Description
 
-nvim推奨。vim設定はメンテされていない  
+vim, nvimで設定  
 zshはシンプルにしている  
 
 ## Requirement
 
 homebrew  
-Vim with lua or NeoVim  
+Vim or NeoVim  
 Git  
 Svn  
 
@@ -61,19 +61,4 @@ vim-metalsに不正なキャッシュが溜まっているケースがある。
 brewのlinkを貼り直すと動いた  
 $ brew unlink ruby  
 $ brew install ruby  
-
-### deoplete関連
-
-#### install時
-
-neocomplete, deopleteを利用する場合にはlua付きでインストール  
-$ pip3 install --upgrade neovim  
-$ pip3 install sexpdata websocket-client pynvim # for ensime  
-// nvimでは:UpdateRemotePluginsを初期化時や再設定時に実行  
-
-#### エラー関連
-
-pip3 upgrade後にエラーが発生した場合  
-以下のようにキャッシュを無視してインストールすると治る(場合がある)  
-$ pip3 --no-cache-dir install -I {libs}  
 
