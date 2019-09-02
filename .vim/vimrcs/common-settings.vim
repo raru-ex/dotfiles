@@ -52,6 +52,9 @@ set splitright
 set ignorecase
 set smartcase
 
+" swapファイルの出力先を変更
+set directory=~/.vim/swap
+
 syntax on
 
 " colorscheme darcula256
