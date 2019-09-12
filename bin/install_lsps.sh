@@ -25,7 +25,7 @@ echo "[INFO] Execute coursier for metals"
   --java-opt -Xms100m \
   --java-opt -Dmetals.client=coc.nvim \
   --java-opt -Dmetals.sbt-script=/usr/local/bin/sbt \
-  org.scalameta:metals_2.12:0.7.2\
+  org.scalameta:metals_2.12:0.7.5\
   -r bintray:scalacenter/releases \
   -r sonatype:snapshots \
   -o /usr/local/bin/metals-vim -f
