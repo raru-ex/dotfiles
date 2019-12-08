@@ -55,6 +55,10 @@ set smartcase
 " swapファイルの出力先を変更
 set directory=~/.vim/swap
 
+" xはヤンクしない
+vnoremap x "_x
+nnoremap x "_x
+
 syntax on
 
 " colorscheme darcula256
