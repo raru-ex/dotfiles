@@ -46,6 +46,7 @@ if type brew > /dev/null 2>&1; then
 
   if type npm > /dev/null 2>&1; then
     npm i -g markdownlint-cli
+    mkdir -p ~/.config/efm-langserver
     ln -nfs ~/dotfiles/configs/efm-langserver/config.yaml ~/.config/efm-langserver/config.yaml
   else
     echo "[ERROR] Please install npm"
