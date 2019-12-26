@@ -10,11 +10,19 @@ set nowritebackup
 " Better display for messages
 set cmdheight=2
 
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
 
 " always show signcolumns
 set signcolumn=yes
+
+" Some server have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -30,12 +38,7 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> to trigger completion.
-
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <Nul> coc#refresh()
-endif
+inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
@@ -56,6 +59,9 @@ nmap <silent> [coc]t <Plug>(coc-type-definition)
 nmap <silent> [coc]i <Plug>(coc-implementation)
 nmap <silent> [coc]r <Plug>(coc-references)
 nmap <silent> [coc]n <Plug>(coc-rename)
+
+" Remap for do action format
+nnoremap <silent> [coc]f :call CocAction('format')<CR>
 
 " Remap for do codeAction of current line
 " nmap <space>ac <Plug>(coc-codeaction)
@@ -88,3 +94,12 @@ function! SbtReload()
   call CocRequestAsync('metals', 'workspace/executeCommand', { 'command': 'build-import' })
 endfunction
 
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Notify coc.nvim that <enter> has been pressed.
+" " Currently used for the formatOnType feature.
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+hi link CocHighlightText Search

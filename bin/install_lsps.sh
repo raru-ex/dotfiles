@@ -19,17 +19,6 @@ if [ -e ~/.config/efm-langserver ]; then
   mkdir -p ~/.config/efm-langserver
 fi
 
-echo "[INFO] Execute coursier for metals"
-/usr/local/bin/coursier bootstrap \
-  --java-opt -Xss4m \
-  --java-opt -Xms100m \
-  --java-opt -Dmetals.client=coc.nvim \
-  --java-opt -Dmetals.sbt-script=/usr/local/bin/sbt \
-  org.scalameta:metals_2.12:0.7.6\
-  -r bintray:scalacenter/releases \
-  -r sonatype:snapshots \
-  -o /usr/local/bin/metals-vim -f
-
 echo "[INFO] Execute coursier for scalafmt"
 /usr/local/bin/coursier bootstrap org.scalameta:scalafmt-cli_2.12:2.0.1 \
     -r sonatype:snapshots \
