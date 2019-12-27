@@ -16,6 +16,7 @@ homebrew
 Vim or NeoVim  
 Git  
 Svn  
+Node  
 
 ## install for mac
 
