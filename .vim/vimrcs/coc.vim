@@ -106,4 +106,4 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-hi link CocHighlightText Search
+hi CocHighlightText term=reverse ctermbg=239 guibg=#4e4e4e
