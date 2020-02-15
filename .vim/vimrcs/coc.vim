@@ -93,10 +93,10 @@ function! s:show_documentation()
   endif
 endfunction
 
-" sbtの再読み込み
-function! SbtReload()
-  call CocRequestAsync('metals', 'workspace/executeCommand', { 'command': 'build-import' })
-endfunction
+" sbtの再読み込み (coc-metalsにしたので動かない)
+" function! SbtReload()
+"   call CocRequestAsync('metals', 'workspace/executeCommand', { 'command': 'build-import' })
+" endfunction
 
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -107,3 +107,7 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 hi CocHighlightText term=reverse ctermbg=239 guibg=#4e4e4e
+
+" scalaファイルの場合にはbuild.sbtがある場所をroot directoryとして認識させる
+autocmd FileType scala let b:coc_root_patterns = ['build.sbt']
+

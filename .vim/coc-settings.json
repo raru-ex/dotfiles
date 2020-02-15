@@ -9,5 +9,5 @@
     }
   },
   // global settings
-  "suggest.timeout": 5000
+  "suggest.timeout": 5000,
 }
