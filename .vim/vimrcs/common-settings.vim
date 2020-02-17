@@ -64,8 +64,8 @@ syntax on
 " colorscheme darcula256
 " vimではこれがあるとcolorが死ぬ
 if has('nvim')
-  " darulaの場合、gui colorでないほうが見やすい
-  set termguicolors
+  " onedark on tmuxだとこれを設定しない方が正しい色になる
+  " set termguicolors
 endif
 
 " yankをクリップボードに
@@ -91,10 +91,6 @@ endif
 
 " 検索のハイライトを解除
 nnoremap <Esc><Esc> :noh<CR>
-
-" sqlファイルでC-cがomnifuncとバッティングしているようなのでsqlは外す
-" そもそもC-cで戻るのはよくない by Shougoさん
-" let g:ftplugin_sql_omni_key = '<C-space>'
 
 " fzf
 set rtp+=~/.fzf
