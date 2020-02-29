@@ -92,5 +92,10 @@ endif
 " 検索のハイライトを解除
 nnoremap <Esc><Esc> :noh<CR>
 
+" 引用: https://qiita.com/kasei-san/items/3a10002b2c60046d8572
+" c-gで対応可能だがrgに紐づけているためこちらで
+command! CopyRelativePath
+ \ let @*=join(remove( split( expand( '%:p' ), "/" ), len( split( getcwd(), "/" ) ), -1 ), "/") | echo "copied"
+
 " fzf
 set rtp+=~/.fzf
