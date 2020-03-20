@@ -1,1 +1,3 @@
-# The default keymap for choco60
+# My keymap for choco60
+
+add mouse layer.
