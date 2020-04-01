@@ -11,11 +11,11 @@ if !(type /usr/local/bin/coursier > /dev/null 2>&1); then
   chmod +x /usr/local/bin/coursier
 fi
 
-if [ -e ~/.config/coc ]; then
+if [ ! -e ~/.config/coc ]; then
   mkdir -p ~/.config/coc/extensions
 fi
 
-if [ -e ~/.config/efm-langserver ]; then
+if [ ! -e ~/.config/efm-langserver ]; then
   mkdir -p ~/.config/efm-langserver
 fi
 
