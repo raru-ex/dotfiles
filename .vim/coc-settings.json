@@ -10,4 +10,5 @@
   },
   // global settings
   "suggest.timeout": 5000,
+  "python.jediEnabled": false
 }
