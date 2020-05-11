@@ -59,6 +59,10 @@ set splitright
 set ignorecase
 set smartcase
 
+" tabを可視化。他については煩わしいので設定しない
+set list
+set listchars=tab:»-
+
 " swapファイルの出力先を変更
 set directory=~/.vim/swap
 
