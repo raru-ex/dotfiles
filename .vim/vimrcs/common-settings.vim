@@ -32,6 +32,13 @@ set cursorcolumn
 set expandtab
 set tabstop=2
 set shiftwidth=2
+
+" pythonの場合にはtabを4つに設定
+augroup MyVimrc
+  autocmd!
+  autocmd BufRead,BufNewFile *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
+augroup End
+
 " autoindentを解除
 " set noautoindent
 " 検索結果をハイライト
@@ -96,6 +103,7 @@ nnoremap <Esc><Esc> :noh<CR>
 " c-gで対応可能だがrgに紐づけているためこちらで
 command! CopyRelativePath
  \ let @*=join(remove( split( expand( '%:p' ), "/" ), len( split( getcwd(), "/" ) ), -1 ), "/") | echo "copied"
+
 
 " fzf
 set rtp+=~/.fzf
