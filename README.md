@@ -17,10 +17,11 @@ Vim or NeoVim
 Git  
 Svn  
 Node  
+Yarn  
 
 ## install for mac
 
-$ brew install vim --with-lua  
+$ brew install vim  
 $ brew install nvim  
 
 ## Install
@@ -45,6 +46,7 @@ bin以下にインストール用のシェルを配置してあるため任意�
 - coc-angular
 - coc-vetur
 - coc-metals
+- coc-python
 
 ## Author
 
@@ -57,10 +59,4 @@ raru
 vim-metalsに不正なキャッシュが溜まっているケースがある。  
 .metalsフォルダ以下を削除し、再度読み込み直すと動く  
 
-### vim起動時にエラーが起きる場合
-
-以下はrubyでエラーが発生していた例。  
-brewのlinkを貼り直すと動いた  
-$ brew unlink ruby  
-$ brew install ruby  
 
