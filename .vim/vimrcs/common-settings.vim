@@ -66,6 +66,9 @@ set listchars=tab:»-
 " swapファイルの出力先を変更
 set directory=~/.vim/swap
 
+" ビープ音などを消す
+set vb t_vb=
+
 " xはヤンクしない
 vnoremap x "_x
 nnoremap x "_x
