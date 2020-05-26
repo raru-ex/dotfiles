@@ -23,6 +23,7 @@ Yarn
 
 $ brew install vim  
 $ brew install nvim  
+$ go get github.com/mattn/efm-langserver
 
 ## Install
 
