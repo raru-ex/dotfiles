@@ -42,21 +42,6 @@ hook_add = '''
 repo = 'bronson/vim-trailing-whitespace'
 on_i = 1
 
-[[plugins]]
-repo = 'tomtom/tcomment_vim'
-on_i = 1
-
-[[plugins]]
-repo = 'kana/vim-operator-user'
-on_source = ['vim-vim-operator-surround']
-
-[[plugins]]
-repo = 'rhysd/vim-operator-surround'
-depends = ['vim-operator-user']
-hook_add = '''
-  source ~/.vim/vimrcs/surround.vim
-'''
-
 # fzf ----------
 [[plugins]]
 repo = 'junegunn/fzf'
@@ -74,13 +59,9 @@ hook_add = '''
 # deopleteからcoc + lspに移行
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-build = './install.sh nightly'
+build = 'yarn install --frozen-lockfile'
 hook_add = '''
   source ~/.vim/vimrcs/coc.vim
 '''
-
-# formatter  ----------
-[[plugins]]
-repo = 'Chiel92/vim-autoformat'
 
 

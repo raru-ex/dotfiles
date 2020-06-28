@@ -7,8 +7,9 @@ vim設定とzsh設定
 
 ## Description
 
+よく使うツールをまとめて入れてるdotfiles。  
+キーボードやiterm、karabinerの設定も入ってる。  
 vim, nvimで設定  
-zshはシンプルにしている  
 
 ## Requirement
 
@@ -27,15 +28,9 @@ $ go get github.com/mattn/efm-langserver
 
 ## Install
 
-bin以下にインストール用のシェルを配置してあるため任意に利用  
-推奨順番  
-
-1. install_brew_items.sh
-1. install_fonts.sh
-1. install_vim.sh
-1. install_zsh.sh
-1. install_tmux.sh
-1. install_install_lsps.sh
+```sh
+$ ./bin/setup_for_mac.sh
+```
 
 ## CocList
 
@@ -45,19 +40,8 @@ bin以下にインストール用のシェルを配置してあるため任意�
 - coc-css
 - coc-json
 - coc-angular
-- coc-vetur
 - coc-metals
-- coc-python
 
 ## Author
 
 raru  
-
-## tips
-
-### scalaの定義参照がうまくいかない場合
-
-vim-metalsに不正なキャッシュが溜まっているケースがある。  
-.metalsフォルダ以下を削除し、再度読み込み直すと動く  
-
-

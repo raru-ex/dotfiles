@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 ## sh エミュレーションモード
-# emulate -R sh
+emulate -R sh
 
 if type brew > /dev/null 2>&1; then
   echo "[INFO] brew is already installed"
@@ -12,8 +12,5 @@ fi
 
 # 現在のbrewは自動でlua付きのvimを入れる
 echo "[INFO] install any tools"
-brew install lazygit tree nvim
-brew install vim
-brew install ripgrep
-brew install zsh
+brew install lazygit tree nvim vim ripgrep zsh
 echo "[INFO] finished"

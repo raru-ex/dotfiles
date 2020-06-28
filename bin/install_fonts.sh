@@ -4,12 +4,12 @@
 emulate -R sh
 
 if type brew > /dev/null 2>&1; then
-  echo "install Ricty"
+  echo "[INFO] install Ricty"
   brew tap sanemat/font
   brew install ricty
   cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
   fc-cache -vf
-  echo "finished"
+  echo "[INFO] Ricty font install finished"
 else
-  echo "brew is not installed. please install homebrew"
+  echo "[WARN] brew is not installed. Please install homebrew"
 fi

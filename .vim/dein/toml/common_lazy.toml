@@ -46,17 +46,9 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'kannokanno/previm'
-depens = ['open-browser.vim']
-on_source = 'vim-markdown'
-on_ft = ['md', 'mkd']
-
-[[plugins]]
 repo = 'godlygeek/tabular'
 on_source = 'vim-markdown'
 on_ft = ['md', 'mkd']
 
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-on_source = 'previm'
-on_ft = ['md', 'mkd']
+# md previewには以下を使いたい
+# https://github.com/iamcco/markdown-preview.nvim

@@ -24,8 +24,7 @@ echo "[INFO] Execute coursier for scalafmt"
     -r sonatype:snapshots \
     -o /usr/local/bin/scalafmt --standalone --main org.scalafmt.cli.Cli
 
-echo "[INFO] Install finished"
-echo "[INFO] Please export  metals-vim command path to your \$PATH"
+echo "[INFO] Scalafmt Install finished"
 
 echo "[INFO] Start install efm"
 

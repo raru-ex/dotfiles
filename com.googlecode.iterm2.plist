@@ -950,7 +950,7 @@
 			<key>Shortcut</key>
 			<string></string>
 			<key>Silence Bell</key>
-			<false/>
+			<true/>
 			<key>Space</key>
 			<integer>0</integer>
 			<key>Sync Title</key>
@@ -991,14 +991,14 @@
 		<string>3.3.5</string>
 		<string>3.3.7</string>
 		<string>3.3.9</string>
+		<string>3.3.0</string>
 		<string>3.2.9</string>
 		<string>3.3.2</string>
-		<string>3.3.0</string>
 	</array>
 	<key>NoSyncFrame_SessionsPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1600, 900}}</string>
+		<string>{{0, 0}, {3200, 1800}}</string>
 		<key>topLeft</key>
 		<string>{269, 595}</string>
 	</dict>
@@ -1014,7 +1014,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>063BB2C6-6A42-49AE-AAAF-DAFF261B6D7A</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>30</integer>
+	<integer>32</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
 	<real>586527069.74905896</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
@@ -1781,7 +1781,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-03-31T14:12:19Z</date>
+	<date>2020-05-31T14:13:19Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
