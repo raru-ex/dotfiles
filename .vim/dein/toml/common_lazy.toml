@@ -6,6 +6,12 @@ hook_post_source = '''
   source ~/.vim/vimrcs/scala.vim
 '''
 
+[[plugins]]
+repo = 'gre/play2vim'
+on_ft = ['conf', 'twirl', 'routes']
+on_source = ['vim-scala']
+
+
 # Typescript, Javascript ----------
 [[plugins]]
 repo = 'pangloss/vim-javascript'
