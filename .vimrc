@@ -49,10 +49,10 @@ if dein#load_state(s:dein_dir)
 
   " toml側でif処理をするのが面倒なのでこちら側で処理
   if has('nvim')
-    call dein#load_toml(s:nvim_toml, {'lazy': 0})
+    call dein#load_toml(s:nvim_toml,      {'lazy': 0})
     call dein#load_toml(s:nvim_lazy_toml, {'lazy': 1})
   else
-    call dein#load_toml(s:vim_toml,  {'lazy': 0})
+    call dein#load_toml(s:vim_toml,       {'lazy': 0})
     call dein#load_toml(s:vim_lazy_toml,  {'lazy': 1})
   endif
 
