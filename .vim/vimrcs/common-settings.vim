@@ -111,6 +111,11 @@ nnoremap <Esc><Esc> :noh<CR>
 command! CopyRelativePath
  \ let @*=join(remove( split( expand( '%:p' ), "/" ), len( split( getcwd(), "/" ) ), -1 ), "/") | echo "copied"
 
+" set filetypes
+autocmd MyVimrc BufNewFile,BufRead *.{pug} set filetype=pug
+autocmd MyVimrc BufRead,BufNewFile *.scss  set filetype=scss
+autocmd MyVimrc BufNewFile,BufRead *.{ts}  set filetype=typescript
+autocmd MyVimrc BufNewFile,BufRead *.{js}  set filetype=javascript
 
 " fzf
 set rtp+=~/.fzf

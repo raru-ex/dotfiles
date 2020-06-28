@@ -1,10 +1,6 @@
 " nvim, vimそれぞれで利用する設定
 runtime! vimrcs/common-settings.vim
 runtime! vimrcs/default-functions-keymap.vim
-" runtime! vimrcs/php.vim
-" ctagは使ってないので削除
-" runtime! vimrcs/ctags.vim
-runtime! vimrcs/html-css.vim
 
 if has('nvim')
   runtime! vimrcs/nvim-settings.vim
