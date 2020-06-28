@@ -67,6 +67,10 @@ nmap <silent> [coc]n <Plug>(coc-rename)
 " Remap for do action format
 nnoremap <silent> [coc]f :call CocAction('format')<CR>
 
+" scalaでは動かない: https://github.com/neoclide/coc-prettier#remap-keys-for-range-format-in-your-initvim-or-vimrc
+vmap gf  <Plug>(coc-format-selected)
+nmap gf  <Plug>(coc-format-selected)
+
 " Remap for do codeAction of current line
 " nmap <space>ac <Plug>(coc-codeaction)
 

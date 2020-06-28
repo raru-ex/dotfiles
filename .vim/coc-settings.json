@@ -8,7 +8,7 @@
       "filetypes": ["vim", "markdown", "yaml"]
     }
   },
-  // global settings
+  "metals.scalafmtConfigPath": "project/.scalafmt.conf",
   "suggest.timeout": 5000,
   "python.jediEnabled": false
 }
