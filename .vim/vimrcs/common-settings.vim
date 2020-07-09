@@ -34,13 +34,15 @@ set tabstop=2
 set shiftwidth=2
 
 " スクロールするときに余力を残す
-set scrolloff=15
+augroup MyVimrc
+  autocmd BufRead,BufNewFile * execute "setlocal scrolloff=" . str2nr(string(floor((line('w$') - line('w0')) * 0.20)))
+augroup End
 
 " pythonの場合にはtabを4つに設定
 augroup MyVimrc
-  autocmd!
   autocmd BufRead,BufNewFile *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
 augroup End
+
 
 " autoindentを解除
 " set noautoindent
