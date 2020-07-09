@@ -33,6 +33,9 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 
+" スクロールするときに余力を残す
+set scrolloff=15
+
 " pythonの場合にはtabを4つに設定
 augroup MyVimrc
   autocmd!
