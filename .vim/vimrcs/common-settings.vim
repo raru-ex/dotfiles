@@ -35,7 +35,7 @@ set shiftwidth=2
 
 " スクロールするときに余力を残す
 augroup MyVimrc
-  autocmd BufRead,BufNewFile * execute "setlocal scrolloff=" . str2nr(string(floor((line('w$') - line('w0')) * 0.20)))
+  autocmd BufRead,BufNewFile,WinEnter * execute "setlocal scrolloff=" . str2nr(string(floor((line('w$') - line('w0')) * 0.20)))
 augroup End
 
 " pythonの場合にはtabを4つに設定
