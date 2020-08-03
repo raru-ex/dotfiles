@@ -41,6 +41,8 @@ $ ./bin/setup_for_mac.sh
 - coc-json
 - coc-angular
 - coc-metals
+- coc-python
+- coc-yaml
 
 ## Author
 
