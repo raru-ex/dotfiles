@@ -10,7 +10,7 @@ else
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-# 現在のbrewは自動でlua付きのvimを入れる
 echo "[INFO] install any tools"
 brew install lazygit tree nvim vim ripgrep zsh
+brew cask install alacritty
 echo "[INFO] finished"

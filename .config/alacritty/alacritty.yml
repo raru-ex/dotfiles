@@ -1,0 +1,18 @@
+shell:
+  program: /usr/local/bin/zsh
+
+window:
+  decolations: buttonless # mac only
+  startup_mode: SimpleFullscreen # mac only
+
+font:
+  size: 14
+  normal:
+    family: Rictty
+  bold:
+    family: Rictty
+  italic:
+    family: Rictty
+
+key_bindings:
+  - { key: Q, mods: Control, chars: "\x11" } # 暫定対応 masterブランチでは解決済みらしい
