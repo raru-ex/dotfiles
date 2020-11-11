@@ -2,9 +2,6 @@
 [[plugins]]
 repo = 'derekwyatt/vim-scala'
 on_ft = 'scala'
-hook_post_source = '''
-  source ~/.vim/vimrcs/scala.vim
-'''
 
 [[plugins]]
 repo = 'gre/play2vim'
@@ -58,3 +55,11 @@ on_ft = ['md', 'mkd']
 
 # md previewには以下を使いたい
 # https://github.com/iamcco/markdown-preview.nvim
+
+# uml
+[[plugins]]
+repo = 'skanehira/preview-uml.vim'
+on_ft = ['uml']
+hook_add = '''
+  source ~/.vim/vimrcs/preview-uml.vim
+'''

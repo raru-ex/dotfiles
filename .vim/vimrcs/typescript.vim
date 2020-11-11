@@ -12,9 +12,6 @@ function! EnableTypescriptHighlight()
   let g:yats_host_keyword = 1
 endfunction
 
-autocmd MyVimrc BufNewFile,BufRead *.{ts} set filetype=typescript
-autocmd MyVimrc BufNewFile,BufRead *.{js} set filetype=javascript
-
 autocmd MyVimrc FileType typescript,javascript call EnableJavascript()
 autocmd MyVimrc FileType typescriptt call EnableTypescriptHighlight()
 

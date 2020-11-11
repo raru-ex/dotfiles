@@ -1,4 +1,3 @@
-autocmd MyVimrc BufRead,BufNewFile *.md  set filetype=markdown
 
 " ソースの自動折り畳みを停止
 let g:vim_markdown_folding_disabled = 1
