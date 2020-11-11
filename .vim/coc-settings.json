@@ -6,6 +6,15 @@
       // custom config path
       // "args": ["-c", "/path/to/your/config.yaml"],
       "filetypes": ["vim", "markdown", "yaml"]
+    },
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+      "initializationOptions": {},
+      "settings": {}
     }
   },
   "metals.scalafmtConfigPath": "project/.scalafmt.conf",
