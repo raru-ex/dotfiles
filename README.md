@@ -44,6 +44,19 @@ $ ./bin/setup_for_mac.sh
 - coc-python
 - coc-yaml
 
+## PlantUML
+
+参照: https://github.com/skanehira/preview-uml.vim
+
+```
+// shell
+$ docker run -d -p 2525:8080 plantuml/plantuml-server:jetty
+
+// vim
+let g:preview_uml_url='http://localhost:2525'
+:PreviewUML
+```
+
 ## Author
 
 raru  

@@ -63,5 +63,3 @@ build = 'yarn install --frozen-lockfile'
 hook_add = '''
   source ~/.vim/vimrcs/coc.vim
 '''
-
-
