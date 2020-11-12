@@ -135,6 +135,7 @@ autocmd MyVimrc BufNewFile,BufRead *.{js} set filetype=javascript
 
 autocmd MyVimrc BufNewFile,BufRead *.uml         set filetype=uml
 autocmd MyVimrc BufRead,BufNewFile *.uml         set filetype=uml
+autocmd MyVimrc BufNewFile,BufRead *.pu         set filetype=uml
 
 " fzf
 set rtp+=~/.fzf
