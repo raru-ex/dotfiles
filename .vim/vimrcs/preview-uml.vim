@@ -1,1 +1,1 @@
-let g:preview_uml_url='http://localhost:8888'
+let g:preview_uml_url='http://localhost:2525'
