@@ -1,0 +1,5 @@
+# 参照: https://github.com/github/gitignore/tree/master/Global
+
+# General
+.DS_Store
+

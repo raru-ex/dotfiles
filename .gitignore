@@ -6,7 +6,6 @@
 !/.vim
 !/.vimrc
 !/.ideavimrc
-!/.config
 !/.ctags
 !/.zshrc
 !/.zsh
@@ -23,8 +22,6 @@
 .vim/dein/.cache
 .vim/dein/repos
 .vim/dein/cache_*
-.vim/dein/cache_*
-.vim/dein/state_*
 .vim/dein/state_*
 .vim/swap/
 
@@ -34,5 +31,6 @@
 .netrwhist
 .*.un~
 *.swp
+
 # symlinkを排除
 .vim/init.vim

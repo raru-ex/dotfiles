@@ -10,3 +10,5 @@ emulate -R sh
 ~/dotfiles/bin/install_tmux.sh
 ~/dotfiles/bin/install_install_lsps.sh
 ~/dotfiles/bin/install_karabiner_json.sh
+~/dotfiles/bin/install_git_settings.sh
+
