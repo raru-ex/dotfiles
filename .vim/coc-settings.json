@@ -18,6 +18,12 @@
     }
   },
   "metals.scalafmtConfigPath": "project/.scalafmt.conf",
+  "metals.superMethodLensesEnabled": true,
+  "metals.enable": true,
+  "metals.statusBarEnabled": true,
+  "metals.showInferredType": true,
+  "metals.showImplicitArguments": true,
+  "codeLens.enable": true,
   "suggest.timeout": 5000,
   "python.jediEnabled": false
 }

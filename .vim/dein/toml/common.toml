@@ -29,6 +29,9 @@ repo = 'airblade/vim-gitgutter'
 # Airline ----------
 [[plugins]]
 repo = 'vim-airline/vim-airline'
+hook_add = '''
+  source ~/.vim/vimrcs/airline.vim
+'''
 
 # ColorSheme ----------
 [[plugins]]

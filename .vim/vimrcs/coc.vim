@@ -71,6 +71,8 @@ nnoremap <silent> [coc]f :call CocAction('format')<CR>
 vmap gf  <Plug>(coc-format-selected)
 nmap gf  <Plug>(coc-format-selected)
 
+nnoremap <silent> [coc]l :<C-u>call CocActionAsync('codeLensAction')<CR>
+
 " Remap for do codeAction of current line
 " nmap <space>ac <Plug>(coc-codeaction)
 
