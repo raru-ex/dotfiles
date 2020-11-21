@@ -14,19 +14,12 @@ vim, nvimで設定
 ## Requirement
 
 homebrew  
-Vim or NeoVim  
-Git  
-Svn  
 Node  
 Yarn  
 
-## install for mac
-
-$ brew install vim  
-$ brew install nvim  
-$ go get github.com/mattn/efm-langserver
-
 ## Install
+
+### Mac OS
 
 ```sh
 $ ./bin/setup_for_mac.sh
@@ -44,18 +37,9 @@ $ ./bin/setup_for_mac.sh
 - coc-python
 - coc-yaml
 
-## PlantUML
+## Note
 
-参照: https://github.com/skanehira/preview-uml.vim
-
-```
-// shell
-$ docker run -d -p 2525:8080 plantuml/plantuml-server:jetty
-
-// vim
-let g:preview_uml_url='http://localhost:2525'
-:PreviewUML
-```
+User用のglobalなgitignoreは `configs/git/ignores/` 以下のファイルを編集することで自動的に `~/.config/git/ignore` を更新するようになっている。
 
 ## Author
 

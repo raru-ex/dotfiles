@@ -137,5 +137,8 @@ autocmd MyVimrc BufNewFile,BufRead *.uml         set filetype=uml
 autocmd MyVimrc BufRead,BufNewFile *.uml         set filetype=uml
 autocmd MyVimrc BufNewFile,BufRead *.pu         set filetype=uml
 
+" gitignoreを分割したものを一つにまとめる自動処理
+autocmd MyVimrc BufWritePre *.ignore_partial :!sh ~/dotfiles/bin/build_global_gitignore.sh
+
 " fzf
 set rtp+=~/.fzf

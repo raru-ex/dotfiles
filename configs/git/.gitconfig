@@ -1,0 +1,15 @@
+[core]
+  pager = delta
+
+[delta]
+  syntax-theme = TwoDark
+  plus-style   = syntax "#003800"
+  minus-style  = syntax "#3f0001"
+  side-by-side = true
+  line-numbers = true
+  decorations  = true
+
+[interactive]
+  diffFilter = delta --color-only
+
+
