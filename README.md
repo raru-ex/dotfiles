@@ -33,9 +33,10 @@ $ ./bin/setup_for_mac.sh
 - coc-css
 - coc-json
 - coc-angular
-- coc-metals
+- coc-metals (scala)
 - coc-python
 - coc-yaml
+- coc-solargraph (ruby)
 
 ## Note
 
