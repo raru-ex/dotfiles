@@ -14,3 +14,18 @@ languages:
     lint-stdin: true
     lint-formats:
       - '%f:%l:%c: %m'
+
+#   require rubocop
+#   rubocop-lint: &rubocop-lint
+#     lint-command: 'bundle exec rubocop --format emacs --force-exclusion --stdin ${INPUT}'
+#     lint-ignore-exit-code: true
+#     lint-stdin: true
+#     lint-formats:
+#       - '%f:%l:%c: %m'
+#     root-markers:
+#     - Gemfile
+#     - Rakefile
+#     - .rubocop.yml
+#     commands:
+#       - command: 'bundle exec rubocop --auto-correct-all ${INPUT}'
+#         title: 'rubocop fix'
