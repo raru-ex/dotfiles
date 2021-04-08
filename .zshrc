@@ -30,6 +30,7 @@ zstyle ':completion:*' list-colors '' # 補完をカラー表示
 # setopt auto_cd # cdなしでフォルダ移動->普通のコマンドの補完が走ったりして使いづらいので無効化
 setopt print_eight_bit # 日本語ファイル名を表示可能
 setopt no_beep # beep音を無効化
+setopt nonomatch # ?とかがshellに混ざるとエラーになるのを避ける
 
 # key bind
 bindkey -e
