@@ -32,11 +32,13 @@ $ ./bin/setup_for_mac.sh
 - coc-html
 - coc-css
 - coc-json
+- coc-go
 - coc-angular
 - coc-metals (scala)
 - coc-python
 - coc-yaml
 - coc-solargraph (ruby)
+- coc-word (english dictionaly)
 
 ## Note
 
