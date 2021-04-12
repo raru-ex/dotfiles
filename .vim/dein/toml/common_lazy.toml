@@ -73,3 +73,10 @@ repo = 'tpope/vim-rails'
 on_ft = ['ruby']
 
 
+# Scala ----------
+repo = 'mattn/vim-goimports'
+on_ft = ['go']
+hook_add = '''
+  source ~/.vim/vimrcs/go-import.vim
+'''
+

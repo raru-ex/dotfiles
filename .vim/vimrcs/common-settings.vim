@@ -41,6 +41,9 @@ augroup End
 " pythonの場合にはtabを4つに設定
 augroup MyVimrc
   autocmd BufRead,BufNewFile *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
+
+  autocmd BufRead,BufNewFile *.go setlocal expandtab!
+  autocmd BufRead,BufNewFile *.go setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup End
 
 
