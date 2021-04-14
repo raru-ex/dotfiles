@@ -64,6 +64,9 @@ syn match       goEscapeU           display contained "\\u\x\{4}"
 syn match       goEscapeBigU        display contained "\\U\x\{8}"
 syn match       goEscapeError       display contained +\\[^0-7xuUabfnrtv\\'"]+
 
+syn match       goError              /\<err\>/
+hi def link     goError             Error
+
 hi def link     goEscapeOctal       goSpecialString
 hi def link     goEscapeC           goSpecialString
 hi def link     goEscapeX           goSpecialString
