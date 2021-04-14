@@ -64,7 +64,8 @@ function displayColors () {
 }
 
 stty stop undef
-export PATH="/usr/local/opt/gettext/bin:$PATH"
+export GOPATH=$(go env GOPATH)
+export PATH="/usr/local/opt/gettext/bin:$GOPATH/bin:$PATH"
 
 # fzf. 何かの設定が先に必要っぽいので一旦一番下に書く
 source ~/dotfiles/.zsh/fzf.zsh
