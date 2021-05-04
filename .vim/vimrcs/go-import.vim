@@ -1,2 +1,2 @@
-" disable auto format. but :GoImportRun will work.
-let g:goimports = 0
+" enable auto format when write (default)
+let g:goimports = 1
