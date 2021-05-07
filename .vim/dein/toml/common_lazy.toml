@@ -63,11 +63,6 @@ hook_add = '''
   source ~/.vim/vimrcs/preview-uml.vim
 '''
 
-# ruby
-[[plugins]]
-repo = 'tpope/vim-endwise'
-on_ft = ['ruby']
-
 [[plugins]]
 repo = 'tpope/vim-rails'
 on_ft = ['ruby']
