@@ -68,6 +68,9 @@ stty stop undef
 export GOPATH=$(go env GOPATH)
 export PATH="/usr/local/opt/gettext/bin:$GOPATH/bin:$PATH"
 
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
+
 # fzf. 何かの設定が先に必要っぽいので一旦一番下に書く
 source ~/dotfiles/.zsh/fzf.zsh
 
