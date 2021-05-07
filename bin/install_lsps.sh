@@ -40,7 +40,8 @@ if type brew > /dev/null 2>&1; then
 
   if !(type efm-langserver > /dev/null 2>&1); then
     echo "[INFO] Install efm"
-    go get github.com/mattn/efm-langserver/cmd/efm-langserver
+    go get github.com/mattn/efm-langserver
+
     # lintインストール
     if type pip2 > /dev/null 2>&1; then
       pip2 install vim-vint yamllint

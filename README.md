@@ -38,6 +38,7 @@ $ ./bin/setup_for_mac.sh
 - coc-python
 - coc-yaml
 - coc-solargraph (ruby)
+  - required: gem install solargraph
 - coc-word (english dictionaly)
 
 ## Note
