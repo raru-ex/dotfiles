@@ -75,3 +75,5 @@ eval "$(nodenv init -)"
 source ~/dotfiles/.zsh/fzf.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="$HOME/.cargo/bin:$PATH"
+fpath+=${ZDOTDIR:-~}/.zsh_functions

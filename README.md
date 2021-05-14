@@ -45,6 +45,10 @@ $ ./bin/setup_for_mac.sh
 
 User用のglobalなgitignoreは `configs/git/ignores/` 以下のファイルを編集することで自動的に `~/.config/git/ignore` を更新するようになっている。
 
+## Problem
+
+- install shellでinstallするときにecho >> zshrcしているので、設定が重複しちゃう
+
 ## Author
 
 raru  
