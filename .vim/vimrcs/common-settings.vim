@@ -26,8 +26,8 @@ set write
 set number
 " 行を強調表示
 set cursorline
-" 列を強調表示
-set cursorcolumn
+" 列を強調表示: でっかい画面を使うと死ぬほど重いので削除
+" set cursorcolumn
 " TABキーを押した際にタブ文字の代わりにスペースを入れる
 set expandtab
 set tabstop=2
