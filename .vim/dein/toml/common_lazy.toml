@@ -68,7 +68,12 @@ repo = 'tpope/vim-rails'
 on_ft = ['ruby']
 
 
-# Scala ----------
+[[plugins]]
+repo = 'slim-template/vim-slim'
+on_ft = ['ruby']
+
+# Golang ----------
+[[plugins]]
 repo = 'mattn/vim-goimports'
 on_ft = ['go']
 hook_add = '''
