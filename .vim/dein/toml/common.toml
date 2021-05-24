@@ -66,3 +66,13 @@ build = 'yarn install --frozen-lockfile'
 hook_add = '''
   source ~/.vim/vimrcs/coc.vim
 '''
+
+# indent ------------
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+  source ~/.vim/vimrcs/indent_guide.vim
+'''
+
+
