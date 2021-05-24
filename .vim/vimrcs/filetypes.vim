@@ -1,6 +1,7 @@
 " set filetypes
 autocmd MyVimrc BufNewFile,BufRead *.{pug}       setfiletype=pug
 autocmd MyVimrc BufRead,BufNewFile *.scss        setfiletype=scss
+autocmd MyVimrc BufRead,BufNewFile *.sass        setfiletype=sass
 autocmd MyVimrc BufNewFile,BufRead *.{ts}        setfiletype=typescript
 autocmd MyVimrc BufNewFile,BufRead *.{js}        setfiletype=javascript
 
