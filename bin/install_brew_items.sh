@@ -12,6 +12,6 @@ fi
 
 # 現在のbrewは自動でlua付きのvimを入れる
 echo "[INFO] install any tools"
-brew install git svn lazygit tree nvim vim ripgrep zsh git-delta golangci-lint
+brew install git svn lazygit tree nvim vim ripgrep zsh git-delta golangci-lint jq
 echo "[INFO] finished"
 

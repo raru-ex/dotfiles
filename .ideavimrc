@@ -43,18 +43,19 @@ nnoremap <C-g> :<C-u>action FindInPath<CR>
 nnoremap <C-p> :<C-u>action SearchEverywhere<CR>
 
 " 定義元へジャンプ
-nnoremap <C-]> :<C-u>action GotoDeclaration<CR>
+nnoremap [coc] <Nop>
+nmap <Space>g [coc]
+
+nmap [coc]d :<C-u>action GotoDeclaration<CR>
+nmap [coc]n :<C-u>action RenameElement<CR>
+nmap [coc]r :<C-u>action FindUsages<CR>
 
 " terminalを表示
 nnoremap <C-t> :<C-u>action ActivateTerminalToolWindow<CR>
 
 nnoremap <C-e> : :<C-u>action SelectIn<CR>
 
-" ----- refactor系
-nnoremap [refactor]   <Nop>
-nmap <Space>r [refactor]
-
-nnoremap [refactor]n :<C-u>action RenameElement<CR>
-nnoremap [refactor]u :<C-u>action FindUsages<CR>
+nnoremap [nerd]   <Nop>
+nmap <Space>n [nerd]
 
 
