@@ -123,7 +123,8 @@
                                             "^org\\.vim\\.",
                                             "^com\\.googlecode\\.iterm2$",
                                             "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.jetbrains\\.intellij$"
+                                            "^com\\.jetbrains\\.intellij$",
+                                            "^com\\.jetbrains\\.goland$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
