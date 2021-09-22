@@ -125,7 +125,8 @@
                                             "^com\\.microsoft\\.VSCode$",
                                             "^com\\.jetbrains\\.intellij$",
                                             "^com\\.jetbrains\\.goland$",
-                                            "^com\\.jetbrains\\.WebStorm$"
+                                            "^com\\.jetbrains\\.WebStorm$",
+                                            "^com\\.jetbrains\\.rubymine$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
