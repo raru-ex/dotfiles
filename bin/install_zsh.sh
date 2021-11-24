@@ -21,6 +21,12 @@ else
   echo "[INFO] skip install nodenv"
 fi
 
+if type npm > /dev/null 2>&1; then
+  npm i -g mdpf
+else
+  echo "[ERROR] Please install npm"
+fi
+
 
 
 echo "[INFO] Create zsh symlinks"

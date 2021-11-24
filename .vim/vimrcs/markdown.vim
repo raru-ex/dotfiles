@@ -10,6 +10,18 @@ let g:vim_markdown_math = 0
 set noexpandtab
 set tabstop=2
 
+" 参照: https://kitagry.hatenablog.com/entry/2019/07/14/231725
+function! Mdpdf() abort
+  if expand('%:e') != 'md'
+    return
+  endif
+  let l:command = 'mdpdf ' . expand('%:p')
+  call system(l:command)
+  call system('open ' . expand('%:r') . '.pdf')
+endfunction
+
+command! Mdpdf call Mdpdf()
+
 " previm, open-browserが存在する前提
 " markdownをpreview
 nnoremap <silent> <C-m><C-p> :PrevimOpen<CR>
