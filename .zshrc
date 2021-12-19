@@ -77,3 +77,10 @@ source ~/dotfiles/.zsh/fzf.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="$HOME/.cargo/bin:$PATH"
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+
+setopt no_beep
+
+if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
