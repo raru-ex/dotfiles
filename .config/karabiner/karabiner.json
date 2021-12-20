@@ -126,6 +126,7 @@
                                             "^com\\.jetbrains\\.intellij$",
                                             "^com\\.jetbrains\\.goland$",
                                             "^com\\.jetbrains\\.WebStorm$",
+                                            "^com\\.jetbrains\\.PhpStorm$",
                                             "^com\\.jetbrains\\.rubymine$"
                                         ],
                                         "type": "frontmost_application_if"
