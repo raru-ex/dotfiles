@@ -32,6 +32,9 @@ set cursorline
 set expandtab
 set tabstop=2
 set shiftwidth=2
+" mute beep sound
+set visualbell
+set t_vb=
 
 " スクロールするときに余力を残す
 augroup MyVimrc
