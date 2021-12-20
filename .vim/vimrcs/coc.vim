@@ -1,5 +1,19 @@
 " よくわからないので一旦公式サイトのなんとなくわかるところだけコピー
 
+let g:coc_global_extensions = [
+			\'coc-tsserver',
+			\'coc-tslint',
+			\'coc-html',
+  		\'coc-css',
+  		\'coc-json',
+  		\'coc-go',
+  		\'coc-angular',
+  		\'coc-metals',
+  		\'coc-python',
+  		\'coc-yaml',
+  		\'coc-word'
+			\]
+
 " if hidden is not set, TextEdit might fail.
 set hidden
 
