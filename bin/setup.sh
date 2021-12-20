@@ -9,7 +9,11 @@ emulate -R sh
 ~/dotfiles/bin/install_zsh.sh
 ~/dotfiles/bin/install_tmux.sh
 ~/dotfiles/bin/install_install_lsps.sh
-~/dotfiles/bin/install_karabiner_json.sh
+if [ "$(uname)" == 'Darwin' ]; then
+	# Mac OS
+  ~/dotfiles/bin/install_karabiner_json.sh
+fi
+
 ~/dotfiles/bin/install_git_settings.sh
 ~/dotfiles/bin/install_go_tools.sh
 

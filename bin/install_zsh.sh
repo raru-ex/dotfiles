@@ -11,23 +11,6 @@ else
   echo "[INFO] skip install fzf"
 fi
 
-if ! type nodenv -a type git > /dev/null 2>&1; then
-  echo "[INFO] install nodenv"
-  git clone git://github.com/nodenv/nodenv.git ~/.nodenv
-  mkdir -p ~/.nodenv/plugins
-  git clone https://github.com/nodenv/node-build.git ~/.nodenv/plugins/node-build
-  git clone https://github.com/nodenv/node-build-update-defs.git ~/.nodenv/plugins/node-build-update-defs
-else
-  echo "[INFO] skip install nodenv"
-fi
-
-if type npm > /dev/null 2>&1; then
-  npm i -g mdpf
-else
-  echo "[ERROR] Please install npm"
-fi
-
-
 
 echo "[INFO] Create zsh symlinks"
 ln -nfs ~/dotfiles/.zshrc ~/.zshrc

@@ -5,11 +5,6 @@ emulate -R sh
 
 echo "[INFO] Start set up Metals(scala lsp)"
 
-if !(type /usr/local/bin/coursier > /dev/null 2>&1); then
-  echo "[INFO] Install coursier"
-  /usr/bin/curl -L -o /usr/local/bin/coursier https://git.io/coursier
-  chmod +x /usr/local/bin/coursier
-fi
 
 if [ ! -e ~/.config/coc ]; then
   mkdir -p ~/.config/coc/extensions
@@ -17,14 +12,6 @@ fi
 
 if [ ! -e ~/.config/efm-langserver ]; then
   mkdir -p ~/.config/efm-langserver
-fi
-
-if !(type scalafmt > /dev/null 2>&1); then
-  echo "[INFO] Execute coursier for scalafmt"
-  /usr/local/bin/coursier bootstrap org.scalameta:scalafmt-cli_2.12:2.0.1 \
-      -r sonatype:snapshots \
-      -o /usr/local/bin/scalafmt --standalone --main org.scalafmt.cli.Cli
-  echo "[INFO] Scalafmt Install finished"
 fi
 
 echo "[INFO] Start install efm"
