@@ -50,7 +50,7 @@ alias findgrep='find . -type f -name \* | xargs grep -I'
 # alias vi='nvim'
 alias view='vim -R'
 # echo '' | jqless
-alias jqless="/usr/local/bin/jq '.' -C | less -R "
+alias jqless="jq '.' -C | less -R "
 
 
 function displayColors () {
