@@ -41,9 +41,12 @@ augroup MyVimrc
   autocmd BufRead,BufNewFile,WinEnter * execute "setlocal scrolloff=" . str2nr(string(floor((line('w$') - line('w0')) * 0.20)))
 augroup End
 
-" pythonの場合にはtabを4つに設定
+" fileごとのindent設定
 augroup MyVimrc
   autocmd BufRead,BufNewFile *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
+
+  autocmd BufRead,BufNewFile *.md  setlocal noexpandtab
+  autocmd BufRead,BufNewFile *.mdk setlocal noexpandtab
 
   autocmd BufRead,BufNewFile *.go setlocal expandtab!
   autocmd BufRead,BufNewFile *.go setlocal tabstop=2 softtabstop=2 shiftwidth=2

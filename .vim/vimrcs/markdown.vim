@@ -6,9 +6,6 @@ let g:previm_enable_realtime = 1
 " texは使わないので数式は無効
 let g:vim_markdown_math = 0
 
-" markdownはtabじゃないと描画がうまくされない時があるので、tabにする
-set noexpandtab
-set tabstop=2
 
 " 参照: https://kitagry.hatenablog.com/entry/2019/07/14/231725
 function! Mdpdf() abort
