@@ -11,23 +11,19 @@ on_source = ['vim-scala']
 # Typescript, Javascript ----------
 [[plugins]]
 repo = 'pangloss/vim-javascript'
-on_ft = ['javascript', 'typescript']
+on_ft = ['javascript', 'typescript', 'typescriptreact', 'javascriptreact']
 
 [[plugins]]
-repo = 'othree/yajs'
-on_ft = ['javascript', 'typescript']
-
-[[plugins]]
-repo = 'HerringtonDarkholme/yats.vim'
-on_ft = ['javascript', 'typescript']
+repo = 'peitalin/vim-jsx-typescript'
+on_ft = ['javascript', 'typescript', 'typescriptreact', 'javascriptreact']
 
 [[plugins]]
 repo = 'othree/es.next.syntax.vim'
-on_ft = ['javascript', 'typescript']
+on_ft = ['javascript', 'typescript', 'typescriptreact', 'javascriptreact']
 
 [[plugins]]
 repo = 'othree/javascript-libraries-syntax.vim'
-on_ft = ['javascript', 'typescript']
+on_ft = ['javascript', 'typescript', 'typescriptreact', 'javascriptreact']
 hook_post_source = '''
   source ~/.vim/vimrcs/typescript.vim
 '''

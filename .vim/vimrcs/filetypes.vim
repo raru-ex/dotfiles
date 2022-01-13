@@ -23,6 +23,5 @@ autocmd MyVimrc BufNewFile,BufRead *.pu           setfiletype=uml
 autocmd MyVimrc BufNewFile,BufRead *.rb,*.rbw     setfiletype=ruby
 autocmd MyVimrc BufNewFile,BufRead *.slim         setfiletype=slim
 
-autocmd MyVimrc BufNewFile,BufRead *.tsx         setfiletype=typescript.tsx
-autocmd MyVimrc BufNewFile,BufRead *.jsx         setfiletype=javascript.jsx
-
+autocmd MyVimrc BufNewFile,BufRead *.tsx         setfiletype=typescriptreact
+autocmd MyVimrc BufNewFile,BufRead *.jsx         setfiletype=javascriptreact
