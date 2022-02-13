@@ -52,6 +52,13 @@ augroup MyVimrc
   autocmd BufRead,BufNewFile *.go setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup End
 
+" Windows Subsystem for Linux で、ヤンクでクリップボードにコピー
+if system('uname -a | grep Microsoft') != ''
+  augroup MyVimrc
+  autocmd!
+  autocmd TextYankPost * :call system('clip.exe', @")
+  augroup END
+endif
 
 " autoindentを解除
 " set noautoindent
