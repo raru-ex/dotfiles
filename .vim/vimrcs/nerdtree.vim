@@ -37,6 +37,9 @@ let g:NERDTreeMapOpenVSplit = 'v'
 " 不可視ファイルを表示 (Shift+i)
 let NERDTreeShowHidden = 0
 
+" node moduleのloadが重すぎるのでignore
+let g:NERDTreeIgnore = ['^node_modules$']
+
 " デフォルトでは開かないようにコメントアウト
 " let g:nerdtree_tabs_open_on_console_startup=1
 

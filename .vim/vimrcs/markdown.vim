@@ -12,7 +12,7 @@ function! Mdpdf() abort
   if expand('%:e') != 'md'
     return
   endif
-  let l:command = 'mdpdf ' . expand('%:p')
+  let l:command = 'mdpdf ' . expand('%:p') . ' --format=A3'
   call system(l:command)
   call system('open ' . expand('%:r') . '.pdf')
 endfunction
