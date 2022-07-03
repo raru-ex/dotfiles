@@ -15,7 +15,7 @@ on_ft = ['javascript', 'typescript', 'typescriptreact', 'javascriptreact']
 
 [[plugins]]
 repo = 'peitalin/vim-jsx-typescript'
-on_ft = ['javascript', 'typescript', 'typescriptreact', 'javascriptreact']
+on_ft = ['javascript', 'typescript', 'typescriptreact']
 
 [[plugins]]
 repo = 'othree/es.next.syntax.vim'
