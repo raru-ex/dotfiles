@@ -8,7 +8,6 @@ let g:coc_global_extensions = [
   		\'coc-json',
   		\'coc-go',
   		\'coc-angular',
-" 		\'coc-metals',
   		\'coc-python',
   		\'coc-yaml',
   		\'coc-word',
