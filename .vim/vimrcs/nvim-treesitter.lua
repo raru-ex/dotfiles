@@ -3,8 +3,6 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     disable = {
     },
-    ensure_installed = {
-      "all"
-    },
-  }
+  },
+  ensure_installed = { "go", "html", "json", "markdown", "scala", "scss", "sql", "toml", "tsx", "typescript", "vim", "yaml"},
 }
