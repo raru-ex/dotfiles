@@ -25,5 +25,10 @@
   "metals.showImplicitArguments": true,
   "codeLens.enable": true,
   "suggest.timeout": 5000,
-  "python.jediEnabled": false
+  "python.jediEnabled": false,
+  "typescript.implementationsCodeLens.enable": false,
+  "typescript.referencesCodeLens.enable": false,
+  "javascript.implementationsCodeLens.enable": false,
+  "javascript.referencesCodeLens.enable": false
+
 }

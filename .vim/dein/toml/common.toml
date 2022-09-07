@@ -1,5 +1,4 @@
 # [dein.toml]
-
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -68,11 +67,9 @@ hook_add = '''
 '''
 
 # indent ------------
-
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 hook_add = '''
   source ~/.vim/vimrcs/indent_guide.vim
 '''
-
 
