@@ -12,7 +12,6 @@ autocmd MyVimrc BufRead,BufNewFile *.scala.html   setfiletype=twirl
 autocmd MyVimrc BufRead,BufNewFile *.conf         setfiletype=conf
 autocmd MyVimrc BufRead,BufNewFile *routes        setfiletype=routes
 
-autocmd MyVimrc BufRead,BufNewFile *.md           setfiletype=markdown
 autocmd MyVimrc BufNewFile,BufRead *.{ts}         setfiletype=typescript
 autocmd MyVimrc BufNewFile,BufRead *.{js}         setfiletype=javascript
 

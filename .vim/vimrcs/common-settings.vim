@@ -36,6 +36,8 @@ set shiftwidth=2
 set visualbell
 set t_vb=
 
+runtime! vimrcs/filetypes.vim
+
 " スクロールするときに余力を残す
 augroup MyVimrc
   autocmd BufRead,BufNewFile,WinEnter * execute "setlocal scrolloff=" . str2nr(string(floor((line('w$') - line('w0')) * 0.20)))
@@ -133,7 +135,6 @@ nnoremap <Esc><Esc> :noh<CR>
 command! CopyRelativePath
  \ let @*=join(remove( split( expand( '%:p' ), "/" ), len( split( getcwd(), "/" ) ), -1 ), "/") | echo "copied"
 
-runtime! vimrcs/filetypes.vim
 
 " gitignoreを分割したものを一つにまとめる自動処理
 autocmd MyVimrc BufWritePre *.ignore_partial :!sh ~/dotfiles/bin/build_global_gitignore.sh
