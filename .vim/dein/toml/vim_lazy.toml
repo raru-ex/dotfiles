@@ -3,3 +3,42 @@
 repo = 'mattn/vim-treesitter'
 on_ft = 'go'
 
+
+# Scala ----------
+[[plugins]]
+repo = 'derekwyatt/vim-scala'
+on_ft = 'scala'
+
+[[plugins]]
+repo = 'gre/play2vim'
+on_ft = ['conf', 'twirl', 'routes']
+on_source = ['vim-scala']
+
+# Typescript, Javascript ----------
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = ['javascript', 'typescript', 'typescriptreact', 'javascriptreact']
+
+[[plugins]]
+repo = 'peitalin/vim-jsx-typescript'
+on_ft = ['javascript', 'typescript', 'typescriptreact']
+
+[[plugins]]
+repo = 'othree/es.next.syntax.vim'
+on_ft = ['javascript', 'typescript', 'typescriptreact', 'javascriptreact']
+
+[[plugins]]
+repo = 'othree/javascript-libraries-syntax.vim'
+on_ft = ['javascript', 'typescript', 'typescriptreact', 'javascriptreact']
+hook_post_source = '''
+  source ~/.vim/vimrcs/typescript.vim
+'''
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+on_ft = ['ruby']
+
+[[plugins]]
+repo = 'slim-template/vim-slim'
+on_ft = ['ruby', 'slim']
+

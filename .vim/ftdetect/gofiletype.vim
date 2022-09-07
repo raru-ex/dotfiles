@@ -5,8 +5,8 @@ let s:cpo_save = &cpo
 set cpo&vim
 
 " Note: should not use augroup in ftdetect (see :help ftdetect)
-au BufRead,BufNewFile *.go setfiletype go
-au BufRead,BufNewFile *.s setfiletype asm
+au BufRead,BufNewFile *.go set filetype go
+au BufRead,BufNewFile *.s set filetype asm
 au BufRead,BufNewFile *.tmpl set filetype=gohtmltmpl
 au BufRead,BufNewFile go.sum set filetype=gosum
 
@@ -27,7 +27,7 @@ fun! s:gomod()
     endif
 
     if l:l =~# '^module .\+'
-      setfiletype gomod
+      set filetype gomod
     endif
 
     break

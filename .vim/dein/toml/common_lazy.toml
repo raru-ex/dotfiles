@@ -1,39 +1,3 @@
-# Scala ----------
-[[plugins]]
-repo = 'derekwyatt/vim-scala'
-on_ft = 'scala'
-
-[[plugins]]
-repo = 'gre/play2vim'
-on_ft = ['conf', 'twirl', 'routes']
-on_source = ['vim-scala']
-
-# Typescript, Javascript ----------
-[[plugins]]
-repo = 'pangloss/vim-javascript'
-on_ft = ['javascript', 'typescript', 'typescriptreact', 'javascriptreact']
-
-[[plugins]]
-repo = 'peitalin/vim-jsx-typescript'
-on_ft = ['javascript', 'typescript', 'typescriptreact']
-
-[[plugins]]
-repo = 'othree/es.next.syntax.vim'
-on_ft = ['javascript', 'typescript', 'typescriptreact', 'javascriptreact']
-
-[[plugins]]
-repo = 'othree/javascript-libraries-syntax.vim'
-on_ft = ['javascript', 'typescript', 'typescriptreact', 'javascriptreact']
-hook_post_source = '''
-  source ~/.vim/vimrcs/typescript.vim
-'''
-
-# HTML, CSS,etc ----------
-# pug syntax
-[[plugins]]
-repo = 'digitaltoad/vim-pug'
-on_ft = 'pug'
-
 # Markdown
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
@@ -58,15 +22,6 @@ on_ft = ['uml']
 hook_add = '''
   source ~/.vim/vimrcs/preview-uml.vim
 '''
-
-[[plugins]]
-repo = 'tpope/vim-rails'
-on_ft = ['ruby']
-
-
-[[plugins]]
-repo = 'slim-template/vim-slim'
-on_ft = ['ruby', 'slim']
 
 # Golang ----------
 [[plugins]]

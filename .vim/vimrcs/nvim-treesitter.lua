@@ -4,5 +4,5 @@ require'nvim-treesitter.configs'.setup {
     disable = {
     },
   },
-  ensure_installed = { "go", "html", "json", "markdown", "scala", "scss", "sql", "toml", "tsx", "typescript", "vim", "yaml"},
+  ensure_installed = { "go", "html", "json", "markdown", "scala", "scss", "sql", "toml", "tsx", "typescript", "vim", "yaml", "javascript", "ruby"},
 }
