@@ -13,3 +13,6 @@
   diffFilter = delta --color-only
 
 
+[user]
+	name = raru-ex
+	email = raru@syrup16g.net
