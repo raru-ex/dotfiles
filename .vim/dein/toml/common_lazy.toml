@@ -76,6 +76,7 @@ hook_add = '''
   source ~/.vim/vimrcs/go-import.vim
 '''
 
+[[plugins]]
 repo = 'fatih/vim-go'
 on_ft = 'go'
 hook_add = '''

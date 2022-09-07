@@ -1,2 +1,5 @@
-# Complete ----------
+# Golang
+[[plugins]]
+repo = 'mattn/vim-treesitter'
+on_ft = 'go'
 
