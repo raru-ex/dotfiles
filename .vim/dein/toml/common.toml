@@ -59,6 +59,12 @@ hook_add = '''
   source ~/dotfiles/.vim/vimrcs/fzf.vim
 '''
 
+[[plugins]]
+repo = 'FooSoft/vim-argwrap'
+hook_add = '''
+  source ~/dotfiles/.vim/vimrcs/vim-argwrap.vim
+'''
+
 # auto complete ----------
 # deopleteからcoc + lspに移行
 [[plugins]]

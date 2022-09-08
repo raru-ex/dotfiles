@@ -1,6 +1,6 @@
 
 nnoremap [nerd]   <Nop>
-nmap <Space>n [nerd]
+nmap <Leader>n [nerd]
 
 " NERDTreeTabsを利用するように変更
 nnoremap <silent><C-e> :NERDTreeTabsToggle<CR>

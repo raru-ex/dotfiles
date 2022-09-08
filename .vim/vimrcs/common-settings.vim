@@ -12,6 +12,7 @@ augroup END
 
 " filetypeを明示的に有効化
 filetype on
+runtime! vimrcs/filetypes.vim
 
 " ========== vim basic settings ==========
 " 記号等の表示が崩れるものに対応(有効にした方がむしろ崩れるので無効化)
@@ -36,7 +37,7 @@ set shiftwidth=2
 set visualbell
 set t_vb=
 
-runtime! vimrcs/filetypes.vim
+let mapleader = "\<Space>"
 
 " スクロールするときに余力を残す
 augroup MyVimrc

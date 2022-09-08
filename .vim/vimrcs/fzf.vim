@@ -7,5 +7,5 @@ command! -bang -nargs=* Rg
   \ : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%', '?'),
   \ <bang>0)
 
-nnoremap <C-g> :Rg<Space>
+nnoremap <C-g> :Rg<space>
 nnoremap <C-p> :Files<CR>

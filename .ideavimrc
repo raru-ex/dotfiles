@@ -44,7 +44,7 @@ nnoremap <C-p> :<C-u>action SearchEverywhere<CR>
 
 " 定義元へジャンプ
 nnoremap [coc] <Nop>
-nmap <Space>g [coc]
+nmap <Leader>g [coc]
 
 nmap [coc]d :<C-u>action GotoDeclaration<CR>
 nmap [coc]n :<C-u>action RenameElement<CR>
@@ -56,6 +56,6 @@ nnoremap <C-t> :<C-u>action ActivateTerminalToolWindow<CR>
 nnoremap <C-e> : :<C-u>action SelectIn<CR>
 
 nnoremap [nerd]   <Nop>
-nmap <Space>n [nerd]
+nmap <Leader>n [nerd]
 
 

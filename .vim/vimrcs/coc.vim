@@ -69,7 +69,7 @@ nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
 " coc用の定義
 nnoremap [coc]   <Nop>
-nmap <Space>g [coc]
+nmap <Leader>g [coc]
 
 " Remap keys for gotos
 " intellijに合わせて設定
@@ -89,7 +89,7 @@ nmap gf  <Plug>(coc-format-selected)
 nnoremap <silent> [coc]l :<C-u>call CocActionAsync('codeLensAction')<CR>
 
 " Remap for do codeAction of current line
-" nmap <space>ac <Plug>(coc-codeaction)
+" nmap <Leader>ac <Plug>(coc-codeaction)
 
 " Show all diagnostics(error)
 nnoremap <silent> [coc]e  :<C-u>CocList diagnostics<cr>
