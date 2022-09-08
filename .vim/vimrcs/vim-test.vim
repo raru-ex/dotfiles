@@ -1,6 +1,6 @@
 let test#go#runner = 'gotest'
 if has('nvim')
-  let test#strategy = "neovim"
+  let test#strategy = "neoterm"
 else
   let test#strategy = "vimterminal"
 endif

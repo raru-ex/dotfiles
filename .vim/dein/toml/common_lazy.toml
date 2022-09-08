@@ -31,6 +31,13 @@ hook_add = '''
   source ~/.vim/vimrcs/go-import.vim
 '''
 
+[[plugins]]
+repo = '110y/vim-go-expr-completion'
+on_ft = ['go']
+hook_add = '''
+  nnoremap <silent> ge :<C-u>silent call go#expr#complete()<CR>
+'''
+
 # test tool -----------
 [[plugins]]
 repo = 'vim-test/vim-test'
