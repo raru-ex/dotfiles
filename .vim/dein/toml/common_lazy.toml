@@ -31,9 +31,19 @@ hook_add = '''
   source ~/.vim/vimrcs/go-import.vim
 '''
 
+# test tool -----------
 [[plugins]]
-repo = 'fatih/vim-go'
-on_ft = 'go'
+repo = 'vim-test/vim-test'
+on_ft = ['go']
 hook_add = '''
-  source ~/.vim/vimrcs/vim-go.vim
+  source ~/.vim/vimrcs/vim-test.vim
 '''
+
+[[plugins]]
+repo = 'buoto/gotests-vim'
+on_ft = ['go']
+hook_add = '''
+  source ~/.vim/vimrcs/gotests-vim.vim
+'''
+
+
