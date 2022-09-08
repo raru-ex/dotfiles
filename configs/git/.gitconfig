@@ -14,5 +14,7 @@
 
 
 [user]
-	name = raru-ex
-	email = raru@syrup16g.net
+	name = Yabusaki Takumi
+	email = t.yabusaki@v-standard.com
+[pull]
+	rebase = false

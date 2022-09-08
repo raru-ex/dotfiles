@@ -34,9 +34,11 @@ hook_add = '''
 
 # ColorSheme ----------
 [[plugins]]
-repo = 'joshdick/onedark.vim'
+repo = 'flazz/vim-colorschemes'
 hook_add = '''
-  source ~/.vim/vimrcs/onedark.vim
+augroup MyVimrc
+  autocmd VimEnter * nested colorscheme hybrid
+augroup End
 '''
 
 # Common Editor ----------
