@@ -11,6 +11,7 @@ let g:neoterm_default_mod='belowright'
 " 起動するwindowのサイズを指定
 let g:neoterm_size=20
 
+tnoremap <Esc> <C-\><C-n>
 " :Tnew 実行
 nnoremap <silent> <C-t><C-t> :Ttoggle<CR>
 " :Tnew 実行(縦分割) power lineが壊れるので使わない
