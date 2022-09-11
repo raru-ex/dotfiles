@@ -15,7 +15,7 @@ go install golang.org/x/lint/golint@latest
 go install github.com/motemen/gore/cmd/gore@latest
 go install github.com/mdempsky/gocode@latest
 go install github.com/k0kubun/pp@latest
-go install github.com/cweill/gotests/...
+go install github.com/cweill/gotests/...@latest
 go install github.com/110y/go-expr-completion@latest
 echo "[INFO] Finished"
 
