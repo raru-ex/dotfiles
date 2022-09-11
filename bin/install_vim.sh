@@ -17,11 +17,12 @@ fi
 
 if ! type nodenv -a type git > /dev/null 2>&1; then
   echo "[INFO] install nodenv"
-  git clone git://github.com/nodenv/nodenv.git ~/.nodenv
+  git clone https://github.com/nodenv/nodenv.git ~/.nodenv
   mkdir -p ~/.nodenv/plugins
   git clone https://github.com/nodenv/node-build.git ~/.nodenv/plugins/node-build
   git clone https://github.com/nodenv/node-build-update-defs.git ~/.nodenv/plugins/node-build-update-defs
-  echo "[INFO] nodenv is installed. please install, nodejs"
+  git clone https://github.com/nodenv/node-build.git ~/.nodenv/plugins/node-build
+  echo "[INFO] nodenv is installed. please install, nodejs and install plugin 'https://github.com/nodenv/nodenv-update.git'"
 else
   echo "[INFO] skip install nodenv"
 fi
