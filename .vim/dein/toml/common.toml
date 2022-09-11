@@ -39,8 +39,13 @@ hook_add = '''
 [[plugins]]
 repo = 'flazz/vim-colorschemes'
 hook_add = '''
+'''
+
+[[plugins]]
+repo = 'doums/darcula'
+hook_add ='''
 augroup MyVimrc
-  autocmd VimEnter * nested colorscheme gruvbox
+  autocmd VimEnter * nested colorscheme darcula
 augroup End
 '''
 

@@ -113,7 +113,7 @@ syntax on
 " vimではこれがあるとcolorが死ぬ
 if has('nvim')
   " onedark on tmuxだとこれを設定しない方が正しい色になる
-  " set termguicolors
+  set termguicolors
 endif
 
 " yankをクリップボードに
