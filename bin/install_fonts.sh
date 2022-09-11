@@ -12,6 +12,11 @@ if type brew > /dev/null 2>&1; then
     cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
     fc-cache -vf
     echo "[INFO] Ricty font install finished"
+
+    echo "[INFO] Install Nerdfonts"
+    brew tap homebrew/cask-fonts
+    brew install --cask font-jetbrains-mono-nerd-font
+    echo "[INFO] Finish Nerdfonts"
   elif [ -n "$(which wslpath)" ]; then
     echo "[INFO] Please Install hakugen or other fonts"
   elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then

@@ -20,6 +20,9 @@ hook_add = '''
 [[plugins]]
 repo = 'Xuyuanp/nerdtree-git-plugin'
 
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
 # Git ----------
 # vimで差分(+, -)を左側に表示
 [[plugins]]
