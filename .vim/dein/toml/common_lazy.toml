@@ -3,7 +3,7 @@
 repo = 'plasticboy/vim-markdown'
 depends = ['previm', 'tabular']
 on_ft = ['md', 'mkd']
-hook_add = '''
+hook_source = '''
   source ~/.vim/vimrcs/markdown.vim
 '''
 
@@ -19,7 +19,7 @@ on_ft = ['md', 'mkd']
 [[plugins]]
 repo = 'skanehira/preview-uml.vim'
 on_ft = ['uml']
-hook_add = '''
+hook_source = '''
   source ~/.vim/vimrcs/preview-uml.vim
 '''
 
@@ -27,14 +27,14 @@ hook_add = '''
 [[plugins]]
 repo = 'mattn/vim-goimports'
 on_ft = ['go']
-hook_add = '''
+hook_source = '''
   source ~/.vim/vimrcs/go-import.vim
 '''
 
 [[plugins]]
 repo = '110y/vim-go-expr-completion'
 on_ft = ['go']
-hook_add = '''
+hook_source = '''
   nnoremap <silent> ge :<C-u>silent call go#expr#complete()<CR>
 '''
 
@@ -42,14 +42,14 @@ hook_add = '''
 [[plugins]]
 repo = 'vim-test/vim-test'
 on_ft = ['go']
-hook_add = '''
+hook_source = '''
   source ~/.vim/vimrcs/vim-test.vim
 '''
 
 [[plugins]]
 repo = 'buoto/gotests-vim'
 on_ft = ['go']
-hook_add = '''
+hook_source = '''
   source ~/.vim/vimrcs/gotests-vim.vim
 '''
 

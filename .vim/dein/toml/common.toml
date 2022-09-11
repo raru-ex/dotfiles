@@ -35,11 +35,10 @@ hook_add = '''
   source ~/.vim/vimrcs/airline.vim
 '''
 
+# darcula使ううちは無駄なのでコメントアウト
 # ColorSheme ----------
-[[plugins]]
-repo = 'flazz/vim-colorschemes'
-hook_add = '''
-'''
+# [[plugins]]
+# repo = 'flazz/vim-colorschemes'
 
 [[plugins]]
 repo = 'doums/darcula'
