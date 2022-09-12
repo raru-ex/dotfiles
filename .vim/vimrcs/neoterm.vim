@@ -11,7 +11,8 @@ let g:neoterm_default_mod='belowright'
 " 起動するwindowのサイズを指定
 let g:neoterm_size=20
 
-tnoremap <Esc> <C-\><C-n>
+" cocなどのwindowもterminalで、動作がおかしくなるので消す
+" tnoremap <Esc> <C-\><C-n>
 tnoremap <C-w>k <C-\><C-n><C-w>k
 tnoremap <C-w>j <C-\><C-n><C-w>j
 tnoremap <C-w>h <C-\><C-n><C-w>h
