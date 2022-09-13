@@ -8,6 +8,9 @@ if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
 endif
 
+" cursorの設定
+set guicursor=n-v-c:block,i:ver1
+
 set encoding=utf-8
 " マルチコードに対応
 scriptencoding utf-8
