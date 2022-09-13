@@ -70,7 +70,6 @@ augroup End
 " Windows Subsystem for Linux で、ヤンクでクリップボードにコピー
 if system('uname -a | grep Microsoft') != ''
   augroup MyVimrc
-  autocmd!
   autocmd TextYankPost * :call system('clip.exe', @")
   augroup END
 endif
