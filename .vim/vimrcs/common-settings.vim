@@ -26,6 +26,9 @@ augroup END
 filetype on
 runtime! vimrcs/filetypes.vim
 
+" ================ 各言語固有設定 ===========
+runtime! vimrcs/go.vim
+
 " ========== vim basic settings ==========
 " 記号等の表示が崩れるものに対応(有効にした方がむしろ崩れるので無効化)
 " set ambiwidth=double
@@ -70,7 +73,6 @@ augroup End
 " Windows Subsystem for Linux で、ヤンクでクリップボードにコピー
 if system('uname -a | grep Microsoft') != ''
   augroup MyVimrc
-  autocmd!
   autocmd TextYankPost * :call system('clip.exe', @")
   augroup END
 endif

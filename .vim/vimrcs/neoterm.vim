@@ -19,7 +19,6 @@ tnoremap <C-w>h <C-\><C-n><C-w>h
 tnoremap <C-w>l <C-\><C-n><C-w>l
 
 augroup MyVimrc
-  autocmd!
   autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
 augroup End
 
