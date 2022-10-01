@@ -9,3 +9,16 @@ command! -bang -nargs=* Rg
 
 nnoremap <C-g> :Rg<space>
 nnoremap <C-p> :Files<CR>
+
+
+" 参考: https://zenn.dev/ktakayama/articles/19551f703fe7c0
+command! -bang FzfGitBranchFiles
+  \ call fzf#run({'source':
+  \   "git diff --name-only $(git show-branch --sha1-name $(git symbolic-ref --short refs/remotes/origin/HEAD) $(git rev-parse --abbrev-ref HEAD) | tail -1 | awk -F'[]~^[]' '{print $2}')",
+  \   'sink': 'e',
+  \   'options': '-m --prompt "GitBranchFiles>" --preview "bat --color=always  {}"',
+  \   'window': { 'width': 0.8, 'height': 0.6 }
+  \   })
+
+
+nnoremap <C-d> :FzfGitBranchFiles<CR>
