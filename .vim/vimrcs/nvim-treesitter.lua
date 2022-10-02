@@ -5,7 +5,7 @@ require'nvim-treesitter.configs'.setup {
     },
   },
   indent = {
-    enable = true,
+    enable = true
   },
   ensure_installed = { "go", "html", "json", "markdown", "scala", "scss", "sql", "toml", "tsx", "typescript", "vim", "yaml", "javascript", "ruby"},
 }

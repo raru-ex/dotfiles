@@ -1,8 +1,8 @@
 # Markdown
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
-depends = ['previm', 'tabular']
-on_ft = ['md', 'mkd']
+depends = ['tabular']
+on_ft = ['md', 'mkd', 'markdown']
 hook_source = '''
   source ~/.vim/vimrcs/markdown.vim
 '''
@@ -10,7 +10,7 @@ hook_source = '''
 [[plugins]]
 repo = 'godlygeek/tabular'
 on_source = 'vim-markdown'
-on_ft = ['md', 'mkd']
+on_ft = ['md', 'mkd', 'markdown']
 
 # md previewには以下を使いたい
 # https://github.com/iamcco/markdown-preview.nvim
