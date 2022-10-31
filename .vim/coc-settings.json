@@ -16,6 +16,10 @@
       "settings": {}
     }
   },
+   // diagnostic-languageserver
+  "diagnostic-languageserver.filetypes": {
+    "go": ["golangci-lint"]
+  },
   "codeLens.enable": true,
   "suggest.timeout": 5000,
   "python.jediEnabled": false,
