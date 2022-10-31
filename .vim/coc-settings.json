@@ -16,7 +16,8 @@
       "settings": {}
     }
   },
-   // diagnostic-languageserver
+  // diagnostic-languageserver
+  // 参考サイトのようにlspの記述で書いた方が今後良さそう: https://nametake.github.io/posts/2020/02/26/migration-diagnostic-languageserver/
   "diagnostic-languageserver.filetypes": {
     "go": ["golangci-lint"]
   },
