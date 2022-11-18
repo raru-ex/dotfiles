@@ -12,6 +12,7 @@ let g:coc_global_extensions = [
   		\'coc-yaml',
   		\'coc-word',
   		\'coc-tailwindcss',
+  		\'coc-diagnostic',
 			\]
 
 " if hidden is not set, TextEdit might fail.
