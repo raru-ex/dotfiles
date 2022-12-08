@@ -34,8 +34,5 @@ ln -nfs ~/dotfiles/.vim ~/.vim
 # nvim
 mkdir -p ~/.config/
 ln -nfs ~/dotfiles/.config/nvim ~/.config/nvim
-curl -fLo ~/.local/share/nvim/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
-git clone --depth 1 https://github.com/wbthomason/packer.nvim  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
 
 echo "[INFO] Create vim symlinks finished"
