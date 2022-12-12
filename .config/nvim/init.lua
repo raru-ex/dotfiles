@@ -1,2 +1,1 @@
-require('jetpack')
 require('plugins')

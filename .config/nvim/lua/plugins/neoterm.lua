@@ -5,9 +5,9 @@ vim.api.nvim_set_var('neoterm_autoinsert', 1)
 vim.api.nvim_set_var('neoterm_autoscroll', 1)
 
 -- 縦分割する
-vim.api.nvim_set_var('neoterm_default_mod', 'vertical')
+-- vim.api.nvim_set_var('neoterm_default_mod', 'vertical')
 -- 横分割する
--- vim.api.nvim_set_var('neoterm_default_mod', 'belowright')
+vim.api.nvim_set_var('neoterm_default_mod', 'belowright')
 
 -- 起動するwindowのサイズを指定
 vim.api.nvim_set_var('neoterm_size', 20)
