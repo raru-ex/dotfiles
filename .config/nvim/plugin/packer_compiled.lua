@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/Users/raru/.local/share/nvim/site/pack/packer/start/neoterm",
     url = "https://github.com/kassio/neoterm"
   },
+  nerdtree = {
+    loaded = true,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/nerdtree",
+    url = "https://github.com/scrooloose/nerdtree"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/Users/raru/.local/share/nvim/site/pack/packer/start/nvim-treesitter",

@@ -20,5 +20,11 @@ return require('packer').startup(function(use)
 
   -- vimrc plugins
   use { 'kassio/neoterm', config = config.load 'neoterm'}
+  use { 'scrooloose/nerdtree', config = config.load 'nerdtree'}
+  use { 'jistr/vim-nerdtree-tabs', requires = {'scrooloose/nerdtree'}, config = config.load 'nerdtree-tabs'}
+  use { 'Xuyuanp/nerdtree-git-plugin' }
+  use 'ryanoasis/vim-devicons'
+  use 'airblade/vim-gitgutter'
+
 end)
 
