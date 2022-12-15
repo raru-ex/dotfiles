@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  darcula = {
+    loaded = true,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/darcula",
+    url = "https://github.com/doums/darcula"
+  },
   neoterm = {
     loaded = true,
     path = "/Users/raru/.local/share/nvim/site/pack/packer/start/neoterm",
@@ -83,6 +88,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/raru/.local/share/nvim/site/pack/packer/start/nerdtree",
     url = "https://github.com/scrooloose/nerdtree"
+  },
+  ["nerdtree-git-plugin"] = {
+    loaded = true,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/nerdtree-git-plugin",
+    url = "https://github.com/Xuyuanp/nerdtree-git-plugin"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -94,6 +104,26 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/Users/raru/.local/share/nvim/site/pack/packer/opt/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["vim-airline"] = {
+    loaded = true,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/vim-airline",
+    url = "https://github.com/vim-airline/vim-airline"
+  },
+  ["vim-devicons"] = {
+    loaded = true,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/vim-devicons",
+    url = "https://github.com/ryanoasis/vim-devicons"
+  },
+  ["vim-gitgutter"] = {
+    loaded = true,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
+    url = "https://github.com/airblade/vim-gitgutter"
+  },
+  ["vim-nerdtree-tabs"] = {
+    loaded = true,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/vim-nerdtree-tabs",
+    url = "https://github.com/jistr/vim-nerdtree-tabs"
   }
 }
 
