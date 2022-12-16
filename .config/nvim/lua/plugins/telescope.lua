@@ -5,7 +5,8 @@ if ok then
   vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
   vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
   vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {})
-  vim.keymap.set('n', '<leader>gc', builtin.git_bcommits, {})
+  vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
+  vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
 
   require('telescope').setup{
     defaults = {

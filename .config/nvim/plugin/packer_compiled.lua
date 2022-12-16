@@ -74,10 +74,10 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  darcula = {
+  ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/darcula",
-    url = "https://github.com/doums/darcula"
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["gotests-vim"] = {
     loaded = false,
@@ -85,6 +85,16 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/Users/raru/.local/share/nvim/site/pack/packer/opt/gotests-vim",
     url = "https://github.com/buoto/gotests-vim"
+  },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
   },
   neoterm = {
     loaded = true,
@@ -100,6 +110,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/raru/.local/share/nvim/site/pack/packer/start/nerdtree-git-plugin",
     url = "https://github.com/Xuyuanp/nerdtree-git-plugin"
+  },
+  ["nvim-cmp"] = {
+    loaded = true,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -126,6 +146,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/raru/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["vim-airline"] = {
     loaded = true,
@@ -197,10 +222,10 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType mkd ++once lua require("packer.load")({'vim-markdown'}, { ft = "mkd" }, _G.packer_plugins)]]
-vim.cmd [[au FileType go ++once lua require("packer.load")({'vim-go-expr-completion', 'vim-goimports', 'vim-test', 'gotests-vim'}, { ft = "go" }, _G.packer_plugins)]]
 vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-markdown'}, { ft = "markdown" }, _G.packer_plugins)]]
 vim.cmd [[au FileType md ++once lua require("packer.load")({'vim-markdown'}, { ft = "md" }, _G.packer_plugins)]]
+vim.cmd [[au FileType mkd ++once lua require("packer.load")({'vim-markdown'}, { ft = "mkd" }, _G.packer_plugins)]]
+vim.cmd [[au FileType go ++once lua require("packer.load")({'vim-test', 'vim-goimports', 'gotests-vim', 'vim-go-expr-completion'}, { ft = "go" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
