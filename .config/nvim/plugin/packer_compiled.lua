@@ -79,6 +79,13 @@ _G.packer_plugins = {
     path = "/Users/raru/.local/share/nvim/site/pack/packer/start/darcula",
     url = "https://github.com/doums/darcula"
   },
+  ["gotests-vim"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/opt/gotests-vim",
+    url = "https://github.com/buoto/gotests-vim"
+  },
   neoterm = {
     loaded = true,
     path = "/Users/raru/.local/share/nvim/site/pack/packer/start/neoterm",
@@ -110,6 +117,11 @@ _G.packer_plugins = {
     path = "/Users/raru/.local/share/nvim/site/pack/packer/start/vim-airline",
     url = "https://github.com/vim-airline/vim-airline"
   },
+  ["vim-argwrap"] = {
+    loaded = true,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/vim-argwrap",
+    url = "https://github.com/FooSoft/vim-argwrap"
+  },
   ["vim-devicons"] = {
     loaded = true,
     path = "/Users/raru/.local/share/nvim/site/pack/packer/start/vim-devicons",
@@ -120,14 +132,67 @@ _G.packer_plugins = {
     path = "/Users/raru/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
     url = "https://github.com/airblade/vim-gitgutter"
   },
+  ["vim-go-expr-completion"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/opt/vim-go-expr-completion",
+    url = "https://github.com/110y/vim-go-expr-completion"
+  },
+  ["vim-goimports"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/opt/vim-goimports",
+    url = "https://github.com/mattn/vim-goimports"
+  },
+  ["vim-indent-guides"] = {
+    loaded = true,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/vim-indent-guides",
+    url = "https://github.com/nathanaelkane/vim-indent-guides"
+  },
+  ["vim-markdown"] = {
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/opt/vim-markdown",
+    url = "https://github.com/plasticboy/vim-markdown"
+  },
   ["vim-nerdtree-tabs"] = {
     loaded = true,
     path = "/Users/raru/.local/share/nvim/site/pack/packer/start/vim-nerdtree-tabs",
     url = "https://github.com/jistr/vim-nerdtree-tabs"
+  },
+  ["vim-test"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/opt/vim-test",
+    url = "https://github.com/vim-test/vim-test"
+  },
+  ["vim-trailing-whitespace"] = {
+    loaded = true,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/vim-trailing-whitespace",
+    url = "https://github.com/bronson/vim-trailing-whitespace"
   }
 }
 
 time([[Defining packer_plugins]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-markdown'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType md ++once lua require("packer.load")({'vim-markdown'}, { ft = "md" }, _G.packer_plugins)]]
+vim.cmd [[au FileType mkd ++once lua require("packer.load")({'vim-markdown'}, { ft = "mkd" }, _G.packer_plugins)]]
+vim.cmd [[au FileType go ++once lua require("packer.load")({'vim-test', 'vim-goimports', 'vim-go-expr-completion', 'gotests-vim'}, { ft = "go" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
+vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /Users/raru/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]], true)
+vim.cmd [[source /Users/raru/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]]
+time([[Sourcing ftdetect script at: /Users/raru/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
