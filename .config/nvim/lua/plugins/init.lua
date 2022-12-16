@@ -21,23 +21,34 @@ return require('packer').startup(function(use)
   -- vimrc plugins
   -- TODO: 変更候補neoterm, nerdtree, vim-airline, coc
   use { 'kassio/neoterm', config = config.load 'neoterm'}
-  use { 'scrooloose/nerdtree', config = config.load 'nerdtree'}
-  use { 'jistr/vim-nerdtree-tabs', requires = {'scrooloose/nerdtree'}, config = config.load 'nerdtree-tabs'}
+  use { 'scrooloose/nerdtree',
+    requires = { 'jistr/vim-nerdtree-tabs', config = config.load 'nerdtree-tabs' },
+    config = config.load 'nerdtree',
+  }
   use { 'Xuyuanp/nerdtree-git-plugin' }
   use 'ryanoasis/vim-devicons'
   use 'airblade/vim-gitgutter'
   use 'vim-airline/vim-airline'
   use 'bronson/vim-trailing-whitespace'
   -- use 'folke/tokyonight.nvim'
-  use { 'doums/darcula', config.load 'darcula' }
-  use { 'FooSoft/vim-argwrap', config.load 'arg-wrap'}
-  use { 'nathanaelkane/vim-indent-guides', config.load 'indent-guide'}
+  use { 'doums/darcula', config = config.load 'darcula' }
+  use { 'FooSoft/vim-argwrap', config = config.load 'arg-wrap'}
+  use { 'nathanaelkane/vim-indent-guides', config = config.load 'indent-guide'}
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    -- or                            , branch = '0.1.x',
+    requires = {
+      {'nvim-lua/plenary.nvim'},
+      {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    },
+    config = config.load 'telescope'
+  }
 
   -- lazy
-  use { 'plasticboy/vim-markdown', config.load 'markdown', ft = { 'md', 'mkd', 'markdown' } }
-  use { 'mattn/vim-goimports', config.load 'go-imports', ft = { 'go' }}
-  use { '110y/vim-go-expr-completion', config.load 'go-expr-completion', ft = { 'go' }}
-  use { 'vim-test/vim-test', config.load 'vim-test', ft = { 'go' }}
-  use { 'buoto/gotests-vim', config.load 'gotests-vim', ft = { 'go' }}
+  use { 'plasticboy/vim-markdown', config = config.load 'markdown', ft = { 'md', 'mkd', 'markdown' } }
+  use { 'mattn/vim-goimports', config = config.load 'go-imports', ft = { 'go' }}
+  use { '110y/vim-go-expr-completion', config = config.load 'go-expr-completion', ft = { 'go' }}
+  use { 'vim-test/vim-test', config = config.load 'vim-test', ft = { 'go' }}
+  use { 'buoto/gotests-vim', config = config.load 'gotests-vim', ft = { 'go' }}
 end)
 
