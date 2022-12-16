@@ -30,10 +30,10 @@ return require('packer').startup(function(use)
   use 'airblade/vim-gitgutter'
   use 'vim-airline/vim-airline'
   use 'bronson/vim-trailing-whitespace'
-  use {
-    'folke/tokyonight.nvim',
-    -- config = scheme.setup 'tokyonight',
-  }
+  -- use {
+  --   'folke/tokyonight.nvim',
+  --   config = scheme.setup 'tokyonight',
+  -- }
   use {
     'doums/darcula',
     config = scheme.setup 'darcula'
