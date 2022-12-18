@@ -13,9 +13,27 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
     automatic_installation = true
   })
 
+
+  local function on_attach(client, bufnr)
+    -- Reference highlight
+    local cap = client.server_capabilities
+    if cap.documentHighlightProvider then
+      local augroup = vim.api.nvim_create_augroup("LspDocumentHighlight", { clear = true })
+      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.clear_references()
+          vim.lsp.buf.document_highlight()
+        end,
+      })
+    end
+  end
   mason_lspconfig.setup_handlers({
     function(server)
       local opt = {
+        on_attach = on_attach,
         capabilities = cmp_nvim_lsp.default_capabilities(
           vim.lsp.protocol.make_client_capabilities()
         )
@@ -47,29 +65,17 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
   vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
   )
 
-  -- Reference highlight
-  local augroup = vim.api.nvim_create_augroup("LspDocumentHighlight", { clear = false })
-  vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-  vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-    group = augroup,
-    buffer = bufnr,
-    callback = function()
-      vim.lsp.buf.clear_references()
-      vim.lsp.buf.document_highlight()
-    end,
-  })
-
   -- cmp
   cmp.setup({
     snippet = {
       expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body)
+        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
       end,
     },
     sources = {
       { name = "nvim_lsp" },
-      -- { name = "buffer" },
-      -- { name = "path" },
+      { name = "buffer" },
+      { name = "path" },
     },
     mapping = cmp.mapping.preset.insert({
       ["<S-TAB>"] = cmp.mapping.select_prev_item(),

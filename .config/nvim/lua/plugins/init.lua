@@ -9,7 +9,7 @@ autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup end
 ]])
 
--- TODO: 変更候補neoterm, nerdtree
+-- TODO: 変更候補neoterm
 return require('packer').startup(function(use)
   use { 'wbthomason/packer.nvim', opt = true }
 
@@ -23,12 +23,15 @@ return require('packer').startup(function(use)
   -- terminal
   use { 'kassio/neoterm', config = config.load 'neoterm' }
 
-  -- Finder, column effects
-  use { 'scrooloose/nerdtree',
-    requires = { 'jistr/vim-nerdtree-tabs', config = config.load 'nerdtree-tabs' },
-    config = config.load 'nerdtree',
+  -- filer
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+    config = config.load 'neotree',
+    tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
-  use 'Xuyuanp/nerdtree-git-plugin'
   use 'ryanoasis/vim-devicons'
   use { 'lewis6991/gitsigns.nvim', config = config.load 'gitsigns' }
 
@@ -38,6 +41,7 @@ return require('packer').startup(function(use)
     requires = {
       { 'kyazdani42/nvim-web-devicons', opt = true },
       { 'arkav/lualine-lsp-progress' },
+      { 'hrsh7th/vim-vsnip' }
     },
     config = config.load 'lualine'
   }

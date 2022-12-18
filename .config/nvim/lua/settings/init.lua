@@ -6,6 +6,9 @@ vim.cmd([[
   augroup END
 ]])
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.o.guifont = 'JetBrainsMono Nerd Font'
 vim.o.guicursor = 'n-v-c:block,i:ver1'
 -- マルチコードに対応
