@@ -9,7 +9,7 @@ autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup end
 ]])
 
--- TODO: 変更候補neoterm, nerdtree, vim-airline, coc
+-- TODO: 変更候補neoterm, nerdtree
 return require('packer').startup(function(use)
   use { 'wbthomason/packer.nvim', opt = true }
 
