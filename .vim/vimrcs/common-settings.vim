@@ -114,13 +114,6 @@ nnoremap x "_x
 
 syntax on
 
-" colorscheme darcula256
-" vimではこれがあるとcolorが死ぬ
-if has('nvim')
-  " onedark on tmuxだとこれを設定しない方が正しい色になる
-  set termguicolors
-endif
-
 " yankをクリップボードに
 set clipboard=unnamed
 

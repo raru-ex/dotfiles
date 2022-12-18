@@ -53,11 +53,7 @@ function! CheckBackspace() abort
 endfunction
 
 " Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <Nul> coc#refresh()
-endif
+inoremap <silent><expr> <Nul> coc#refresh()
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.

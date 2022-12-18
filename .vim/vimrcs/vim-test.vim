@@ -1,9 +1,5 @@
 let test#go#runner = 'gotest'
-if has('nvim')
-  let test#strategy = "neoterm"
-else
-  let test#strategy = "vimterminal"
-endif
+let test#strategy = "vimterminal"
 
 nnoremap <silent> <leader>tn :TestNearest<CR>
 nnoremap <silent> <leader>tf :TestFile<CR>

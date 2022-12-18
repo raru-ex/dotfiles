@@ -26,7 +26,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
     sudo apt update
     sudo apt-get install build-essential curl file git
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    
+
     echo "[INFO] check and set PATH"
     test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
     test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -36,7 +36,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   fi
 
   echo "[INFO] install any tools"
-  brew install git svn lazygit tree nvim vim ripgrep zsh git-delta golangci-lint jq bat
+  brew install git svn lazygit tree nvim vim ripgrep zsh git-delta golangci-lint jq bat wget
   echo "[INFO] finished"
 
 fi

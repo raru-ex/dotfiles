@@ -33,8 +33,7 @@ ln -nfs ~/dotfiles/.vimrc ~/.vimrc
 ln -nfs ~/dotfiles/.vim ~/.vim
 # nvim
 mkdir -p ~/.config/
-ln -nfs ~/dotfiles/.vim ~/.config/nvim
-ln -nfs ~/dotfiles/.vimrc ~/.config/nvim/init.vim
-
+ln -nfs ~/dotfiles/.config/nvim ~/.config/nvim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 echo "[INFO] Create vim symlinks finished"
