@@ -23,7 +23,7 @@ command! -bang FzfGitBranchFiles
 
 autocmd FileType fzf call s:fzf_settings()
 function! s:fzf_settings() abort
-  tnoremap <buffer><silent> <Esc> <Cmd>q<CR>
+  tnoremap <buffer><silent> <Esc> <C-d>
 endfunction
 
 nnoremap <C-d> :FzfGitBranchFiles<CR>

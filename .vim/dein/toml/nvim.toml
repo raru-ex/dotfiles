@@ -1,7 +1,0 @@
-# Terminal ----------
-[[plugins]]
-repo = 'kassio/neoterm'
-hook_add = '''
-  source ~/.vim/vimrcs/neoterm.vim
-'''
-
