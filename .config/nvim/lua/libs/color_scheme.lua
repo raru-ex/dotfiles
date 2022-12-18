@@ -7,7 +7,6 @@ function Module.setup(name)
   autocmd VimEnter * nested colorscheme %s
   augroup End
   ]], name))
-	require(fmt("plugins.%s", name))
 end
 
 return Module

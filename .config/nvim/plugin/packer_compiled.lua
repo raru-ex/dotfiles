@@ -74,10 +74,25 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  [".fzf"] = {
+    loaded = true,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/.fzf/fzf",
+    url = "/Users/raru/.fzf"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/Users/raru/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  darcula = {
+    loaded = true,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/darcula",
+    url = "https://github.com/doums/darcula"
+  },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   ["gotests-vim"] = {
     loaded = false,
@@ -85,6 +100,11 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/Users/raru/.local/share/nvim/site/pack/packer/opt/gotests-vim",
     url = "https://github.com/buoto/gotests-vim"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -147,11 +167,6 @@ _G.packer_plugins = {
     path = "/Users/raru/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["tokyonight.nvim"] = {
-    loaded = true,
-    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
-  },
   ["vim-airline"] = {
     loaded = true,
     path = "/Users/raru/.local/share/nvim/site/pack/packer/start/vim-airline",
@@ -167,11 +182,6 @@ _G.packer_plugins = {
     path = "/Users/raru/.local/share/nvim/site/pack/packer/start/vim-devicons",
     url = "https://github.com/ryanoasis/vim-devicons"
   },
-  ["vim-gitgutter"] = {
-    loaded = true,
-    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
-    url = "https://github.com/airblade/vim-gitgutter"
-  },
   ["vim-go-expr-completion"] = {
     loaded = false,
     needs_bufread = false,
@@ -186,10 +196,10 @@ _G.packer_plugins = {
     path = "/Users/raru/.local/share/nvim/site/pack/packer/opt/vim-goimports",
     url = "https://github.com/mattn/vim-goimports"
   },
-  ["vim-indent-guides"] = {
+  ["vim-illuminate"] = {
     loaded = true,
-    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/vim-indent-guides",
-    url = "https://github.com/nathanaelkane/vim-indent-guides"
+    path = "/Users/raru/.local/share/nvim/site/pack/packer/start/vim-illuminate",
+    url = "https://github.com/RRethy/vim-illuminate"
   },
   ["vim-markdown"] = {
     loaded = false,
@@ -218,14 +228,18 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Runtimepath customization
+time([[Runtimepath customization]], true)
+vim.o.runtimepath = vim.o.runtimepath .. ",/Users/raru/.local/share/nvim/site/pack/packer/start/.fzf/fzf"
+time([[Runtimepath customization]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType mkd ++once lua require("packer.load")({'vim-markdown'}, { ft = "mkd" }, _G.packer_plugins)]]
+vim.cmd [[au FileType go ++once lua require("packer.load")({'vim-test', 'gotests-vim', 'vim-go-expr-completion', 'vim-goimports'}, { ft = "go" }, _G.packer_plugins)]]
 vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-markdown'}, { ft = "markdown" }, _G.packer_plugins)]]
 vim.cmd [[au FileType md ++once lua require("packer.load")({'vim-markdown'}, { ft = "md" }, _G.packer_plugins)]]
-vim.cmd [[au FileType mkd ++once lua require("packer.load")({'vim-markdown'}, { ft = "mkd" }, _G.packer_plugins)]]
-vim.cmd [[au FileType go ++once lua require("packer.load")({'vim-test', 'vim-goimports', 'gotests-vim', 'vim-go-expr-completion'}, { ft = "go" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]

@@ -45,14 +45,11 @@ vim.o.splitright = true
 -- 大文字入力時には区別する
 vim.o.ignorecase = true
 vim.o.smartcase = true
-vim.o.directory='~/.vim/swap'
+vim.o.swapfile = false
 -- ビープ音を消す
 vim.o.visualbell = false
 -- yankをクリップボードに
 vim.o.clipboard = 'unnamed'
-
--- fzf
-vim.env.PATH = '~/.fzf' .. vim.env.PATH
 
 vim.keymap.set('v', 'x', [["_x]], { noremap = true})
 vim.keymap.set('n', 'x', [["_x]], { noremap = true})
