@@ -9,7 +9,6 @@ autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup end
 ]])
 
--- TODO: 変更候補neoterm
 return require('packer').startup(function(use)
   use { 'wbthomason/packer.nvim', opt = true }
 
@@ -21,7 +20,7 @@ return require('packer').startup(function(use)
   }
 
   -- terminal
-  use { 'kassio/neoterm', config = config.load 'neoterm' }
+  use {"akinsho/toggleterm.nvim", tag = '*', config = config.load 'toggleterm' }
 
   -- filer
   use {

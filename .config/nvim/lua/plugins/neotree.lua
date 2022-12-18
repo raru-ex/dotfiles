@@ -3,10 +3,10 @@ if ok then
   vim.keymap.set('n', '<Leader>nf', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
   vim.keymap.set('n', '<C-e>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
-  local gwidth = vim.go.columns
-  local gheight = vim.go.lines
-  local width = math.floor(vim.go.columns * 0.75)
-  local height = math.floor(vim.go.lines * 0.75)
+  local gwidth = vim.o.columns
+  local gheight = vim.o.lines
+  local width = math.floor(gwidth  * 0.75)
+  local height = math.floor(gheight * 0.75)
 
 
   nvimtree.setup({
