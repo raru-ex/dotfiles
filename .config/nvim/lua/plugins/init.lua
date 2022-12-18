@@ -33,7 +33,14 @@ return require('packer').startup(function(use)
   use { 'lewis6991/gitsigns.nvim', config = config.load 'gitsigns' }
 
   -- status line
-  use 'vim-airline/vim-airline'
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = {
+      { 'kyazdani42/nvim-web-devicons', opt = true },
+      { 'arkav/lualine-lsp-progress' },
+    },
+    config = config.load 'lualine'
+  }
 
   -- color scheme
   -- use { 'folke/tokyonight.nvim', config = scheme.setup 'tokyonight' }
@@ -42,22 +49,9 @@ return require('packer').startup(function(use)
   -- indent, white space
   use 'bronson/vim-trailing-whitespace'
   use { 'lukas-reineke/indent-blankline.nvim', config = config.load 'indent-blankline' }
-  use { 'RRethy/vim-illuminate', config = config.load 'illuminate' }
 
   -- utils
   use { 'FooSoft/vim-argwrap', config = config.load 'arg-wrap'}
-
-  -- fizzy finder
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    -- or                            , branch = '0.1.x',
-    requires = {
-      {'nvim-lua/plenary.nvim'},
-      {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-      { '~/.fzf', rtp = 'fzf'}
-    },
-    config = config.load 'telescope'
-  }
 
   -- LSP/Completion
   use {
@@ -69,6 +63,18 @@ return require('packer').startup(function(use)
       { 'hrsh7th/cmp-nvim-lsp' },
     },
     config = config.load 'nvim-lspconfig',
+  }
+
+  -- fizzy finder
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    -- or                            , branch = '0.1.x',
+    requires = {
+      {'nvim-lua/plenary.nvim'},
+      {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+      { '~/.fzf', rtp = 'fzf'}
+    },
+    config = config.load 'telescope'
   }
 
   -- lazy

@@ -24,35 +24,40 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
     end
   })
 
+  lspconfig.golangci_lint_ls.setup({
+
+  })
+
   vim.keymap.set('n', '<Leader>gh',  '<cmd>lua vim.lsp.buf.hover()<CR>')
   vim.keymap.set('n', '<Leader>gf', '<cmd>lua vim.lsp.buf.formatting()<CR>')
-  vim.keymap.set('n', '<Leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>')
   vim.keymap.set('n', '<Leader>gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
   vim.keymap.set('n', '<Leader>gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
-  vim.keymap.set('n', '<Leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
   vim.keymap.set('n', '<Leader>gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
   vim.keymap.set('n', '<Leader>gn', '<cmd>lua vim.lsp.buf.rename()<CR>')
-  vim.keymap.set('n', '<Leader>ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
   vim.keymap.set('n', '<Leader>ge', '<cmd>lua vim.diagnostic.open_float()<CR>')
   vim.keymap.set('n', ']c', '<cmd>lua vim.diagnostic.goto_next()<CR>')
   vim.keymap.set('n', '[c', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+  vim.keymap.set('n', '<Leader>ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+  -- Telescopeで呼び出す
+  -- vim.keymap.set('n', '<Leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+  -- vim.keymap.set('n', '<Leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+
   -- LSP handlers
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
   )
 
   -- Reference highlight
-  vim.cmd([[
-  set updatetime=300
-  highlight LspReferenceText  cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
-  highlight LspReferenceRead  cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
-  highlight LspReferenceWrite cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
-  augroup lsp_document_highlight
-  autocmd!
-  autocmd CursorHold,CursorHoldI * lua vim.lsp.buf.document_highlight()
-  autocmd CursorMoved,CursorMovedI * lua vim.lsp.buf.clear_references()
-  augroup END
-  ]])
+  local augroup = vim.api.nvim_create_augroup("LspDocumentHighlight", { clear = false })
+  vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+  vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+    group = augroup,
+    buffer = bufnr,
+    callback = function()
+      vim.lsp.buf.clear_references()
+      vim.lsp.buf.document_highlight()
+    end,
+  })
 
   -- cmp
   cmp.setup({

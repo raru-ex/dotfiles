@@ -7,28 +7,34 @@ if ok then
   vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {})
   vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
   vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
+  vim.keymap.set('n', '<Leader>gr', ':Telescope lsp_references<CR>')
+  vim.keymap.set('n', '<Leader>gi', ':Telescope lsp_implementations<CR>')
 
   require('telescope').setup{
     defaults = {
       mappings = {
         i = {
-          ["<esc>"] = 'close',
-          ["<C-i>"] = 'file_split',
-          ["<C-f>"] = 'preview_scrolling_down',
-          ["<C-b>"] = 'preview_scrolling_up',
-          ["<C-j>"] = 'move_selection_next',
-          ["<C-k>"] = 'move_selection_previous',
+          ['<esc>'] = 'close',
+          ['<C-i>'] = 'file_split',
+          ['<C-f>'] = 'preview_scrolling_down',
+          ['<C-b>'] = 'preview_scrolling_up',
+          ['<C-j>'] = 'move_selection_next',
+          ['<C-k>'] = 'move_selection_previous',
         }
-      }
+      },
+      file_ignore_patterns = {
+        'node_modules', 'build', 'dist', 'yarn.lock', '.git'
+      },
     },
     pickers = {
+      find_files = { hidden = true },
     },
     extensions = {
       fzf = {
         fuzzy = true,
         override_generic_sorter = true,
         override_file_sorter = true,
-        case_mode = "ignore_case",
+        case_mode = 'ignore_case',
       },
     },
     buffer_previewer_maker = new_maker,
