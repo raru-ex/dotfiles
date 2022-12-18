@@ -158,6 +158,8 @@ Sessionx.vim
 tags
 # Persistent undo
 [._]*.un~
+
+.config/nvim/plugin/packer_compiled.lua
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
