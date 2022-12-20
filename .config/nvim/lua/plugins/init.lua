@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
   }
 
   -- terminal
-  use {"akinsho/toggleterm.nvim", tag = '*', config = config.load 'toggleterm' }
+  use { 'akinsho/toggleterm.nvim', tag = '*', config = config.load 'toggleterm' }
 
   -- filer
   use {
@@ -45,7 +45,8 @@ return require('packer').startup(function(use)
       { 'arkav/lualine-lsp-progress' },
       { 'hrsh7th/vim-vsnip' }
     },
-    config = config.load 'lualine'
+    config = config.load 'lualine',
+    wants = { 'vim-vsnip' },
   }
 
   -- color scheme
@@ -80,14 +81,15 @@ return require('packer').startup(function(use)
       {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
       { '~/.fzf', rtp = 'fzf'}
     },
-    config = config.load 'telescope'
+    config = config.load 'telescope',
+    wants = {'plenary.nvim'}
   }
   use {
-    "nvim-telescope/telescope-frecency.nvim",
+    'nvim-telescope/telescope-frecency.nvim',
     config = function()
-      require"telescope".load_extension("frecency")
+      require'telescope'.load_extension('frecency')
     end,
-    requires = {"kkharji/sqlite.lua"}
+    requires = {'kkharji/sqlite.lua'}
   }
 
   -- lazy
