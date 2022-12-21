@@ -83,7 +83,17 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
       ["<C-p>"] = cmp.mapping.select_prev_item(),
       ["<C-n>"] = cmp.mapping.select_next_item(),
       ['<C-space>'] = cmp.mapping.complete(),
-      ['<ESC>'] = cmp.mapping.abort(),
+      -- 入力補助を止めるときにnormal modeまで戻す
+      ['<ESC>'] = cmp.mapping(
+        function(fallback)
+          print(cmp.visible())
+          if cmp.visible() then
+            cmp.abort()
+            vim.api.nvim_input('<ESC>')
+          else
+            fallback()
+          end
+        end),
       ["<CR>"] = cmp.mapping.confirm { select = true },
     }),
     experimental = {
