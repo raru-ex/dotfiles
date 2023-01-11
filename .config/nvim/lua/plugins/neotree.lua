@@ -13,6 +13,8 @@ if ok then
     sort_by = 'case_sensitive',
     view = {
       adaptive_size = false,
+      enable_git_status = true,
+      enable_diagnostics = true,
       centralize_selection = true,
       hide_root_folder = false,
       preserve_window_proportions = false,
@@ -28,11 +30,12 @@ if ok then
           { key = 'r', action = 'reload' },
           { key = 'v', action = 'vsplit' },
           { key = 'i', action = 'split' },
-          { key = "m", action = "rename" },
+          { key = 'm', action = 'rename' },
+          { key = 'c', action = 'copy' }
         },
       },
       float = {
-        enable = true,
+        enable = false,
         quit_on_focus_loss = true,
         open_win_config = {
           relative = "editor",
