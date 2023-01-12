@@ -23,6 +23,9 @@ set showmatch
 " ウィンドウの右下にまだ実行していない入力中のコマンドを表示
 set showcmd
 
+set visualbell
+set noerrorbells
+
 " ---------- set keymaps
 " IDEの折り畳みを無効
 nnoremap zM <Nop>

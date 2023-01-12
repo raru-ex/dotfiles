@@ -13,8 +13,6 @@ if ok then
     sort_by = 'case_sensitive',
     view = {
       adaptive_size = false,
-      enable_git_status = true,
-      enable_diagnostics = true,
       centralize_selection = true,
       hide_root_folder = false,
       preserve_window_proportions = false,
