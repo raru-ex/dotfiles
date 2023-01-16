@@ -24,7 +24,7 @@ if ok then
         list = {
           -- user mappings go here
           { key = '<C-e>', action = 'close' },
-          { key = 'r', action = 'reload' },
+          { key = 'r', action = 'refresh' },
           { key = 'v', action = 'vsplit' },
           { key = 'i', action = 'split' },
           { key = 'm', action = 'rename' },
