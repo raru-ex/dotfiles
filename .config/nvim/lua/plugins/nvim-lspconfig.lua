@@ -38,6 +38,15 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
           vim.lsp.protocol.make_client_capabilities()
         )
       }
+
+      if server == "sumneko_lua" then
+        opt.settings = {
+          Lua = {
+            diagnostics = { globals = { 'vim' } },
+          }
+        }
+      end
+
       lspconfig[server].setup(opt)
     end
   })

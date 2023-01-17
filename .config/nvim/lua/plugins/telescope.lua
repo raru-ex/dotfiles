@@ -1,4 +1,5 @@
 local ok, builtin = pcall(require, 'telescope.builtin')
+
 if ok then
   vim.keymap.set('n', '<C-p>', builtin.find_files, {})
   vim.keymap.set('n', '<C-g>', builtin.live_grep, {})
