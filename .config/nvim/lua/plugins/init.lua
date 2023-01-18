@@ -31,7 +31,7 @@ return require('packer').startup(function(use)
     requires = {
       'nvim-tree/nvim-web-devicons', -- optional, for file icons
     },
-    config = config.load 'neotree',
+    config = config.load 'nvimtree',
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
   use 'ryanoasis/vim-devicons'

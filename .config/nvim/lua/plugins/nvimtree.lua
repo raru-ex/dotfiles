@@ -43,6 +43,6 @@ if ok then
           col = (gwidth - width) * 0.5,
         },
       },
-    }
+    },
   })
 end
