@@ -55,17 +55,17 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
 
   })
 
-  vim.keymap.set('n', '<Leader>gh',  '<cmd>lua vim.lsp.buf.hover()<CR>')
-  vim.keymap.set('n', '<Leader>gf', '<cmd>lua vim.lsp.buf.formatting()<CR>')
-  vim.keymap.set('n', '<Leader>gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-  vim.keymap.set('n', '<Leader>gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
-  vim.keymap.set('n', '<Leader>gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-  vim.keymap.set('n', '<Leader>gn', '<cmd>lua vim.lsp.buf.rename()<CR>')
-  vim.keymap.set('n', '<Leader>ge', '<cmd>lua vim.diagnostic.open_float()<CR>')
-  vim.keymap.set('n', ']c', '<cmd>lua vim.diagnostic.goto_next()<CR>')
-  vim.keymap.set('n', '[c', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
-  vim.keymap.set('n', '<Leader>ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+  vim.keymap.set('n', '<Leader>gh', vim.lsp.buf.hover)
+  vim.keymap.set('n', '<Leader>gf', function() vim.lsp.buf.format { async = true } end)
+  vim.keymap.set('n', '<Leader>gD', vim.lsp.buf.declaration)
+  vim.keymap.set('n', '<Leader>gn', vim.lsp.buf.rename)
+  vim.keymap.set('n', '<Leader>ge', vim.diagnostic.open_float)
+  vim.keymap.set('n', ']c', vim.diagnostic.goto_next)
+  vim.keymap.set('n', '[c', vim.diagnostic.goto_prev)
+  vim.keymap.set('n', '<Leader>ga', vim.lsp.buf.code_action)
   -- Telescopeで呼び出す
+  -- vim.keymap.set('n', '<Leader>gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
+  -- vim.keymap.set('n', '<Leader>gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
   -- vim.keymap.set('n', '<Leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>')
   -- vim.keymap.set('n', '<Leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 
