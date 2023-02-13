@@ -6,14 +6,6 @@ local ok_cmp_nvim_lsp, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
 
 if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp then
 
-  mason.setup()
-
-  mason_lspconfig.setup({
-    ensure_installed = {'bashls', 'cssls', 'cssmodules_ls', 'dockerls', 'golangci_lint_ls', 'gopls', 'html', 'tsserver', 'sumneko_lua', 'marksman', 'taplo', 'vimls', 'yamlls', 'sqlls' },
-    automatic_installation = true
-  })
-
-
   local function on_attach(client, bufnr)
     -- Reference highlight
     local cap = client.server_capabilities
@@ -29,14 +21,37 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
         end,
       })
     end
+
+    vim.keymap.set('n', '<Leader>gh', vim.lsp.buf.hover)
+    vim.keymap.set('n', '<Leader>gf', function() vim.lsp.buf.format { async = true } end)
+    vim.keymap.set('n', '<Leader>gD', vim.lsp.buf.declaration)
+    vim.keymap.set('n', '<Leader>gn', vim.lsp.buf.rename)
+    vim.keymap.set('n', '<Leader>ge', vim.diagnostic.open_float)
+    vim.keymap.set('n', ']c', vim.diagnostic.goto_next)
+    vim.keymap.set('n', '[c', vim.diagnostic.goto_prev)
+    vim.keymap.set('n', '<Leader>ga', vim.lsp.buf.code_action)
+    -- Telescopeで呼び出す
+    -- vim.keymap.set('n', '<Leader>gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
+    -- vim.keymap.set('n', '<Leader>gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+    -- vim.keymap.set('n', '<Leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+    -- vim.keymap.set('n', '<Leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+    -- LSP handlers
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
+    )
   end
+
+
+  mason.setup()
+  mason_lspconfig.setup({
+    ensure_installed = {'bashls', 'cssls', 'cssmodules_ls', 'dockerls', 'golangci_lint_ls', 'gopls', 'html', 'tsserver', 'sumneko_lua', 'marksman', 'taplo', 'vimls', 'yamlls', 'sqlls' },
+    automatic_installation = true
+  })
   mason_lspconfig.setup_handlers({
     function(server)
       local opt = {
         on_attach = on_attach,
-        capabilities = cmp_nvim_lsp.default_capabilities(
-          vim.lsp.protocol.make_client_capabilities()
-        )
+        capabilities = cmp_nvim_lsp.default_capabilities()
       }
 
       if server == "sumneko_lua" then
@@ -54,25 +69,6 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
   lspconfig.golangci_lint_ls.setup({
 
   })
-
-  vim.keymap.set('n', '<Leader>gh', vim.lsp.buf.hover)
-  vim.keymap.set('n', '<Leader>gf', function() vim.lsp.buf.format { async = true } end)
-  vim.keymap.set('n', '<Leader>gD', vim.lsp.buf.declaration)
-  vim.keymap.set('n', '<Leader>gn', vim.lsp.buf.rename)
-  vim.keymap.set('n', '<Leader>ge', vim.diagnostic.open_float)
-  vim.keymap.set('n', ']c', vim.diagnostic.goto_next)
-  vim.keymap.set('n', '[c', vim.diagnostic.goto_prev)
-  vim.keymap.set('n', '<Leader>ga', vim.lsp.buf.code_action)
-  -- Telescopeで呼び出す
-  -- vim.keymap.set('n', '<Leader>gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-  -- vim.keymap.set('n', '<Leader>gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-  -- vim.keymap.set('n', '<Leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-  -- vim.keymap.set('n', '<Leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-
-  -- LSP handlers
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
-  )
 
   -- cmp
   cmp.setup({
