@@ -54,7 +54,6 @@ return require('packer').startup(function(use)
   use { 'doums/darcula', config = scheme.setup 'darcula' }
 
   -- indent, white space
-  use 'bronson/vim-trailing-whitespace'
   use { 'lukas-reineke/indent-blankline.nvim', config = config.load 'indent-blankline' }
 
   -- utils
