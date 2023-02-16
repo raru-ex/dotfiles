@@ -44,7 +44,7 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
 
   mason.setup()
   mason_lspconfig.setup({
-    ensure_installed = {'bashls', 'cssls', 'cssmodules_ls', 'dockerls', 'golangci_lint_ls', 'gopls', 'html', 'tsserver', 'lua_ls', 'marksman', 'taplo', 'vimls', 'yamlls', 'sqlls' },
+    ensure_installed = {'bashls', 'cssls', 'cssmodules_ls', 'dockerls', 'golangci_lint_ls', 'gopls', 'html', 'vtsls', 'lua_ls', 'marksman', 'taplo', 'vimls', 'yamlls', 'sqlls' },
     automatic_installation = true
   })
   mason_lspconfig.setup_handlers({
