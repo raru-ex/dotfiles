@@ -61,14 +61,7 @@ return require('packer').startup(function(use)
 
   -- LSP/Completion
   use {
-    'neovim/nvim-lspconfig',
-    requires = {
-      { 'williamboman/mason.nvim' },
-      { 'williamboman/mason-lspconfig.nvim' },
-      { 'hrsh7th/nvim-cmp' },
-      { 'hrsh7th/cmp-nvim-lsp' },
-    },
-    config = config.load 'nvim-lspconfig',
+    'neoclide/coc.nvim', branch='release', config = config.load 'coc'
   }
 
   -- fizzy finder
@@ -78,6 +71,7 @@ return require('packer').startup(function(use)
     requires = {
       {'nvim-lua/plenary.nvim'},
       {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+      { 'fannheyward/telescope-coc.nvim' },
       { '~/.fzf', rtp = 'fzf'}
     },
     config = config.load 'telescope',

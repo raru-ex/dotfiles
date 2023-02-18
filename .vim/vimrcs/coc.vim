@@ -1,5 +1,3 @@
-" よくわからないので一旦公式サイトのなんとなくわかるところだけコピー
-
 let g:coc_global_extensions = [
 			\'coc-tsserver',
 			\'coc-eslint',
@@ -11,7 +9,6 @@ let g:coc_global_extensions = [
   		\'coc-python',
   		\'coc-yaml',
   		\'coc-word',
-  		\'coc-tailwindcss',
   		\'coc-diagnostic',
 			\]
 
