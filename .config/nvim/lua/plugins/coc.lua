@@ -1,6 +1,6 @@
 vim.cmd([[
 
-  let g:coc_global_extensions = [ 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-css', 'coc-json', 'coc-go', 'coc-angular', 'coc-python', 'coc-yaml', 'coc-word', 'coc-diagnostic', 'coc-fzf-preview' ]
+  let g:coc_global_extensions = [ 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-css', 'coc-json', 'coc-go', 'coc-angular', 'coc-python', 'coc-yaml', 'coc-word', 'coc-diagnostic' ]
 
   " if hidden is not set, TextEdit might fail.
   set hidden
@@ -55,11 +55,11 @@ vim.cmd([[
   nmap <Leader>g [coc]
 
   " Remap keys for gotos
-  " intellijに合わせて設定
-  nmap <silent> [coc]d <Plug>(coc-definition)
-  nmap <silent> [coc]t <Plug>(coc-type-definition)
-  nmap <silent> [coc]i <Plug>(coc-implementation)
-  nmap <silent> [coc]r <Cmd>CocCommand fzf-preview.CocReferences<CR>
+  " telescope側で処理
+  " nmap <silent> [coc]d <Plug>(coc-definition)
+  " nmap <silent> [coc]t <Plug>(coc-type-definition)
+  " nmap <silent> [coc]i <Plug>(coc-implementation)
+  " nmap <silent> [coc]r <Plug>(coc-references)
   nmap <silent> [coc]n <Plug>(coc-rename)
 
   " Remap for do action format
@@ -76,9 +76,9 @@ vim.cmd([[
 
   " Show all diagnostics(error)
   " nnoremap <silent> [coc]e  :<C-u>CocList diagnostics<cr>
-  nnoremap <silent> [coc]e  :<Cmd>CocCommand fzf-preview.CocDiagnostics<cr>
+  " nnoremap <silent> [coc]e  :<C-u>CocList diagnostics<cr>
   " Find symbol of current document
-  nnoremap <silent> [coc]o  :<Cmd>CocCommand fzf-preview.CocOutline<cr>
+  nnoremap <silent> [coc]o  :<C-u>CocList outline<cr>
   " Search workspace symbols
   nnoremap <silent> [coc]s  :<C-u>CocList -I symbols<cr>
   " Do default action for next item.
