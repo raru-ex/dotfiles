@@ -35,12 +35,12 @@ if ok then
       find_files = { hidden = true },
     },
     extensions = {
-      fzf = {
-        fuzzy = true,
-        override_generic_sorter = true,
-        override_file_sorter = true,
-        case_mode = 'ignore_case',
-      },
+      -- fzf = {
+      --   fuzzy = true,
+      --   override_generic_sorter = true,
+      --   override_file_sorter = true,
+      --   case_mode = 'ignore_case',
+      -- },
       coc = {
         prefer_locations = false,
       }
@@ -48,6 +48,6 @@ if ok then
     buffer_previewer_maker = new_maker,
   }
 
-  require('telescope').load_extension('fzf')
+  -- require('telescope').load_extension('fzf')
   require('telescope').load_extension('coc')
 end
