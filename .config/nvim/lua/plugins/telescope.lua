@@ -10,7 +10,7 @@ if ok then
   vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
 
   vim.keymap.set('n', '<Leader>gd', ':Telescope coc definitions<CR>')
-  vim.keymap.set('n', '<Leader>gd', ':Telescope coc type_definitions<CR>')
+  vim.keymap.set('n', '<Leader>gt', ':Telescope coc type_definitions<CR>')
   vim.keymap.set('n', '<Leader>gi', ':Telescope coc implementations<CR>')
   vim.keymap.set('n', '<Leader>gr', ':Telescope coc references<CR>')
   vim.keymap.set('n', '<Leader>ge', ':Telescope coc workspace_diagnostics<CR>')
