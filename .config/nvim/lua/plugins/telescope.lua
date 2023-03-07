@@ -42,7 +42,7 @@ if ok then
         case_mode = 'ignore_case',
       },
       coc = {
-        prefer_locations = true,
+        prefer_locations = false,
       }
     },
     buffer_previewer_maker = new_maker,
