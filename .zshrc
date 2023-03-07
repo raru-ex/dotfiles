@@ -78,6 +78,8 @@ source ~/dotfiles/.zsh/fzf.zsh
 export PATH="$HOME/.cargo/bin:$PATH"
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 export BAT_THEME=gruvbox-dark
+export FZF_PREVIEW_PREVIEW_BAT_THEME='gruvbox-dark'
+
 
 
 export NVM_DIR="$HOME/.config/nvm"

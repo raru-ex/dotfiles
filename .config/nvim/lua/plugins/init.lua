@@ -59,6 +59,11 @@ return require('packer').startup(function(use)
   -- utils
   use { 'FooSoft/vim-argwrap', config = config.load 'arg-wrap'}
 
+  -- fzf
+  use {
+    'junegunn/fzf', run = ":call fzf#install()"
+  }
+
   -- LSP/Completion
   use {
     'neoclide/coc.nvim', branch='release', config = config.load 'coc'

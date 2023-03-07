@@ -1,6 +1,6 @@
 vim.cmd([[
 
-  let g:coc_global_extensions = [ 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-css', 'coc-json', 'coc-go', 'coc-angular', 'coc-python', 'coc-yaml', 'coc-word', 'coc-diagnostic' ]
+  let g:coc_global_extensions = [ 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-css', 'coc-json', 'coc-go', 'coc-angular', 'coc-python', 'coc-yaml', 'coc-word', 'coc-diagnostic', 'coc-fzf-preview' ]
 
   " if hidden is not set, TextEdit might fail.
   set hidden
@@ -59,7 +59,7 @@ vim.cmd([[
   nmap <silent> [coc]d <Plug>(coc-definition)
   nmap <silent> [coc]t <Plug>(coc-type-definition)
   nmap <silent> [coc]i <Plug>(coc-implementation)
-  nmap <silent> [coc]r <Plug>(coc-references)
+  nmap <silent> [coc]r <Cmd>CocCommand fzf-preview.CocReferences<CR>
   nmap <silent> [coc]n <Plug>(coc-rename)
 
   " Remap for do action format
@@ -72,12 +72,13 @@ vim.cmd([[
   nnoremap <silent> [coc]l :<C-u>call CocActionAsync('codeLensAction')<CR>
 
   " Remap for do codeAction of current line
-  nmap [coc]a <Plug>(coc-codeaction)
+  nmap [coc]a <Plug>(coc-codeaction-cursor)
 
   " Show all diagnostics(error)
-  nnoremap <silent> [coc]e  :<C-u>CocList diagnostics<cr>
+  " nnoremap <silent> [coc]e  :<C-u>CocList diagnostics<cr>
+  nnoremap <silent> [coc]e  :<Cmd>CocCommand fzf-preview.CocDiagnostics<cr>
   " Find symbol of current document
-  nnoremap <silent> [coc]o  :<C-u>CocList outline<cr>
+  nnoremap <silent> [coc]o  :<Cmd>CocCommand fzf-preview.CocOutline<cr>
   " Search workspace symbols
   nnoremap <silent> [coc]s  :<C-u>CocList -I symbols<cr>
   " Do default action for next item.
