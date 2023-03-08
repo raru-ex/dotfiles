@@ -39,7 +39,7 @@ vim.cmd([[
   endfunction
 
   " Use <c-space> to trigger completion.
-  inoremap <silent><expr> <Nul> coc#refresh()
+  inoremap <silent><expr> <c-space> coc#refresh()
 
   " Make <CR> to accept selected completion item or notify coc.nvim to format
   " <C-g>u breaks current undo, please make your own choice.
