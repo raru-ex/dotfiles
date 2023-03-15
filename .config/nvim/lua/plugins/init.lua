@@ -70,12 +70,11 @@ return require('packer').startup(function(use)
     -- or                            , branch = '0.1.x',
     requires = {
       {'nvim-lua/plenary.nvim'},
+      -- { '~/.fzf', rtp = 'fzf'}
       -- {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
       { 'fannheyward/telescope-coc.nvim' },
-      { '~/.fzf', rtp = 'fzf'}
     },
     config = config.load 'telescope',
-    wants = {'plenary.nvim'}
   }
   use {
     'nvim-telescope/telescope-frecency.nvim',

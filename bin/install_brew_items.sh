@@ -36,7 +36,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   fi
 
   echo "[INFO] install any tools"
-  brew install git svn lazygit tree nvim vim ripgrep zsh git-delta golangci-lint jq bat wget
+  brew install git svn lazygit tree nvim vim ripgrep zsh git-delta golangci-lint jq bat wget fd
   echo "[INFO] finished"
 
 fi
