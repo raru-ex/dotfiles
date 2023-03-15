@@ -45,7 +45,7 @@ if ok then
         prefer_locations = false,
       }
     },
-    buffer_previewer_maker = new_maker,
+    -- buffer_previewer_maker = new_maker,
   }
 
   -- require('telescope').load_extension('fzf')
