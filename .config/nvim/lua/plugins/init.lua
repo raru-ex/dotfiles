@@ -25,17 +25,18 @@ return require('packer').startup(function(use)
   -- terminal
   use { 'akinsho/toggleterm.nvim', tag = '*', config = config.load 'toggleterm' }
 
+
   -- filer
-  use {
-    'nvim-tree/nvim-tree.lua',
+  use { 
+    'lambdalisue/fern.vim' ,
     requires = {
-      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+      'lambdalisue/nerdfont.vim',
+      'lambdalisue/fern-renderer-nerdfont.vim',
+      'lambdalisue/fern-git-status.vim',
+      'lambdalisue/glyph-palette.vim',
     },
-    config = config.load 'nvimtree',
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    config = config.load 'fern',
   }
-  use 'ryanoasis/vim-devicons'
-  use { 'lewis6991/gitsigns.nvim', config = config.load 'gitsigns' }
 
   -- status line
   use {
