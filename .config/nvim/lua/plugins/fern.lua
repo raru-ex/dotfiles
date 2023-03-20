@@ -19,7 +19,7 @@ let g:fern#default_exclude = hide_dirs . '\|' . hide_files
 
 vim.keymap.set('n', '<Leader>nf', ':Fern . -drawer -reveal=%<CR>',{ noremap = true, silent = true })
 vim.keymap.set('n', '<Leader>fo', ':Fern .<CR>',{ noremap = true, silent = true })
-vim.keymap.set('n', '<C-e>', ':Fern . -toggle -drawer<CR>',{ noremap = true, silent = true })
+vim.keymap.set('n', '<C-e>', ':Fern . -toggle -drawer<CR><C-w>=',{ noremap = true, silent = true })
 
 vim.cmd([[
   function! s:init_fern() abort
