@@ -27,15 +27,15 @@ return require('packer').startup(function(use)
 
 
   -- filer
-  use { 
-    'lambdalisue/fern.vim' ,
-    requires = {
-      'lambdalisue/nerdfont.vim',
-      'lambdalisue/fern-renderer-nerdfont.vim',
-      'lambdalisue/fern-git-status.vim',
-      'lambdalisue/glyph-palette.vim',
+  use {
+  "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = { 
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
     },
-    config = config.load 'fern',
+    config = config.load 'neotree',
   }
 
   -- status line
