@@ -12,6 +12,21 @@ if ok then
       },
     },
     filesystem = {
+      filtered_items = {
+        hide_by_name = {
+          "node_modules"
+        },
+        hide_by_pattern = {
+          "*/.git",
+        },
+        never_show = {
+          ".DS_Store",
+          "thumbs.db"
+        },
+        never_show_by_pattern = {
+          ".null-ls_*",
+        },
+      },
       window = {
         mappings = {
           ["I"] = "toggle_hidden",
@@ -23,6 +38,6 @@ if ok then
   vim.keymap.set('n', '<Leader>fo', ':Neotree position=current<CR>',{ noremap = true, silent = true })
   vim.keymap.set('n', '<Leader>ff', ':Neotree reveal=true position=current<CR>',{ noremap = true, silent = true })
   vim.keymap.set('n', '<Leader>nf', ':Neotree reveal=true position=left<CR>',{ noremap = true, silent = true })
-vim.keymap.set('n', '<C-e>', ':Neotree toggle=true position=left action=show<CR>',{ noremap = true, silent = true })
+  vim.keymap.set('n', '<C-e>', ':Neotree toggle=true position=left action=show<CR>',{ noremap = true, silent = true })
 
 end
