@@ -6,9 +6,15 @@ if ok then
     enable_git_status = true,
     enable_diagnostics = true,
     window = {
+      mapping_options = {
+        noremap = true,
+        nowait = true,
+      },
       mapping = {
-        ["i"] = "open_split",
-        ["v"] = "open_vsplit",
+        --  ["i"] = "open_split",
+        --  ["v"] = "open_vsplit",
+        ["S"] = "open_split",
+        ["s"] = "open_vsplit",
       },
     },
     filesystem = {
