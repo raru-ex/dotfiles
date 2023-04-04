@@ -61,13 +61,14 @@ return require('packer').startup(function(use)
   use { 'FooSoft/vim-argwrap', config = config.load 'arg-wrap'}
 
   -- LSP/Completion
+  use { 'github/copilot.vim', config = config.load 'copilot' }
   use {
     'neoclide/coc.nvim', branch='release', config = config.load 'coc'
   }
 
   -- fizzy finder
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    'nvim-telescope/telescope.nvim', tag = '0.1.1',
     -- or                            , branch = '0.1.x',
     requires = {
       {'nvim-lua/plenary.nvim'},
