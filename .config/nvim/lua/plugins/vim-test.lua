@@ -1,4 +1,5 @@
 vim.api.nvim_set_var('test#go#runner', 'gotest')
+vim.api.nvim_set_var('test#go#gotest#options', '-count=1')
 vim.api.nvim_set_var('test#strategy', 'toggleterm')
 
 vim.keymap.set('n', '<Leader>tn', ':TestNearest<CR>', { noremap = true, silent = true })
