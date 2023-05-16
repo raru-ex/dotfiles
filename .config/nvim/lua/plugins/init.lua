@@ -90,9 +90,20 @@ return require('packer').startup(function(use)
   use { 'plasticboy/vim-markdown', config = config.load 'markdown', ft = { 'md', 'mkd', 'markdown' } }
   use { 'mattn/vim-goimports', config = config.load 'go-imports', ft = { 'go' } }
   use { '110y/vim-go-expr-completion', config = config.load 'go-expr-completion', ft = { 'go' } }
-  use { 'vim-test/vim-test', config = config.load 'vim-test', ft = { 'go' } }
-  use { 'buoto/gotests-vim', config = config.load 'gotests-vim', ft = { 'go' } }
 
+  -- test
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-neotest/neotest-go"
+    },
+    config = config.load 'neotest',
+  }
+
+  use { 'buoto/gotests-vim', config = config.load 'gotests-vim', ft = { 'go' } }
 end
 )
 
