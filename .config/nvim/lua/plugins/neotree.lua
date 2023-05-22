@@ -41,9 +41,20 @@ if ok then
     },
   })
 
+
   vim.keymap.set('n', '<Leader>fo', ':Neotree position=current<CR>',{ noremap = true, silent = true })
   vim.keymap.set('n', '<Leader>ff', ':Neotree reveal=true position=current<CR>',{ noremap = true, silent = true })
   vim.keymap.set('n', '<Leader>nf', ':Neotree reveal=true position=left<CR>',{ noremap = true, silent = true })
   vim.keymap.set('n', '<C-e>', ':Neotree toggle=true position=left action=show<CR>',{ noremap = true, silent = true })
 
+  vim.cmd([[
+    function! s:init_neotree() abort
+      set modifiable
+    endfunction
+  
+    augroup neotree-custom
+      autocmd! *
+      autocmd FileType neo-tree call s:init_neotree()
+    augroup END
+  ]])
 end
