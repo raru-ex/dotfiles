@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 ## sh エミュレーションモード
-emulate -R sh
+# emulate -R sh
 
 if [ "$(uname)" == 'Darwin' ]; then
   #Mac OS
@@ -14,7 +14,7 @@ if [ "$(uname)" == 'Darwin' ]; then
 
   # 現在のbrewは自動でlua付きのvimを入れる
   echo "[INFO] install any tools"
-  brew install git svn lazygit tree nvim vim ripgrep zsh git-delta golangci-lint jq
+  brew install git svn lazygit tree nvim vim ripgrep zsh git-delta golangci-lint jq bat wget fd
   echo "[INFO] finished"
 
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then

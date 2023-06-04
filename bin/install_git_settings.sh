@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 ## sh エミュレーションモード
-emulate -R sh
+# emulate -R sh
 
 echo "[INFO] Install git-delta"
 brew install git-delta

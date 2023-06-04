@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 ## sh エミュレーションモード
-emulate -R sh
+# emulate -R sh
 
 echo "[INFO] Install go"
 brew install git svn lazygit tree nvim vim ripgrep zsh git-delta

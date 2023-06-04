@@ -52,7 +52,7 @@ vim.o.swapfile = false
 -- ビープ音を消す
 vim.o.visualbell = false
 -- yankをクリップボードに
-vim.o.clipboard = 'unnamed'
+vim.o.clipboard = 'unnamedplus'
 
 vim.keymap.set('v', 'x', [["_x]], { noremap = true})
 vim.keymap.set('n', 'x', [["_x]], { noremap = true})
@@ -61,6 +61,13 @@ vim.keymap.set('n', '<Esc><Esc>', [[:noh<CR>]], { noremap = true })
 
 vim.cmd([[command! CopyRelativePath
  \ let @*=join(remove( split( expand( '%:p' ), "/" ), len( split( getcwd(), "/" ) ), -1 ), "/") | echo "copied"]])
+
+vim.cmd([[
+if executable('fcitx5')
+   autocmd InsertLeave * :call system('fcitx5-remote -c')
+   autocmd CmdlineLeave * :call system('fcitx5-remote -c')
+endif
+]])
 
 
 vim.cmd([[

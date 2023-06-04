@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 ## sh エミュレーションモード
-emulate -R sh
+# emulate -R sh
 
 if !(type brew > /dev/null 2>&1); then
   echo "[INFO] Install homebrew"
