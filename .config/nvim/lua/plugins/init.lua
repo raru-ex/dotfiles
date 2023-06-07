@@ -25,6 +25,8 @@ return require('packer').startup(function(use)
   -- terminal
   use { 'akinsho/toggleterm.nvim', tag = '*', config = config.load 'toggleterm' }
 
+  -- git
+  use { 'sindrets/diffview.nvim' }
 
   -- filer
   use {
