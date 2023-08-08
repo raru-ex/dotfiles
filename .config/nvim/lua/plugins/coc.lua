@@ -1,6 +1,6 @@
 vim.cmd([[
 
-  let g:coc_global_extensions = [ 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-css', 'coc-json', 'coc-go', 'coc-angular', 'coc-python', 'coc-yaml', 'coc-word', 'coc-diagnostic', 'coc-copilot']
+  let g:coc_global_extensions = [ 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-css', 'coc-json', 'coc-go', 'coc-python', 'coc-yaml', 'coc-word', 'coc-diagnostic', 'coc-copilot' ]
 
   " if hidden is not set, TextEdit might fail.
   set hidden
@@ -33,18 +33,22 @@ vim.cmd([[
   \ coc#refresh()
   inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
+  " Make <CR> to accept selected completion item or notify coc.nvim to format
+  " <C-g>u breaks current undo, please make your own choice
+  inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
   function! CheckBackspace() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
   endfunction
 
-  " Use <c-space> to trigger completion.
-  inoremap <silent><expr> <c-space> coc#refresh()
-
-  " Make <CR> to accept selected completion item or notify coc.nvim to format
-  " <C-g>u breaks current undo, please make your own choice.
-  inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+  " Use <c-space> to trigger completion
+  if has('nvim')
+    inoremap <silent><expr> <c-space> coc#refresh()
+  else
+    inoremap <silent><expr> <c-@> coc#refresh()
+  endif
 
   " Use `[c` and `]c` for navigate diagnostics
   nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -88,23 +92,18 @@ vim.cmd([[
   " Resume latest coc list
   nnoremap <silent> [coc]p  :<C-u>CocListResume<CR>
 
-  nnoremap <silent> [coc]h  :call s:show_documentation()<CR>
+  nnoremap <silent> [coc]h  :call ShowDocumentation()<CR>
 
-  function! s:show_documentation()
-    if &filetype == 'vim'
-      execute 'h '.expand('<cword>')
+  function! ShowDocumentation()
+    if CocAction('hasProvider', 'hover')
+      call CocActionAsync('doHover')
     else
-      call CocAction('doHover')
+      call feedkeys('K', 'in')
     endif
   endfunction
 
   " Highlight symbol under cursor on CursorHold
   autocmd CursorHold * silent call CocActionAsync('highlight')
-
-  " Notify coc.nvim that <enter> has been pressed.
-  " " Currently used for the formatOnType feature.
-  inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm()
-  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
   hi CocHighlightText term=reverse ctermbg=239 guibg=#4e4e4e
 
