@@ -102,6 +102,7 @@ return require('packer').startup(function(use)
       "antoinemadec/FixCursorHold.nvim",
       "nvim-neotest/neotest-go"
     },
+    tag = 'v3.2.4',
     config = config.load 'neotest',
   }
 

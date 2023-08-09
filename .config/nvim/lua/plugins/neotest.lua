@@ -6,21 +6,18 @@ if ok and ok_go then
   -- unit
   vim.keymap.set('n', '<Leader>tn', function() 
     neotest.summary.open()
-    neotest.watch()
     neotest.run.run()
   end, { noremap = true, silent = true })
 
   -- file
   vim.keymap.set('n', '<Leader>tf', function()
     neotest.summary.open()
-    neotest.watch()
     neotest.run.run(vim.fn.expand("%"))
   end, { noremap = true, silent = true })
 
   -- package
   vim.keymap.set('n', '<Leader>tp', function()
     neotest.summary.open()
-    neotest.watch()
     neotest.run.run(vim.fn.expand("%:h"))
   end, { noremap = true, silent = true })
 
