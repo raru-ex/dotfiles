@@ -2,6 +2,7 @@
 " https://qiita.com/iwaseasahi/items/4b19bdf1885801649460
 " https://ikenox.info/2017-12-25-ideavim-introduction/
 " ---------- set variables
+let mapleader = " "
 " ヤンクでクリップボードにコピー
 set clipboard+=unnamed
 
@@ -61,4 +62,6 @@ nnoremap <C-e> : :<C-u>action SelectIn<CR>
 nnoremap [nerd]   <Nop>
 nmap <Leader>n [nerd]
 
-
+set NERDTree
+nmap <Leader>nf :NERDTreeFind<cr>
+nmap <c-e> :NERDTreeToggle<cr>
