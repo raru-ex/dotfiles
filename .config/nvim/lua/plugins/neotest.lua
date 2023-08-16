@@ -3,6 +3,10 @@ local ok_go, neotest_go = pcall(require, 'neotest-go')
 
 if ok and ok_go then 
 
+  vim.keymap.set('n', '<Leader>to', function()
+    neotest.summary.open()
+  end, { noremap = true, silent = true })
+
   -- unit
   vim.keymap.set('n', '<Leader>tn', function() 
     neotest.summary.open()
