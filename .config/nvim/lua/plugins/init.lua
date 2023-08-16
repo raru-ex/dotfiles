@@ -59,6 +59,7 @@ return require('packer').startup(function(use)
 
   -- indent, white space
   use { 'lukas-reineke/indent-blankline.nvim', config = config.load 'indent-blankline' }
+  use { 'echasnovski/mini.indentscope', branch = 'stable' , config = config.load 'mini-indentscope'}
 
   -- utils
   use { 'FooSoft/vim-argwrap', config = config.load 'arg-wrap'}
