@@ -4,7 +4,9 @@ local Module = {}
 local fmt = string.format
 
 function Module.load(name)
-	require(fmt("plugins.%s", name))
+  return function()
+	  require(fmt("plugins.%s", name))
+  end
 end
 
 return Module
