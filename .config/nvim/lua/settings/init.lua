@@ -62,6 +62,7 @@ vim.keymap.set('n', '<Esc><Esc>', [[:noh<CR>]], { noremap = true })
 vim.cmd([[command! CopyRelativePath
  \ let @*=join(remove( split( expand( '%:p' ), "/" ), len( split( getcwd(), "/" ) ), -1 ), "/") | echo "copied"]])
 
+-- ubuntusなどでecsしたときに半角入力に切り替える
 vim.cmd([[
 if executable('fcitx5')
    autocmd InsertLeave * :call system('fcitx5-remote -c')
