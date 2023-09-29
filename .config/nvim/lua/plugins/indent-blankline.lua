@@ -1,4 +1,4 @@
-local ok, indent = pcall(require, 'indent_blankline')
+local ok, indent = pcall(require, 'ibl')
 
 vim.opt.list = true
 vim.opt.termguicolors = true

@@ -18,7 +18,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   {
     'nvim-treesitter/nvim-treesitter',
-    commit = "3af1220e18034eb2ce7d1c8e77055bc3bf3c1c36",
     config = config.load 'nvim-treesitter',
     build = ':TSUpdate',
   },
@@ -57,7 +56,7 @@ require("lazy").setup({
   { 'doums/darcula', config = scheme.setup 'darcula' },
 
   -- indent, white space
-  { 'lukas-reineke/indent-blankline.nvim', config = config.load 'indent-blankline' },
+  { 'lukas-reineke/indent-blankline.nvim', main = "ibl", config = config.load 'indent-blankline' },
   { 'echasnovski/mini.indentscope', branch = 'stable' , config = config.load 'mini-indentscope'},
 
   -- utils
