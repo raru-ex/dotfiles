@@ -6,5 +6,9 @@ vim.opt.termguicolors = true
 
 if ok then
   indent.setup {
+    scope = {
+      show_start =false,
+      show_end =false,
+    }
   }
 end
