@@ -68,8 +68,8 @@ require("lazy").setup({
 
   -- fizzy finder
   {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
-    -- or                            , branch = '0.1.x',
+   --  'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    'nvim-telescope/telescope.nvim', branch = '0.1.x',
     dependencies = {
       {'nvim-lua/plenary.nvim'},
       -- { '~/.fzf', rtp = 'fzf'}
