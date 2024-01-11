@@ -1,0 +1,42 @@
+{
+  "title": "For Japanese",
+  "rules": [
+    {
+      "description": "toggle eisuu with shift + space",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+              "modifiers": { "mandatory": "left_shift" }
+          },
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                { "language": "en" }
+              ]
+            }
+          ],
+          "to": [{ "key_code": "japanese_kana" }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": { "mandatory": "left_shift" }
+          },
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                { "language": "ja" }
+              ]
+            }
+          ],
+          "to": [{ "key_code": "japanese_eisuu" }]
+        }
+      ]
+    }
+  ]
+}
