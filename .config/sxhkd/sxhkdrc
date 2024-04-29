@@ -1,0 +1,3 @@
+alt + t
+  tdrop -n top -m -w 100% -h 100% alacritty
+

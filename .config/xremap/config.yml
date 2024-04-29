@@ -1,0 +1,7 @@
+keymap:
+  - name: Global
+    remap:
+      C-h: left
+      C-j: down
+      C-k: up
+      C-l: right
