@@ -31,7 +31,7 @@ vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 -- mute beep sound
 vim.o.visualbell = true
-vim.o.t_vb = ''
+vim.o.belloff = 'all'
 -- 検索結果をハイライト
 vim.o.hlsearch = true
 -- インクリメントサーチ有効
