@@ -1,3 +1,19 @@
 {
-  "coc.preferences.formatOnSave": true
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "args": [
+        "serve"
+      ],
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+      "initializationOptions": {},
+      "settings": {}
+    }
+  },
+  "coc.preferences.formatOnSave": true,
+  "javascript.preferences.useAliasesForRenames": false,
+  "typescript.preferences.useAliasesForRenames": false
 }

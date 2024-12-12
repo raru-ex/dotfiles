@@ -1,6 +1,6 @@
 vim.cmd([[
 
-  let g:coc_global_extensions = [ 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-css', 'coc-json', 'coc-go', 'coc-python', 'coc-yaml', 'coc-word', 'coc-diagnostic', 'coc-copilot', 'coc-biome']
+  let g:coc_global_extensions = [ 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-css', 'coc-json', 'coc-go', 'coc-python', 'coc-yaml', 'coc-word', 'coc-diagnostic', 'coc-copilot', 'coc-biome', '@yaegassy/coc-tailwindcss3']
 
   " if hidden is not set, TextEdit might fail.
   set hidden
