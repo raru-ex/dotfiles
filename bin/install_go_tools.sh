@@ -17,6 +17,7 @@ go install github.com/mdempsky/gocode@latest
 go install github.com/k0kubun/pp@latest
 go install github.com/cweill/gotests/...@latest
 go install github.com/110y/go-expr-completion@latest
+go install  github.com/jameswoolfenden/pike@latest
 echo "[INFO] Finished"
 
 ## gotestはシンボリックリンクを辿れないのでコピー
