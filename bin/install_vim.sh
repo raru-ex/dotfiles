@@ -1,11 +1,11 @@
 #!/bin/zsh
 
 ## sh エミュレーションモード
-# emulate -R sh
+emulate -R sh
 
 if !(type node > /dev/null 2>&1); then
 
-  if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+  if [ "$(expr substr $(uname -s) 1 5)" = 'Linux' ]; then
     echo "[INFO] install node and nvm"
     sudo apt-get install curl vim-gtk
 		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash

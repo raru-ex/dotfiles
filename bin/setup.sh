@@ -8,7 +8,7 @@ emulate -R sh
 ~/dotfiles/bin/install_vim.sh
 ~/dotfiles/bin/install_zsh.sh
 ~/dotfiles/bin/install_tmux.sh
-~/dotfiles/bin/install_install_lsps.sh
+~/dotfiles/bin/install_lsps.sh
 if [ "$(uname)" == 'Darwin' ]; then
 	# Mac OS
   ~/dotfiles/bin/install_karabiner_json.sh

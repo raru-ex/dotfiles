@@ -3,7 +3,7 @@
 ## sh エミュレーションモード
 # emulate -R sh
 
-if [ "$(uname)" == 'Darwin' ]; then
+if [ "$(uname)" = 'Darwin' ]; then
   #Mac OS
   if type brew > /dev/null 2>&1; then
     echo "[INFO] brew is already installed"
@@ -17,7 +17,7 @@ if [ "$(uname)" == 'Darwin' ]; then
   brew install git svn lazygit tree nvim vim ripgrep zsh git-delta golangci-lint jq bat wget fd
   echo "[INFO] finished"
 
-elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+elif [ "$(expr substr $(uname -s) 1 5)" = 'Linux' ]; then
   #Linux
   if type brew > /dev/null 2>&1; then
     echo "[INFO] brew is already installed"
