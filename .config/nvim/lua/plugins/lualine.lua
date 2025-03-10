@@ -1,6 +1,20 @@
 local ok, lualine = pcall(require, 'lualine')
 
 if ok then
+  -- coc.nvimがインストールされているか確認し、ステータスを取得する関数
+  local function get_coc_status()
+    -- cocがインストールされているか確認
+    local has_coc = vim.fn.exists('*coc#rpc#start_server') == 1
+
+    if not has_coc then
+      return ''
+    end
+
+    -- cocのステータスを取得
+    local status = vim.call('coc#status')
+    return status ~= '' and status or ''
+  end
+
   local powerline = require'lualine.themes.powerline'
 
   -- Color for highlights
@@ -16,33 +30,58 @@ if ok then
     red = '#ec5f67'
   }
 
-
   lualine.setup({
-    options = { theme = powerline },
-    sections = {
-      lualine_c = { 'filename', {
-        'lsp_progress',
-        display_components = { 'lsp_client_name', { 'title', 'percentage', 'message' }},
-        colors = {
-          percentage  = colors.cyan,
-          title  = colors.cyan,
-          message  = colors.cyan,
-          lsp_client_name = colors.magenta,
-          use = true,
-        },
-        separators = {
-          component = ' ',
-          progress = ' | ',
-          message = { pre = '(', post = ')'},
-          percentage = { pre = '', post = '%% ' },
-          title = { pre = '', post = ': ' },
-          lsp_client_name = { pre = '[', post = ']' },
-          message = { commenced = 'In Progress', completed = 'Completed' },
-        },
-        display_components = { 'lsp_client_name', { 'title', 'percentage', 'message' } },
-        timer = { progress_enddelay = 500, lsp_client_name_enddelay = 1000 },
-      }},
+    options = {
+      icons_enabled = true,
+      theme = powerline,
+      section_separators = { left = '', right = '' },
+      component_separators = { left = '<', right = '<' },
+      disabled_filetypes = {
+        statusline = {},
+        winbar = {},
+      },
+      ignore_focus = {},
+      always_divide_middle = true,
+      always_show_tabline = true,
+      globalstatus = false,
+      refresh = {
+        statusline = 100,
+        tabline = 100,
+        winbar = 100,
+      }
     },
+    sections = {
+      lualine_a = {'mode'},
+      lualine_b = {
+        'branch', 
+        {
+          'diff', 
+          colored = true,
+          diff_color = {
+            add = { fg = colors.green },
+            modified = { fg = colors.yellow },
+            removed = { fg = colors.red },
+          }
+        },
+        'diagnostics',
+      },
+      lualine_c = {'filename', get_coc_status},
+      lualine_x = {'encoding', 'fileformat', 'filetype'},
+      lualine_y = {'progress'},
+      lualine_z = {'location'}
+    },
+    inactive_sections = {
+      lualine_a = {},
+      lualine_b = {},
+      lualine_c = {'filename'},
+      lualine_x = {'location'},
+      lualine_y = {},
+      lualine_z = {}
+    },
+    tabline = {},
+    winbar = {},
+    inactive_winbar = {},
+    extensions = {}
   })
 
 end
