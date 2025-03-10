@@ -63,7 +63,7 @@ require("lazy").setup({
   { 'FooSoft/vim-argwrap', config = config.load 'arg-wrap'},
 
   -- LSP/Completion
-  { 'github/copilot.vim', config = config.load 'copilot' },
+  -- { 'github/copilot.vim', config = config.load 'copilot' },
   { 'neoclide/coc.nvim', branch='release', config = config.load 'coc' },
 
   -- fizzy finder
