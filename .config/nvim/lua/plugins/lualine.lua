@@ -32,16 +32,13 @@ if ok then
     red = '#ec5f67'
   }
 
-  local section_separator = is_mac and { left = '', right = '' } or {left = '', right = ''}
-  local component_separator = is_mac and { left = '', right = '' } or {left = '', right = ''}
   
-
   lualine.setup({
     options = {
       icons_enabled = true,
       theme = powerline,
-      section_separators = section_separator,
-      component_separators = component_separator,
+      section_separators = { left = '', right = '' },
+      component_separators = { left = '', right = '' },
       disabled_filetypes = {
         statusline = {},
         winbar = {},
@@ -79,10 +76,11 @@ if ok then
             return '%=' -- 右寄せ
           end,
           padding = 0,
+          separator = nil,
         },
         { get_coc_status, align = 'right', separator = nil },
       },
-      lualine_x = {{'encoding', separator = component_separator.right}, {'fileformat', separator = component_separator.right}, {'filetype', separator = component_separator.right} },
+      lualine_x = {{'encoding', separator = '|'}, {'fileformat', separator = '|'}, {'filetype', separator = '|' } },
       lualine_y = {'progress'},
       lualine_z = {'location'}
     },
