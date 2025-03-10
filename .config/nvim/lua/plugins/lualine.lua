@@ -35,7 +35,7 @@ if ok then
       icons_enabled = true,
       theme = powerline,
       section_separators = { left = '', right = '' },
-      component_separators = { left = '<', right = '<' },
+      component_separators = { left = '', right = '' },
       disabled_filetypes = {
         statusline = {},
         winbar = {},
@@ -65,8 +65,18 @@ if ok then
         },
         'diagnostics',
       },
-      lualine_c = {'filename', get_coc_status},
-      lualine_x = {'encoding', 'fileformat', 'filetype'},
+      lualine_c = {
+        { 'filename', align = 'left', separator = nil },
+        {
+          -- 空白を埋めるパディング要素
+          function() 
+            return '%=' -- 右寄せ
+          end,
+          padding = 0,
+        },
+        { get_coc_status, align = 'right', separator = nil },
+      },
+      lualine_x = {{'encoding', separator = '<'}, {'fileformat', separator = '<'}, {'filetype', separator = '<'} },
       lualine_y = {'progress'},
       lualine_z = {'location'}
     },
