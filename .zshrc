@@ -5,8 +5,7 @@ source ~/dotfiles/.zsh/prompt.zsh
 
 # exports
 # lang setting
-export LANG=ja_JP.UTF-8
-export PAGER=less
+export LANG=ja_JP.UTF-8 export PAGER=less
 export EDITOR=vim
 export XDG_CONFIG_HOME=~/.config
 
@@ -65,8 +64,6 @@ function displayColors () {
 }
 
 stty stop undef
-export GOPATH=$(go env GOPATH)
-export PATH="/usr/local/opt/gettext/bin:$GOPATH/bin:$PATH"
 
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
@@ -81,7 +78,20 @@ export BAT_THEME=gruvbox-dark
 export FZF_PREVIEW_PREVIEW_BAT_THEME='gruvbox-dark'
 
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+export GOPATH=$(go env GOPATH)
+export PATH="/usr/local/opt/gettext/bin:$GOPATH/bin:$PATH"
 
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# bun completions
+[ -s "/home/raru/.bun/_bun" ] && source "/home/raru/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# export LD_LIBRARY_PATH=/usr/local/lib64
+#
+if [ -f ~/.env_secrets ]; then
+  source ~/.env_secrets
+fi
