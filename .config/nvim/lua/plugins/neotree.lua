@@ -2,10 +2,11 @@ local ok, neotree = pcall(require, 'neo-tree')
 
 if ok then
   neotree.setup({
-    close_if_last_window = false,
+    close_if_last_window = true,
     enable_git_status = true,
     enable_diagnostics = true,
     window = {
+      auto_expand_width = true,
       mapping_options = {
         noremap = true,
         nowait = true,
@@ -19,6 +20,8 @@ if ok then
     },
     filesystem = {
       filtered_items = {
+        visible = true,
+        hide_hidden = true,
         hide_by_name = {
           "node_modules"
         },
