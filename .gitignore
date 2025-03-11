@@ -25,6 +25,7 @@
 .vim/dein/cache_*
 .vim/dein/state_*
 .vim/swap/
+.config/karabiner/automatic_backups/*
 
 .DS_Store
 .svn
