@@ -2,21 +2,6 @@ local ok, lualine = pcall(require, 'lualine')
 
 if ok then
   -- coc.nvimがインストールされているか確認し、ステータスを取得する関数
-  local function get_coc_status()
-    -- cocがインストールされているか確認
-    local has_coc = vim.fn.exists('*coc#rpc#start_server') == 1
-
-    if not has_coc then
-      return ''
-    end
-
-    -- cocのステータスを取得
-    local status = vim.call('coc#status')
-    return status ~= '' and status or ''
-  end
-
-
-  local is_mac = vim.loop.os_uname().sysname == "Darwin"
   local powerline = require'lualine.themes.powerline'
 
   -- Color for highlights
@@ -68,18 +53,7 @@ if ok then
         },
         'diagnostics',
       },
-      lualine_c = {
-        { 'filename', align = 'left', separator = nil },
-        {
-          -- 空白を埋めるパディング要素
-          function() 
-            return '%=' -- 右寄せ
-          end,
-          padding = 0,
-          separator = nil,
-        },
-        { get_coc_status, align = 'right', separator = nil },
-      },
+      lualine_c = {'filename'},
       lualine_x = {{'encoding', separator = '|'}, {'fileformat', separator = '|'}, {'filetype', separator = '|' } },
       lualine_y = {'progress'},
       lualine_z = {'location'}

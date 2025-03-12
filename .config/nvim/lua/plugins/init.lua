@@ -63,7 +63,21 @@ require("lazy").setup({
   { 'FooSoft/vim-argwrap', config = config.load 'arg-wrap'},
 
   -- LSP/Completion
-  { 'neoclide/coc.nvim', branch='release', config = config.load 'coc' },
+  -- { 'neoclide/coc.nvim', branch='release', config = config.load 'coc' },
+  {
+    'williamboman/mason-lspconfig.nvim',
+    dependencies = {
+      {'williamboman/mason.nvim'},
+      {'neovim/nvim-lspconfig'},
+      {'hrsh7th/nvim-cmp'},
+      {'hrsh7th/cmp-nvim-lsp'},
+    },
+    config = config.load 'nvim-lspconfig'
+  },
+{
+  "j-hui/fidget.nvim",
+   opts = {},
+},
 
   -- AI
   require("plugins.ai"),
@@ -76,7 +90,7 @@ require("lazy").setup({
       {'nvim-lua/plenary.nvim'},
       -- { '~/.fzf', rtp = 'fzf'}
       -- {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-      { 'fannheyward/telescope-coc.nvim' },
+      -- { 'fannheyward/telescope-coc.nvim' },
     },
     config = config.load 'telescope',
   },
