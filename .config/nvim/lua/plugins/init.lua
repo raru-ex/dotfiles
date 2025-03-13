@@ -105,7 +105,6 @@ require("lazy").setup({
 
   -- for any filetype
   { 'plasticboy/vim-markdown', config = config.load 'markdown', ft = { 'md', 'mkd', 'markdown' } },
-  { 'mattn/vim-goimports', config = config.load 'go-imports', ft = { 'go' } },
   { '110y/vim-go-expr-completion', config = config.load 'go-expr-completion', ft = { 'go' } },
 
 

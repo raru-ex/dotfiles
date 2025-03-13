@@ -12,6 +12,7 @@ vim.cmd([[
     \ 'coc-word', 
     \ 'coc-diagnostic', 
     \ 'coc-biome', 
+    \ 'coc-lua', 
     \ '@yaegassy/coc-tailwindcss3'
   \ ]
 
