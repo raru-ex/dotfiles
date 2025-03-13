@@ -65,23 +65,17 @@ function displayColors () {
 
 stty stop undef
 
-export GOPATH=~/go
-export PATH="/usr/local/opt/gettext/bin:$GOPATH/bin:$PATH"
-eval "$(direnv hook zsh)"
 
 # fzf. 何かの設定が先に必要っぽいので一旦一番下に書く
 source ~/dotfiles/.zsh/fzf.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH="$HOME/.cargo/bin:$PATH"
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 export BAT_THEME=gruvbox-dark
 export FZF_PREVIEW_PREVIEW_BAT_THEME='gruvbox-dark'
 
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-export GOPATH=$(go env GOPATH)
-export PATH="/usr/local/opt/gettext/bin:$GOPATH/bin:$PATH"
+export GOPATH=~/go
+eval "$(direnv hook zsh)"
 
 # export LD_LIBRARY_PATH=/usr/local/lib64
 if [ -f ~/.env_secrets ]; then
@@ -90,3 +84,7 @@ fi
 
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+eval $(/opt/homebrew/bin/brew shellenv)
+export PATH=$PATH:~/go/bin
+export PATH=$PATH:~/.bin
+export PATH="$PATH:${ASDF_DATA_DIR:-$HOME/.asdf}/shims"
