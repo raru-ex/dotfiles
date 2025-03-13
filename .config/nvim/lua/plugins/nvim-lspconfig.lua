@@ -26,15 +26,17 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
     vim.keymap.set('n', '<Leader>gf', function() vim.lsp.buf.format { async = true } end)
     vim.keymap.set('n', '<Leader>gD', vim.lsp.buf.declaration)
     vim.keymap.set('n', '<Leader>gn', vim.lsp.buf.rename)
-    vim.keymap.set('n', '<Leader>ge', vim.diagnostic.open_float)
     vim.keymap.set('n', ']c', vim.diagnostic.goto_next)
     vim.keymap.set('n', '[c', vim.diagnostic.goto_prev)
     vim.keymap.set('n', '<Leader>ga', vim.lsp.buf.code_action)
+    vim.keymap.set('n', '<Leader>gh', vim.lsp.buf.hover)
     -- Telescopeで呼び出す
+    -- vim.keymap.set('n', '<Leader>ge', vim.diagnostic.open_float)
     -- vim.keymap.set('n', '<Leader>gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
     -- vim.keymap.set('n', '<Leader>gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
     -- vim.keymap.set('n', '<Leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>')
     -- vim.keymap.set('n', '<Leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+
     -- LSP handlers
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
@@ -44,7 +46,22 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
 
   mason.setup()
   mason_lspconfig.setup({
-    ensure_installed = {'bashls', 'cssls', 'cssmodules_ls', 'dockerls', 'golangci_lint_ls', 'gopls', 'html', 'vtsls', 'lua_ls', 'marksman', 'taplo', 'vimls', 'yamlls', 'sqlls' },
+    ensure_installed = {
+      'bashls', -- bash
+      'cssls',  -- css
+      'cssmodules_ls',  -- cssmodule
+      'dockerls',  -- docker
+      'golangci_lint_ls', -- golang lint
+      'gopls',  -- go
+      'html',  -- html
+      'vtsls',  -- ts
+      'lua_ls',  -- lua
+      'marksman', -- markdown
+      'taplo',  -- toml
+      'vimls',  -- vimscript
+      'yamlls',  -- yaml
+      'sqlls',  -- sql
+    },
     automatic_installation = true
   })
   mason_lspconfig.setup_handlers({
@@ -70,28 +87,51 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
 
   })
 
+  lspconfig.gopls.setup({
+    cmd = {"gopls", "serve"},
+    settings = {
+      gopls = {
+        ["local"] = "github.com/knowledge-work",
+      },
+    },
+  })
+
+
   -- cmp
   cmp.setup({
-    snippet = {
-      expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-      end,
+    completion = {
+      completeopt = 'menu,menuone,noselect',
     },
     sources = {
       { name = "nvim_lsp" },
       { name = "buffer" },
       { name = "path" },
     },
-    mapping = cmp.mapping.preset.insert({
-      ["<S-TAB>"] = cmp.mapping.select_prev_item(),
-      ["<TAB>"] = cmp.mapping.select_next_item(),
-      ["<C-p>"] = cmp.mapping.select_prev_item(),
-      ["<C-n>"] = cmp.mapping.select_next_item(),
-      ['<C-space>'] = cmp.mapping.complete(),
+    mapping = {
+      ["<S-TAB>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+      ["<TAB>"] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          -- 現在表示されている候補の数を確認
+          local entries = cmp.get_entries()
+          if entries and #entries == 1 then
+            -- 候補が1つだけの場合は確定
+            cmp.confirm({ select = true })
+          else
+            -- それ以外は次の候補を選択
+            cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+          end
+        else
+          fallback()
+        end
+      end, { 'i', 's' }),
+      ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+      ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+      ["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+      ["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+      ['<C-space>'] = cmp.mapping.complete({ behavior = cmp.SelectBehavior.Select }),
       -- 入力補助を止めるときにnormal modeまで戻す
       ['<ESC>'] = cmp.mapping(
         function(fallback)
-          print(cmp.visible())
           if cmp.visible() then
             cmp.abort()
             vim.api.nvim_input('<ESC>')
@@ -100,9 +140,28 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
           end
         end),
       ["<CR>"] = cmp.mapping.confirm { select = true },
-    }),
+    },
     experimental = {
       ghost_text = true,
     },
+  })
+
+  -- goのimport自動設定
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*.go",
+    callback = function()
+      local params = vim.lsp.util.make_range_params()
+      params.context = {only = {"source.organizeImports"}}
+      local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
+      for cid, res in pairs(result or {}) do
+        for _, r in pairs(res.result or {}) do
+          if r.edit then
+            local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
+            vim.lsp.util.apply_workspace_edit(r.edit, enc)
+          end
+        end
+      end
+      vim.lsp.buf.format({async = false})
+    end
   })
 end

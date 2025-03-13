@@ -8,12 +8,12 @@ if ok then
   vim.keymap.set('n', '<leader>so', builtin.oldfiles, {})
   vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
   vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
+  vim.keymap.set('n', '<leader>ge', builtin.diagnostics, {})
 
-  vim.keymap.set('n', '<Leader>gd', ':Telescope coc definitions<CR>')
-  vim.keymap.set('n', '<Leader>gt', ':Telescope coc type_definitions<CR>')
-  vim.keymap.set('n', '<Leader>gi', ':Telescope coc implementations<CR>')
-  vim.keymap.set('n', '<Leader>gr', ':Telescope coc references<CR>')
-  vim.keymap.set('n', '<Leader>ge', ':Telescope coc workspace_diagnostics<CR>')
+  vim.keymap.set('n', '<Leader>gd', '<cmd>Telescope lsp_definitions<CR>')
+  vim.keymap.set('n', '<Leader>gt', '<cmd>Telescope lsp_type_definitions<CR>')
+  vim.keymap.set('n', '<Leader>gi', '<cmd>Telescope lsp_implementations<CR>')
+  vim.keymap.set('n', '<Leader>gr', '<cmd>Telescope lsp_references<CR>')
 
   require('telescope').setup{
     defaults = {
@@ -41,13 +41,13 @@ if ok then
       --   override_file_sorter = true,
       --   case_mode = 'ignore_case',
       -- },
-      coc = {
-        prefer_locations = false,
-      }
+      -- coc = {
+      --   prefer_locations = false,
+      -- }
     },
     -- buffer_previewer_maker = new_maker,
   }
 
   -- require('telescope').load_extension('fzf')
-  require('telescope').load_extension('coc')
+  -- require('telescope').load_extension('coc')
 end
