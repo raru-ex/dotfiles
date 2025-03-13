@@ -8,6 +8,7 @@ if ok then
   vim.keymap.set('n', '<leader>so', builtin.oldfiles, {})
   vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
   vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
+  vim.keymap.set('n', '<leader>ge', builtin.diagnostics, {})
 
   vim.keymap.set('n', '<Leader>gd', '<cmd>Telescope lsp_definitions<CR>')
   vim.keymap.set('n', '<Leader>gt', '<cmd>Telescope lsp_type_definitions<CR>')
