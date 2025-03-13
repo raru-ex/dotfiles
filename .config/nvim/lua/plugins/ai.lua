@@ -1,13 +1,13 @@
 local function determine_provider()
-  local os_name = vim.loop.os_uname().sysname
+  -- ANTHROPIC_API_KEYが設定されているかチェック
+  local anthropic_api_key = os.getenv("ANTHROPIC_API_KEY")
 
-  -- MacOSではCopilot、それ以外ではClaude
-  if os_name == "Darwin" then
-    -- MacOS
-    return "copilot", false -- copilotプロバイダー、auto_suggestionsはオフ
-  else
-    -- Windows、Linux、その他のOS
+  if anthropic_api_key and anthropic_api_key ~= "" then
+    -- ANTHROPIC_API_KEYが設定されている場合
     return "claude", false -- claudeプロバイダー、auto_suggestionsはオフ
+  else
+    -- ANTHROPIC_API_KEYが設定されていない場合
+    return "copilot", false -- copilotプロバイダー、auto_suggestionsはオフ
   end
 end
 
