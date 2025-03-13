@@ -172,7 +172,7 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
       for cid, res in pairs(result or {}) do
         for _, r in pairs(res.result or {}) do
           if r.edit then
-            local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
+            local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-8"
             vim.lsp.util.apply_workspace_edit(r.edit, enc)
           end
         end
