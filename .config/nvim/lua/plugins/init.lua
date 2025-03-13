@@ -21,7 +21,7 @@ require("lazy").setup({
     config = config.load 'nvim-treesitter',
     build = ':TSUpdate',
   },
- 
+
   -- terminal
   { 'akinsho/toggleterm.nvim', version = '*', config = config.load 'toggleterm' },
 
@@ -32,7 +32,7 @@ require("lazy").setup({
   {
   "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
-    dependencies = { 
+    dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
@@ -63,7 +63,6 @@ require("lazy").setup({
   { 'FooSoft/vim-argwrap', config = config.load 'arg-wrap'},
 
   -- LSP/Completion
-  -- { 'neoclide/coc.nvim', branch='release', config = config.load 'coc' },
   {
     'williamboman/mason-lspconfig.nvim',
     dependencies = {
@@ -88,9 +87,7 @@ require("lazy").setup({
     'nvim-telescope/telescope.nvim', branch = '0.1.x',
     dependencies = {
       {'nvim-lua/plenary.nvim'},
-      -- { '~/.fzf', rtp = 'fzf'}
-      -- {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-      -- { 'fannheyward/telescope-coc.nvim' },
+      {'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
     config = config.load 'telescope',
   },
@@ -101,7 +98,6 @@ require("lazy").setup({
     end,
     dependencies = {'kkharji/sqlite.lua'},
   },
-
 
   -- for any filetype
   { 'plasticboy/vim-markdown', config = config.load 'markdown', ft = { 'md', 'mkd', 'markdown' } },

@@ -54,6 +54,9 @@ vim.o.visualbell = false
 -- yankをクリップボードに
 vim.o.clipboard = 'unnamedplus'
 
+-- hoverの判定にかかる時間を制御
+vim.opt.updatetime = 400
+
 vim.keymap.set('v', 'x', [["_x]], { noremap = true})
 vim.keymap.set('n', 'x', [["_x]], { noremap = true})
 -- 検索のハイライトを解除
