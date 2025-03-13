@@ -65,8 +65,9 @@ function displayColors () {
 
 stty stop undef
 
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init -)"
+export GOPATH=~/go
+export PATH="/usr/local/opt/gettext/bin:$GOPATH/bin:$PATH"
+eval "$(direnv hook zsh)"
 
 # fzf. 何かの設定が先に必要っぽいので一旦一番下に書く
 source ~/dotfiles/.zsh/fzf.zsh
@@ -82,16 +83,10 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export GOPATH=$(go env GOPATH)
 export PATH="/usr/local/opt/gettext/bin:$GOPATH/bin:$PATH"
 
-
-# bun completions
-[ -s "/home/raru/.bun/_bun" ] && source "/home/raru/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
 # export LD_LIBRARY_PATH=/usr/local/lib64
-#
 if [ -f ~/.env_secrets ]; then
   source ~/.env_secrets
 fi
+
+
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
