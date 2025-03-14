@@ -82,6 +82,8 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
       'vimls',  -- vimscript
       'yamlls',  -- yaml
       'sqlls',  -- sql
+      'buf_ls',  -- protobuf
+      'typos_lsp', -- typoチェック
     },
     automatic_installation = true
   })
@@ -101,11 +103,15 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
       end
 
       if server == "gopls" then
-        opt.cmd = {"gopls", "serve"}
         opt.settings = {
           gopls = {
             ["local"] = "github.com/knowledge-work",
           }
+        }
+      end
+      if server == "typos_lsp" then
+        opt.init_options = {
+          config = '~/.confing/nvim/.typos.toml'
         }
       end
 
