@@ -52,7 +52,7 @@ vim.o.swapfile = false
 -- ビープ音を消す
 vim.o.visualbell = false
 -- yankをクリップボードに
-vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = 'unnamed,unnamedplus'
 
 -- hoverの判定にかかる時間を制御
 vim.opt.updatetime = 400
