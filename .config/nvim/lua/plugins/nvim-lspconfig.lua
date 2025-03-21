@@ -106,6 +106,7 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
         opt.settings = {
           gopls = {
             ["local"] = "github.com/knowledge-work",
+            directoryFilters = { "-**/node_modules", "-**/.git", "-**/vendor" },
           }
         }
       end

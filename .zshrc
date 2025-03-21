@@ -92,3 +92,11 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 if [ -f ~/.env_secrets ]; then
   source ~/.env_secrets
 fi
+
+
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+eval $(/opt/homebrew/bin/brew shellenv)
+export PATH=$PATH:~/go/bin
+export PATH=$PATH:~/.bin
+export PATH="$PATH:${ASDF_DATA_DIR:-$HOME/.asdf}/shims"
+export PATH="$PATH:${ASDF_DATA_DIR:-$HOME/.asdf}/installs/gcloud/503.0.0/bin"

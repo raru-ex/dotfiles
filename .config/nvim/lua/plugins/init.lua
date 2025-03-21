@@ -73,17 +73,17 @@ require("lazy").setup({
     },
     config = config.load 'nvim-lspconfig'
   },
-{
-  "j-hui/fidget.nvim",
-   opts = {},
-},
+  {
+    "j-hui/fidget.nvim",
+    opts = {},
+  },
 
   -- AI
   require("plugins.ai"),
 
   -- fizzy finder
   {
-   --  'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    --  'nvim-telescope/telescope.nvim', tag = '0.1.1',
     'nvim-telescope/telescope.nvim', branch = '0.1.x',
     dependencies = {
       {'nvim-lua/plenary.nvim'},
