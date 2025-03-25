@@ -132,21 +132,7 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
     },
     mapping = {
       ["<S-TAB>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-      ["<TAB>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          -- 現在表示されている候補の数を確認
-          local entries = cmp.get_entries()
-          if entries and #entries == 1 then
-            -- 候補が1つだけの場合は確定
-            cmp.confirm({ select = true })
-          else
-            -- それ以外は次の候補を選択
-            cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-          end
-        else
-          fallback()
-        end
-      end, { 'i', 's' }),
+      ["<TAB>"] =  cmp.mapping.confirm { select = true }, -- 無意識だったがtabをCRと同じように使っていたと気づいた
       ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
       ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
       ["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
