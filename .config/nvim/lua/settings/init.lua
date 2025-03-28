@@ -62,6 +62,18 @@ vim.keymap.set('n', 'x', [["_x]], { noremap = true})
 -- 検索のハイライトを解除
 vim.keymap.set('n', '<Esc><Esc>', [[:noh<CR>]], { noremap = true })
 
+vim.diagnostic.config({
+  -- Use the default configuration
+  virtual_lines = true
+
+  -- Alternatively, customize specific options
+  -- virtual_lines = {
+  --  -- Only show virtual line diagnostics for the current cursor line
+  --  current_line = true,
+  -- },
+})
+
+
 vim.cmd([[command! CopyRelativePath
  \ let @* = join(remove( split( expand( '%:p' ), "/" ), len( split( getcwd(), "/" ) ), -1 ), "/") |
  \ let @+ = @* |
