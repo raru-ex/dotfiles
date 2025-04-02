@@ -1,5 +1,7 @@
 [core]
   pager = delta
+	fsmonitor = true
+	untrackedcache = true
 
 [delta]
   syntax-theme = TwoDark
@@ -18,3 +20,7 @@
 	email = raru@syrup16g.net
 [pull]
 	rebase = false
+[scalar]
+	repo = /Users/raru/Documents/workspace/knowledgework
+[maintenance]
+	repo = /Users/raru/Documents/workspace/knowledgework
