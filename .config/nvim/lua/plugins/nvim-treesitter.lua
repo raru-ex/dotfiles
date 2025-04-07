@@ -1,12 +1,6 @@
 local ok, treesitter = pcall(require, 'nvim-treesitter.configs')
 local parser_dir
 
-if os_name == "Darwin" then  -- MacOS
-  parser_dir = "/Users/raru/.local/share/nvim/lazy/nvim-treesitter"
-elseif os_name == "Linux" then  -- Linux
-  parser_dir = "/home/raru/.local/share/nvim/lazy/nvim-treesitter"
-end
-
 if ok then
   treesitter.setup {
     parser_install_dir = parser_dir,
@@ -28,6 +22,7 @@ if ok then
       'lua',
       "terraform",
       "hcl",
+      "proto",
     },
     highlight = {
       enable = true,
