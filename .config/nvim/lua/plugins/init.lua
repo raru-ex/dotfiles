@@ -78,8 +78,8 @@ require("lazy").setup({
     opts = {},
   },
 
-  -- AI
-  require("plugins.ai"),
+  -- AI: claude codeだけあればいいので今使ってない
+  -- require("plugins.ai"),
 
   -- fizzy finder
   {
