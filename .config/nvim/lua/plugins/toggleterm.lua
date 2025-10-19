@@ -1,12 +1,13 @@
 local ok, terminal = pcall(require, 'toggleterm')
 
 if ok then
+  local opts = { silent = true }
 
   vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
-  vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
-  vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
-  vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
-  vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+  vim.keymap.set('t', '<C-h>', function() vim.cmd.wincmd('h') end, opts)
+  vim.keymap.set('t', '<C-j>', function() vim.cmd.wincmd('j') end, opts)
+  vim.keymap.set('t', '<C-k>', function() vim.cmd.wincmd('k') end, opts)
+  vim.keymap.set('t', '<C-l>', function() vim.cmd.wincmd('l') end, opts)
 
   terminal.setup({
     direction = 'float',
@@ -19,7 +20,6 @@ if ok then
 
   -- ターミナルインスタンスをキャッシュ
   local float_term = nil
-  local tab_term = nil
 
   -- floatingターミナルをトグル
   local function toggle_float_terminal()
@@ -39,35 +39,6 @@ if ok then
     float_term:toggle()
   end
 
-  -- タブターミナルを開く/フォーカス
-  local function open_tab_terminal()
-    -- 既存のターミナルタブを探す
-    for tabnr = 1, vim.fn.tabpagenr('$') do
-      local buflist = vim.fn.tabpagebuflist(tabnr)
-      for _, bufnr in ipairs(buflist) do
-        local bufname = vim.fn.bufname(bufnr)
-        -- toggleterm #2 のバッファを探す
-        if bufname:match('toggleterm#2') then
-          vim.cmd('tabn ' .. tabnr)
-          return
-        end
-      end
-    end
-
-    -- 見つからなければ新規作成
-    if not tab_term then
-      local Terminal = require('toggleterm.terminal').Terminal
-      tab_term = Terminal:new({
-        count = 2,
-        direction = 'tab',
-        hidden = true,
-      })
-    end
-    tab_term:open()
-  end
-
   -- マッピング
   vim.keymap.set('n', '<C-t><C-t>', toggle_float_terminal, opts)
-  vim.keymap.set('n', '<C-t><C-n>', open_tab_terminal, opts)
-
 end
