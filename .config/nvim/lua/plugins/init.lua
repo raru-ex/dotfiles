@@ -87,20 +87,10 @@ require("lazy").setup({
 
   -- fizzy finder
   {
-    --  'nvim-telescope/telescope.nvim', tag = '0.1.1',
-    'nvim-telescope/telescope.nvim', branch = '0.1.x',
-    dependencies = {
-      {'nvim-lua/plenary.nvim'},
-      {'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-    },
-    config = config.load 'telescope',
-  },
-  {
-    'nvim-telescope/telescope-frecency.nvim',
-    config = function()
-      require'telescope'.load_extension('frecency')
-    end,
-    dependencies = {'kkharji/sqlite.lua'},
+    'folke/snacks.nvim',
+    priority = 1000,
+    lazy = false,
+    config = config.load 'snacks',
   },
 
   -- for any filetype
