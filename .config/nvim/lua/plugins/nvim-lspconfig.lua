@@ -3,8 +3,9 @@ local ok_mason, mason = pcall(require, 'mason')
 local ok_lspconfig, lspconfig = pcall(require, 'lspconfig')
 local ok_cmp, cmp = pcall(require, 'cmp')
 local ok_cmp_nvim_lsp, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
+local ok_blink, blink = pcall(require, 'blink.cmp')
 
-if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp then
+if ok_mason and ok_mason_lsp and ok_lspconfig then
   local function on_attach_default(client, bufnr)
     -- Reference highlight
     local cap = client.server_capabilities
@@ -89,7 +90,15 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
   })
 
   -- 各LSPサーバーの設定
-  local capabilities = cmp_nvim_lsp.default_capabilities()
+  -- blink.cmpが利用可能であればblink.cmp、なければnvim-cmpのcapabilitiesを使用
+  local capabilities
+  if ok_blink then
+    capabilities = blink.get_lsp_capabilities()
+  elseif ok_cmp_nvim_lsp then
+    capabilities = cmp_nvim_lsp.default_capabilities()
+  else
+    capabilities = vim.lsp.protocol.make_client_capabilities()
+  end
   
   -- lua_lsの設定
   vim.lsp.config("lua_ls", {
@@ -160,40 +169,42 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
     })
   end
 
-  -- cmp
-  cmp.setup({
-    completion = {
-      completeopt = 'menu,menuone,noselect',
-    },
-    sources = {
-      { name = "nvim_lsp" },
-      { name = "buffer" },
-      { name = "path" },
-    },
-    mapping = {
-      ["<S-TAB>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-      ["<TAB>"] =  cmp.mapping.confirm { select = true }, -- 無意識だったがtabをCRと同じように使っていたと気づいた
-      ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-      ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-      ["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-      ["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-      ['<C-space>'] = cmp.mapping.complete({ behavior = cmp.SelectBehavior.Select }),
-      -- 入力補助を止めるときにnormal modeまで戻す
-      ['<ESC>'] = cmp.mapping(
-        function(fallback)
-          if cmp.visible() then
-            cmp.abort()
-            vim.api.nvim_input('<ESC>')
-          else
-            fallback()
-          end
-        end),
-      ["<CR>"] = cmp.mapping.confirm { select = true },
-    },
-    experimental = {
-      ghost_text = true,
-    },
-  })
+  -- cmp (blink.cmpが利用できない場合のフォールバック)
+  if not ok_blink and ok_cmp then
+    cmp.setup({
+      completion = {
+        completeopt = 'menu,menuone,noselect',
+      },
+      sources = {
+        { name = "nvim_lsp" },
+        { name = "buffer" },
+        { name = "path" },
+      },
+      mapping = {
+        ["<S-TAB>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+        ["<TAB>"] =  cmp.mapping.confirm { select = true }, -- 無意識だったがtabをCRと同じように使っていたと気づいた
+        ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+        ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+        ["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+        ["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+        ['<C-space>'] = cmp.mapping.complete({ behavior = cmp.SelectBehavior.Select }),
+        -- 入力補助を止めるときにnormal modeまで戻す
+        ['<ESC>'] = cmp.mapping(
+          function(fallback)
+            if cmp.visible() then
+              cmp.abort()
+              vim.api.nvim_input('<ESC>')
+            else
+              fallback()
+            end
+          end),
+        ["<CR>"] = cmp.mapping.confirm { select = true },
+      },
+      experimental = {
+        ghost_text = true,
+      },
+    })
+  end
 
   -- goのimport自動設定
   vim.api.nvim_create_autocmd("BufWritePre", {

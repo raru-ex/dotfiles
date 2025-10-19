@@ -74,6 +74,13 @@ require("lazy").setup({
     config = config.load 'nvim-lspconfig'
   },
   {
+    'saghen/blink.cmp',
+    lazy = false,
+    dependencies = 'rafamadriz/friendly-snippets',
+    version = 'v0.*',
+    config = config.load 'blink-cmp',
+  },
+  {
     "j-hui/fidget.nvim",
     opts = {},
   },
