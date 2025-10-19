@@ -68,7 +68,6 @@ stty stop undef
 # fzf. 何かの設定が先に必要っぽいので一旦一番下に書く
 source ~/dotfiles/.zsh/fzf.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 export BAT_THEME=gruvbox-dark
 export FZF_PREVIEW_PREVIEW_BAT_THEME='gruvbox-dark'

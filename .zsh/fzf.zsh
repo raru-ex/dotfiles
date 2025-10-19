@@ -4,3 +4,8 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_TMUX=1
 export FZF_TMUX_HEIGHT=15
+
+# Disable Ctrl-t (file finder) and Alt-c (directory finder)
+# Keep Ctrl-r (history search)
+bindkey -r '^T'  # Unbind Ctrl-t
+bindkey -r '\ec' # Unbind Alt-c (Meta-c)
