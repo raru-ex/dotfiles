@@ -1,7 +1,6 @@
 local ok, lualine = pcall(require, 'lualine')
 
 if ok then
-  -- coc.nvimがインストールされているか確認し、ステータスを取得する関数
   local powerline = require'lualine.themes.powerline'
 
   -- Color for highlights

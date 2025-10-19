@@ -78,9 +78,6 @@ require("lazy").setup({
     opts = {},
   },
 
-  -- AI: claude codeだけあればいいので今使ってない
-  -- require("plugins.ai"),
-
   -- fizzy finder
   {
     --  'nvim-telescope/telescope.nvim', tag = '0.1.1',

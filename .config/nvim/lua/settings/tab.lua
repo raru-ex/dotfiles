@@ -1,51 +1,46 @@
-vim.cmd([[
-" =========== Tab表示系機能を設定 ==========
+-- =========== Tab表示系機能を設定 ==========
 
-" tab系の機能をShougoさんにする
-"   参照: Shougoさんのサイト
-" Anywhere SID.
-function! s:SID_PREFIX()
-  return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
-endfunction
+-- タブラインの表示関数
+local function my_tabline()
+  local s = ''
+  local tabcount = vim.fn.tabpagenr('$')
 
-" Set tabline.
-function! s:my_tabline()  "{{{
-  let s = ''
-  for i in range(1, tabpagenr('$'))
-    let bufnrs = tabpagebuflist(i)
-    let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
-    let no = i  " display 0-origin tabpagenr.
-    let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
-    let title = fnamemodify(bufname(bufnr), ':t')
-    let title = '[' . title . ']'
-    let s .= '%'.i.'T'
-    let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
-    let s .= no . ':' . title
-    let s .= mod
-    let s .= '%#TabLineFill# '
-  endfor
-  let s .= '%#TabLineFill#%T%=%#TabLine#'
+  for i = 1, tabcount do
+    local bufnrs = vim.fn.tabpagebuflist(i)
+    local bufnr = bufnrs[vim.fn.tabpagewinnr(i)]
+    local mod = vim.fn.getbufvar(bufnr, '&modified') == 1 and '!' or ' '
+    local title = vim.fn.fnamemodify(vim.fn.bufname(bufnr), ':t')
+    title = '[' .. title .. ']'
+
+    s = s .. '%' .. i .. 'T'
+    s = s .. '%#' .. (i == vim.fn.tabpagenr() and 'TabLineSel' or 'TabLine') .. '#'
+    s = s .. i .. ':' .. title
+    s = s .. mod
+    s = s .. '%#TabLineFill# '
+  end
+
+  s = s .. '%#TabLineFill#%T%=%#TabLine#'
   return s
-endfunction "}}}
+end
 
-let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
-set showtabline=2 " 常にタブラインを表示
+-- グローバル関数として登録（vim.o.tablineから参照するため）
+_G.my_tabline = my_tabline
 
-" The prefix key.
-nnoremap    [Tag]   <Nop>
-nmap    t [Tag]
-" Tab jump
-for n in range(1, 9)
-  execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
-endfor
-" t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
+-- タブラインの設定
+vim.o.tabline = '%!v:lua.my_tabline()'
+vim.o.showtabline = 2  -- 常にタブラインを表示
 
-" tc 新しいタブを一番右に作る
-map <silent> [Tag]c :tablast <bar> tabnew<CR>
-" tx タブを閉じる
-map <silent> [Tag]x :tabclose<CR>
-" tn 次のタブ
-map <silent> [Tag]n :tabnext<CR>
-" tp 前のタブ
-map <silent> [Tag]p :tabprevious<CR>
-]])
+-- タブ操作用のキーマッピング
+-- t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
+for n = 1, 9 do
+  vim.keymap.set('n', 't' .. n, ':tabnext ' .. n .. '<CR>', { noremap = true, silent = true })
+end
+
+-- tc 新しいタブを一番右に作る
+vim.keymap.set('n', 'tc', ':tablast <bar> tabnew<CR>', { noremap = true, silent = true })
+-- tx タブを閉じる
+vim.keymap.set('n', 'tx', ':tabclose<CR>', { noremap = true, silent = true })
+-- tn 次のタブ
+vim.keymap.set('n', 'tn', ':tabnext<CR>', { noremap = true, silent = true })
+-- tp 前のタブ
+vim.keymap.set('n', 'tp', ':tabprevious<CR>', { noremap = true, silent = true })

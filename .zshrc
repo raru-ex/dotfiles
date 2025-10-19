@@ -65,9 +65,6 @@ function displayColors () {
 
 stty stop undef
 
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init -)"
-
 # fzf. 何かの設定が先に必要っぽいので一旦一番下に書く
 source ~/dotfiles/.zsh/fzf.zsh
 
@@ -94,3 +91,11 @@ if [ -f ~/.env_secrets ]; then
 fi
 
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code-insiders --locate-shell-integration-path zsh)"
+
+# === mise ===
+if [ -s "$HOME/.local/bin/mise" ]; then
+  eval "$($HOME/.local/bin/mise activate zsh)"
+  # export PATH="$HOME/.local/share/mise/shims:$PATH"
+fi
+
+

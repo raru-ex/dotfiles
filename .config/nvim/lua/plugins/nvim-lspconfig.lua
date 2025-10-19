@@ -143,7 +143,7 @@ if ok_mason and ok_mason_lsp and ok_lspconfig and ok_cmp and ok_cmp_nvim_lsp the
     on_attach = on_attach_default,
     capabilities = capabilities,
     init_options = {
-      config = '~/.confing/nvim/.typos.toml'
+      config = '~/.config/nvim/.typos.toml'
     }
   })
   

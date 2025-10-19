@@ -30,8 +30,9 @@ vim.o.expandtab = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 -- mute beep sound
-vim.o.visualbell = true
 vim.o.belloff = 'all'
+vim.o.errorbells = false
+vim.o.visualbell = false
 -- 検索結果をハイライト
 vim.o.hlsearch = true
 -- インクリメントサーチ有効
@@ -49,8 +50,6 @@ vim.o.splitright = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.swapfile = false
--- ビープ音を消す
-vim.o.visualbell = false
 -- yankをクリップボードに
 vim.o.clipboard = 'unnamed,unnamedplus'
 
@@ -93,9 +92,6 @@ vim.cmd([[
     autocmd BufWritePre *.ignore_partial :!sh ~/dotfiles/bin/build_global_gitignore.sh
   augroup End
 ]])
-
-
--- runtime! vimrcs/go.vim
 
 require('settings.tab')
 require('settings.mapping')
