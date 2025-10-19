@@ -15,10 +15,16 @@ if ok then
 
     -- 補完の挙動設定
     completion = {
+      list = {
+        selection = {
+          preselect = false,    -- 自動的に最初の候補を選択しない (nvim-cmpのnoselectに相当)
+          auto_insert = false   -- 選択時に自動的にテキストを挿入しない
+        }
+      },
       menu = {
         draw = {
           columns = { { 'label', 'label_description', gap = 1 }, { 'kind_icon', 'kind' } },
-        }
+        },
       },
       documentation = {
         auto_show = true,
@@ -40,7 +46,21 @@ if ok then
       ['<Down>'] = { 'select_next', 'fallback' },
       ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
       ['<CR>'] = { 'accept', 'fallback' },
-      ['<Esc>'] = { 'hide', 'fallback' },
+      ['<Esc>'] = {
+        function(cmp)
+          if cmp.is_visible() then
+            cmp.cancel()
+            -- nvim_feedkeysをnon-recursiveモードで使用して再帰的マッピングを回避
+            vim.api.nvim_feedkeys(
+              vim.api.nvim_replace_termcodes('<Esc>', true, false, true),
+              'n',  -- 'n' = non-recursive (再帰的マッピングを適用しない)
+              false
+            )
+            return true
+          end
+        end,
+        'fallback'
+      },
 
       -- スクロール
       ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
