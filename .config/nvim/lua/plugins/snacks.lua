@@ -52,10 +52,19 @@ snacks.setup({
   },
 })
 
--- Customize picker highlight groups
--- Make file paths and filenames use the same color (no distinction)
-vim.api.nvim_set_hl(0, 'SnacksPickerDir', { link = 'Normal' })
-vim.api.nvim_set_hl(0, 'SnacksPickerFile', { link = 'Normal' })
+local function set_picker_highlights()
+  local normal_fg = vim.api.nvim_get_hl(0, { name = 'Normal' }).fg
+  vim.api.nvim_set_hl(0, 'SnacksPickerDir', { fg = normal_fg, bg = 'NONE' })
+  vim.api.nvim_set_hl(0, 'SnacksPickerFile', { fg = normal_fg, bg = 'NONE' })
+end
+
+set_picker_highlights()
+
+-- Schemeが適用されないことがあるため更新が合った時に上書きされるように
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = set_picker_highlights,
+})
 
 -- File and content search (moved from telescope)
 vim.keymap.set('n', '<C-p>', function() snacks.picker.files() end, { desc = 'Find files' })
