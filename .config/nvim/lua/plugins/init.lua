@@ -58,6 +58,9 @@ require("lazy").setup({
     priority = 1000,   -- 他のプラグインより先に読み込む
     config = function()
       vim.cmd('colorscheme darcula')
+      -- カーソル行のハイライトを調整（構文ハイライトを維持）
+      -- 背景色のみを設定し、前景色は継承させる
+      vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#323232', blend = 0 })
     end
   },
 
