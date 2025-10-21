@@ -16,46 +16,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  {
-    'nvim-treesitter/nvim-treesitter',
-    config = config.load 'nvim-treesitter',
-    build = ':TSUpdate',
-  },
-
-  -- terminal
-  { 'akinsho/toggleterm.nvim', version = '*', config = config.load 'toggleterm' },
-
-  -- git
-  { 'sindrets/diffview.nvim' },
-
-  -- filer
-  {
-  "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    },
-    config = config.load 'neotree',
-  },
-
-  -- status line
-  {
-    'nvim-lualine/lualine.nvim',
-    dependencies = {
-      { 'kyazdani42/nvim-web-devicons', opt = true, name = 'status-nvim-web-devicons'},
-      { 'arkav/lualine-lsp-progress' },
-      { 'hrsh7th/vim-vsnip' }
-    },
-    config = config.load 'lualine',
-  },
-
-  -- color scheme
+  -- color scheme (最優先で読み込む)
   {
     'doums/darcula',
-    lazy = false,      -- 遅延読み込みしない
-    priority = 1000,   -- 他のプラグインより先に読み込む
+    lazy = false,
+    priority = 1000,
     config = function()
       vim.cmd('colorscheme darcula')
       -- カーソル行のハイライトを調整（構文ハイライトを維持）
@@ -64,21 +29,25 @@ require("lazy").setup({
     end
   },
 
-  -- indent, white space
-  { 'lukas-reineke/indent-blankline.nvim', main = "ibl", config = config.load 'indent-blankline' },
-  { 'echasnovski/mini.indentscope', branch = 'stable' , config = config.load 'mini-indentscope'},
-
-  -- utils
-  { 'FooSoft/vim-argwrap', config = config.load 'arg-wrap'},
+  -- 共通依存関係（重複を避けるため独立定義）
+  { 'nvim-lua/plenary.nvim' },
+  { 'nvim-tree/nvim-web-devicons' },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    config = config.load 'nvim-treesitter',
+    build = ':TSUpdate',
+  },
 
   -- LSP/Completion
   {
+    'williamboman/mason.nvim',
+    config = true,
+  },
+  {
     'williamboman/mason-lspconfig.nvim',
     dependencies = {
-      {'williamboman/mason.nvim'},
-      {'neovim/nvim-lspconfig'},
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-nvim-lsp'},
+      'williamboman/mason.nvim',
+      'neovim/nvim-lspconfig',
     },
     config = config.load 'nvim-lspconfig'
   },
@@ -94,6 +63,41 @@ require("lazy").setup({
     opts = {},
   },
 
+  -- terminal
+  {
+    'akinsho/toggleterm.nvim',
+    version = '*',
+    config = config.load 'toggleterm'
+  },
+
+  -- git
+  {
+    'sindrets/diffview.nvim',
+  },
+
+  -- filer
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    },
+    config = config.load 'neotree',
+  },
+
+  -- status line
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+      'arkav/lualine-lsp-progress',
+      'hrsh7th/vim-vsnip',
+    },
+    config = config.load 'lualine',
+  },
+
   -- fizzy finder
   {
     'folke/snacks.nvim',
@@ -102,10 +106,25 @@ require("lazy").setup({
     config = config.load 'snacks',
   },
 
-  -- for any filetype
-  { 'plasticboy/vim-markdown', config = config.load 'markdown', ft = { 'md', 'mkd', 'markdown' } },
-  { '110y/vim-go-expr-completion', config = config.load 'go-expr-completion', ft = { 'go' } },
+  -- indent, white space
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    event = { 'BufReadPost', 'BufNewFile' },
+    main = "ibl",
+    config = config.load 'indent-blankline'
+  },
+  {
+    'echasnovski/mini.indentscope',
+    event = { 'BufReadPost', 'BufNewFile' },
+    branch = 'stable',
+    config = config.load 'mini-indentscope'
+  },
 
+  -- utils
+  {
+    'FooSoft/vim-argwrap',
+    config = config.load 'arg-wrap'
+  },
 
   -- test
   {
@@ -119,7 +138,10 @@ require("lazy").setup({
     },
     config = config.load 'neotest',
   },
+
+  -- filetype specific
+  { 'plasticboy/vim-markdown', config = config.load 'markdown', ft = { 'md', 'mkd', 'markdown' } },
+  { '110y/vim-go-expr-completion', config = config.load 'go-expr-completion', ft = { 'go' } },
   { 'buoto/gotests-vim', config = config.load 'gotests-vim', ft = { 'go' } },
 
 })
-
