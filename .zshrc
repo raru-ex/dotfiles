@@ -35,7 +35,7 @@ setopt nonomatch # ?とかがshellに混ざるとエラーになるのを避け�
 bindkey -e
 bindkey '^[[Z' reverse-menu-complete # Shift-Tabで候補を逆順に補完する
 
-# aliases
+# aliases 
 if [ -d /usr/local/opt/coreutils/libexec/gnubin ] ; then
   export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
   export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
@@ -65,36 +65,16 @@ function displayColors () {
 
 stty stop undef
 
-# fzf. 何かの設定が先に必要っぽいので一旦一番下に書く
 source ~/dotfiles/.zsh/fzf.zsh
-
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 export BAT_THEME=gruvbox-dark
 export FZF_PREVIEW_PREVIEW_BAT_THEME='gruvbox-dark'
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-export GOPATH=$(go env GOPATH)
-export PATH="/usr/local/opt/gettext/bin:$GOPATH/bin:$PATH"
-export PATH=$PATH:~/.bin
+export GOPATH=~/go/bin
+export PATH="$GOPATH:$PATH"
 
-# bun completions
-[ -s "/home/raru/.bun/_bun" ] && source "/home/raru/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# export LD_LIBRARY_PATH=/usr/local/lib64
-if [ -f ~/.env_secrets ]; then
-  source ~/.env_secrets
-fi
-
+export PATH="/opt/homebrew/bin:$PATH"
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code-insiders --locate-shell-integration-path zsh)"
 
-# === mise ===
-if [ -s "$HOME/.local/bin/mise" ]; then
-  eval "$($HOME/.local/bin/mise activate zsh)"
-  # export PATH="$HOME/.local/share/mise/shims:$PATH"
-fi
-
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 

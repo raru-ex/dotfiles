@@ -52,8 +52,14 @@ require("lazy").setup({
   },
 
   -- color scheme
-  -- { 'folke/tokyonight.nvim', config = scheme.setup 'tokyonight' }
-  { 'doums/darcula', config = scheme.setup 'darcula' },
+  {
+    'doums/darcula',
+    lazy = false,      -- 遅延読み込みしない
+    priority = 1000,   -- 他のプラグインより先に読み込む
+    config = function()
+      vim.cmd('colorscheme darcula')
+    end
+  },
 
   -- indent, white space
   { 'lukas-reineke/indent-blankline.nvim', main = "ibl", config = config.load 'indent-blankline' },

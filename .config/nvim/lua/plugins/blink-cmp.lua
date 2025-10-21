@@ -1,6 +1,11 @@
 local ok, blink = pcall(require, 'blink.cmp')
 
 if ok then
+  -- Ghost text (補完候補のプレビュー) を薄い色で表示 (Commentと同じ色を使用)
+  vim.api.nvim_set_hl(0, 'BlinkCmpGhostText', {
+    link = 'Comment'
+  })
+
   blink.setup({
     -- 補完ウィンドウの表示設定
     appearance = {
@@ -17,7 +22,7 @@ if ok then
     completion = {
       list = {
         selection = {
-          preselect = false,    -- 自動的に最初の候補を選択しない (nvim-cmpのnoselectに相当)
+          preselect = true,     -- 自動的に最初の候補を選択する
           auto_insert = false   -- 選択時に自動的にテキストを挿入しない
         }
       },

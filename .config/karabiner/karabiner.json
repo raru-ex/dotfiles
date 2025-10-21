@@ -101,7 +101,8 @@
                                             "^com\\.jetbrains\\.WebStorm$",
                                             "^com\\.jetbrains\\.PhpStorm$",
                                             "^com\\.jetbrains\\.rubymine$",
-                                            "^com\\.microsoft\\.VSCode$"
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^md\\.obsidian$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
