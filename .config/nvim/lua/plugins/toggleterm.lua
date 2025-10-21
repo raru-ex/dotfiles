@@ -34,11 +34,17 @@ if ok then
           width = math.floor(vim.o.columns * 0.9),
           height = math.floor(vim.o.lines * 0.9),
         },
+        on_open = function()
+          vim.cmd('startinsert')
+        end,
+        on_close = function()
+          vim.cmd('stopinsert')
+        end,
       })
     end
     float_term:toggle()
   end
 
   -- マッピング
-  vim.keymap.set('n', '<C-t><C-t>', toggle_float_terminal, opts)
+  vim.keymap.set({ 'n', 'i', 't' }, '<C-t><C-t>', toggle_float_terminal, opts)
 end
