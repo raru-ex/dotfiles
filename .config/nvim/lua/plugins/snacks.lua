@@ -7,6 +7,11 @@ end
 snacks.setup({
   picker = {
     enabled = true,
+    formatters = {
+      file = {
+        min_width = 999,  -- 大きな値で実質的に省略を無効化
+      },
+    },
     -- Window layout - 90% of screen (telescope-style horizontal layout)
     layouts = {
       default = {

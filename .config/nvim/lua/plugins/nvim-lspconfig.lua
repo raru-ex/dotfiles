@@ -63,6 +63,18 @@ if ok_mason and ok_mason_lsp and ok_lspconfig then
   })
 
   mason.setup()
+
+  -- 各LSPサーバーの設定
+  -- blink.cmpが利用可能であればblink.cmp、なければnvim-cmpのcapabilitiesを使用
+  local capabilities
+  if ok_blink then
+    capabilities = blink.get_lsp_capabilities()
+  elseif ok_cmp_nvim_lsp then
+    capabilities = cmp_nvim_lsp.default_capabilities()
+  else
+    capabilities = vim.lsp.protocol.make_client_capabilities()
+  end
+
   mason_lspconfig.setup({
     ensure_installed = {
       'bashls', -- bash
@@ -82,88 +94,75 @@ if ok_mason and ok_mason_lsp and ok_lspconfig then
       'buf_ls',  -- protobuf
       'typos_lsp', -- typoチェック
     },
-    automatic_enable = true
-  })
-
-  -- 各LSPサーバーの設定
-  -- blink.cmpが利用可能であればblink.cmp、なければnvim-cmpのcapabilitiesを使用
-  local capabilities
-  if ok_blink then
-    capabilities = blink.get_lsp_capabilities()
-  elseif ok_cmp_nvim_lsp then
-    capabilities = cmp_nvim_lsp.default_capabilities()
-  else
-    capabilities = vim.lsp.protocol.make_client_capabilities()
-  end
-  
-  -- lua_lsの設定
-  vim.lsp.config("lua_ls", {
-    on_attach = on_attach_default,
-    capabilities = capabilities,
-    settings = {
-      Lua = {
-        diagnostics = { globals = { 'vim' } },
-      }
+    handlers = {
+      -- デフォルトハンドラー（全てのLSPサーバーに適用）
+      function(server_name)
+        lspconfig[server_name].setup({
+          on_attach = on_attach_default,
+          capabilities = capabilities,
+        })
+      end,
+      -- lua_ls専用設定
+      ["lua_ls"] = function()
+        lspconfig.lua_ls.setup({
+          on_attach = on_attach_default,
+          capabilities = capabilities,
+          settings = {
+            Lua = {
+              diagnostics = { globals = { 'vim' } },
+            }
+          }
+        })
+      end,
+      -- gopls専用設定
+      ["gopls"] = function()
+        lspconfig.gopls.setup({
+          on_attach = on_attach_default,
+          capabilities = capabilities,
+          settings = {
+            gopls = {
+              ["local"] = "github.com/knowledge-work",
+              directoryFilters = {
+                "-**/node_modules",
+                "-**/.git", "-**/vendor",
+                "-**/content-processing-converter",
+                "-**/content-processing-deadletter",
+                "-**/content-processing-finalizer",
+                "-**/content-processing-initiator",
+                "-**/content-processing-processor",
+                "-**/content-processing-transcoder",
+                "-**/content-processing-transcriptor",
+                "-**/content-processing-transcriptor-invoker",
+                "-**/content-processing-scanner",
+                "-**/content-processing-verifier",
+                "-**/contentprocessing",
+                "-**/data-generator",
+                "-**/dbt",
+                "-**/frontend",
+                "-**/infra",
+                "-**/e2e",
+                "-**/terraform",
+                "-**/docs",
+                "-**/migrate",
+                "-**/gateway",
+                "-**/z-playground",
+              },
+            }
+          }
+        })
+      end,
+      -- typos_lsp専用設定
+      ["typos_lsp"] = function()
+        lspconfig.typos_lsp.setup({
+          on_attach = on_attach_default,
+          capabilities = capabilities,
+          init_options = {
+            config = '~/.config/nvim/.typos.toml'
+          }
+        })
+      end,
     }
   })
-  
-  -- goplsの設定
-  vim.lsp.config("gopls", {
-    on_attach = on_attach_default,
-    capabilities = capabilities,
-    settings = {
-      gopls = {
-        ["local"] = "github.com/knowledge-work",
-        directoryFilters = {
-          "-**/node_modules",
-          "-**/.git", "-**/vendor",
-          "-**/content-processing-converter",
-          "-**/content-processing-deadletter",
-          "-**/content-processing-finalizer",
-          "-**/content-processing-initiator",
-          "-**/content-processing-processor",
-          "-**/content-processing-transcoder",
-          "-**/content-processing-transcriptor",
-          "-**/content-processing-transcriptor-invoker",
-          "-**/content-processing-scanner",
-          "-**/content-processing-verifier",
-          "-**/contentprocessing",
-          "-**/data-generator",
-          "-**/dbt",
-          "-**/frontend",
-          "-**/infra",
-          "-**/e2e",
-          "-**/terraform",
-          "-**/docs",
-          "-**/migrate",
-          "-**/gateway",
-          "-**/z-playground",
-        },
-      }
-    }
-  })
-  
-  -- typos_lspの設定
-  vim.lsp.config("typos_lsp", {
-    on_attach = on_attach_default,
-    capabilities = capabilities,
-    init_options = {
-      config = '~/.config/nvim/.typos.toml'
-    }
-  })
-  
-  -- その他のLSPサーバーの設定（デフォルト設定）
-  local servers = {
-    'bashls', 'cssls', 'cssmodules_ls', 'dockerls', 'golangci_lint_ls',
-    'html', 'vtsls', 'marksman', 'taplo', 'vimls', 'yamlls', 'sqlls', 'buf_ls'
-  }
-  
-  for _, server in ipairs(servers) do
-    vim.lsp.config(server, {
-      on_attach = on_attach_default,
-      capabilities = capabilities
-    })
-  end
 
   -- cmp (blink.cmpが利用できない場合のフォールバック)
   if not ok_blink and ok_cmp then

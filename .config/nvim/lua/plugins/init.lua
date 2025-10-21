@@ -53,7 +53,7 @@ require("lazy").setup({
   },
   {
     'saghen/blink.cmp',
-    lazy = false,
+    event = 'InsertEnter',
     dependencies = 'rafamadriz/friendly-snippets',
     version = 'v0.*',
     config = config.load 'blink-cmp',
@@ -90,10 +90,10 @@ require("lazy").setup({
   -- status line
   {
     'nvim-lualine/lualine.nvim',
+    event = 'VeryLazy',
     dependencies = {
       'nvim-tree/nvim-web-devicons',
       'arkav/lualine-lsp-progress',
-      'hrsh7th/vim-vsnip',
     },
     config = config.load 'lualine',
   },
