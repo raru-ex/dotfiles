@@ -4,8 +4,28 @@ local ok_lspconfig, lspconfig = pcall(require, 'lspconfig')
 local ok_blink, blink = pcall(require, 'blink.cmp')
 
 if ok_mason and ok_mason_lsp and ok_lspconfig then
-  local function on_attach_default(client, bufnr)
+  -- カスタムrenameハンドラー: デフォルト処理 + 自動保存
+  local default_rename_handler = vim.lsp.handlers['textDocument/rename']
+  vim.lsp.handlers['textDocument/rename'] = function(err, result, ctx, config)
+    -- デフォルトハンドラーを呼び出し（workspace editを適用）
+    default_rename_handler(err, result, ctx, config)
 
+    -- エラーがなく、resultがある場合のみ保存
+    if not err and result then
+      -- 変更されたバッファを保存
+      for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_is_loaded(buf)
+           and vim.api.nvim_buf_get_option(buf, 'modified')
+           and vim.api.nvim_buf_get_option(buf, 'buftype') == '' then
+          vim.api.nvim_buf_call(buf, function()
+            vim.cmd('silent! write')
+          end)
+        end
+      end
+    end
+  end
+
+  local function on_attach_default(client, bufnr)
     -- Reference highlight
     local cap = client.server_capabilities
     if cap.documentHighlightProvider then
