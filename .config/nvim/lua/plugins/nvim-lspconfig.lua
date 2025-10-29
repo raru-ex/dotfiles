@@ -1,9 +1,8 @@
 local ok_mason_lsp, mason_lspconfig = pcall(require, 'mason-lspconfig')
 local ok_mason, mason = pcall(require, 'mason')
-local ok_lspconfig, lspconfig = pcall(require, 'lspconfig')
 local ok_blink, blink = pcall(require, 'blink.cmp')
 
-if ok_mason and ok_mason_lsp and ok_lspconfig then
+if ok_mason and ok_mason_lsp then
   -- カスタムrenameハンドラー: デフォルト処理 + 自動保存
   local default_rename_handler = vim.lsp.handlers['textDocument/rename']
   vim.lsp.handlers['textDocument/rename'] = function(err, result, ctx, config)
@@ -114,7 +113,7 @@ if ok_mason and ok_mason_lsp and ok_lspconfig then
 
   for _, server in ipairs(installed_servers) do
     if server == "lua_ls" then
-      lspconfig.lua_ls.setup({
+      vim.lsp.config('lua_ls', {
         on_attach = on_attach_default,
         capabilities = capabilities,
         settings = {
@@ -123,8 +122,9 @@ if ok_mason and ok_mason_lsp and ok_lspconfig then
           }
         }
       })
+      vim.lsp.enable('lua_ls')
     elseif server == "gopls" then
-      lspconfig.gopls.setup({
+      vim.lsp.config('gopls', {
         on_attach = on_attach_default,
         capabilities = capabilities,
         settings = {
@@ -158,19 +158,22 @@ if ok_mason and ok_mason_lsp and ok_lspconfig then
           }
         }
       })
+      vim.lsp.enable('gopls')
     elseif server == "typos_lsp" then
-      lspconfig.typos_lsp.setup({
+      vim.lsp.config('typos_lsp', {
         on_attach = on_attach_default,
         capabilities = capabilities,
         init_options = {
           config = '~/.config/nvim/.typos.toml'
         }
       })
+      vim.lsp.enable('typos_lsp')
     else
-      lspconfig[server].setup({
+      vim.lsp.config(server, {
         on_attach = on_attach_default,
         capabilities = capabilities,
       })
+      vim.lsp.enable(server)
     end
   end
 
