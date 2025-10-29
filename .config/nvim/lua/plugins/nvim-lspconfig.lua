@@ -5,6 +5,7 @@ local ok_blink, blink = pcall(require, 'blink.cmp')
 
 if ok_mason and ok_mason_lsp and ok_lspconfig then
   local function on_attach_default(client, bufnr)
+
     -- Reference highlight
     local cap = client.server_capabilities
     if cap.documentHighlightProvider then
@@ -26,13 +27,13 @@ if ok_mason and ok_mason_lsp and ok_lspconfig then
       })
     end
 
-    vim.keymap.set('n', '<Leader>gf', function() vim.lsp.buf.format { async = true } end)
-    vim.keymap.set('n', '<Leader>gD', vim.lsp.buf.declaration)
-    vim.keymap.set('n', '<Leader>gn', vim.lsp.buf.rename)
-    vim.keymap.set('n', ']c', vim.diagnostic.goto_next)
-    vim.keymap.set('n', '[c', vim.diagnostic.goto_prev)
-    vim.keymap.set('n', '<Leader>ga', vim.lsp.buf.code_action)
-    vim.keymap.set('n', '<Leader>gh', vim.lsp.buf.hover)
+    vim.keymap.set('n', '<Leader>gf', function() vim.lsp.buf.format { async = true } end, { buffer = bufnr })
+    vim.keymap.set('n', '<Leader>gD', vim.lsp.buf.declaration, { buffer = bufnr })
+    vim.keymap.set('n', '<Leader>gn', vim.lsp.buf.rename, { buffer = bufnr })
+    vim.keymap.set('n', ']c', vim.diagnostic.goto_next, { buffer = bufnr })
+    vim.keymap.set('n', '[c', vim.diagnostic.goto_prev, { buffer = bufnr })
+    vim.keymap.set('n', '<Leader>ga', vim.lsp.buf.code_action, { buffer = bufnr })
+    vim.keymap.set('n', '<Leader>gh', vim.lsp.buf.hover, { buffer = bufnr })
 
     -- カーソルホバー時に自動で診断情報を表示
     vim.api.nvim_create_autocmd("CursorHold", {
@@ -86,75 +87,72 @@ if ok_mason and ok_mason_lsp and ok_lspconfig then
       'protols',  -- protobuf
       'typos_lsp', -- typoチェック
     },
-    handlers = {
-      -- デフォルトハンドラー（全てのLSPサーバーに適用）
-      function(server_name)
-        lspconfig[server_name].setup({
-          on_attach = on_attach_default,
-          capabilities = capabilities,
-        })
-      end,
-      -- lua_ls専用設定
-      ["lua_ls"] = function()
-        lspconfig.lua_ls.setup({
-          on_attach = on_attach_default,
-          capabilities = capabilities,
-          settings = {
-            Lua = {
-              diagnostics = { globals = { 'vim' } },
-            }
-          }
-        })
-      end,
-      -- gopls専用設定
-      ["gopls"] = function()
-        lspconfig.gopls.setup({
-          on_attach = on_attach_default,
-          capabilities = capabilities,
-          settings = {
-            gopls = {
-              ["local"] = "github.com/knowledge-work",
-              directoryFilters = {
-                "-**/node_modules",
-                "-**/.git", "-**/vendor",
-                "-**/content-processing-converter",
-                "-**/content-processing-deadletter",
-                "-**/content-processing-finalizer",
-                "-**/content-processing-initiator",
-                "-**/content-processing-processor",
-                "-**/content-processing-transcoder",
-                "-**/content-processing-transcriptor",
-                "-**/content-processing-transcriptor-invoker",
-                "-**/content-processing-scanner",
-                "-**/content-processing-verifier",
-                "-**/contentprocessing",
-                "-**/data-generator",
-                "-**/dbt",
-                "-**/frontend",
-                "-**/infra",
-                "-**/e2e",
-                "-**/terraform",
-                "-**/docs",
-                "-**/migrate",
-                "-**/gateway",
-                "-**/z-playground",
-              },
-            }
-          }
-        })
-      end,
-      -- typos_lsp専用設定
-      ["typos_lsp"] = function()
-        lspconfig.typos_lsp.setup({
-          on_attach = on_attach_default,
-          capabilities = capabilities,
-          init_options = {
-            config = '~/.config/nvim/.typos.toml'
-          }
-        })
-      end,
-    }
   })
+
+  -- インストール済みのLSPサーバーを取得して手動でセットアップ
+  local installed_servers = mason_lspconfig.get_installed_servers()
+
+  for _, server in ipairs(installed_servers) do
+    if server == "lua_ls" then
+      lspconfig.lua_ls.setup({
+        on_attach = on_attach_default,
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            diagnostics = { globals = { 'vim' } },
+          }
+        }
+      })
+    elseif server == "gopls" then
+      lspconfig.gopls.setup({
+        on_attach = on_attach_default,
+        capabilities = capabilities,
+        settings = {
+          gopls = {
+            ["local"] = "github.com/knowledge-work",
+            directoryFilters = {
+              "-**/node_modules",
+              "-**/.git", "-**/vendor",
+              "-**/content-processing-converter",
+              "-**/content-processing-deadletter",
+              "-**/content-processing-finalizer",
+              "-**/content-processing-initiator",
+              "-**/content-processing-processor",
+              "-**/content-processing-transcoder",
+              "-**/content-processing-transcriptor",
+              "-**/content-processing-transcriptor-invoker",
+              "-**/content-processing-scanner",
+              "-**/content-processing-verifier",
+              "-**/contentprocessing",
+              "-**/data-generator",
+              "-**/dbt",
+              "-**/frontend",
+              "-**/infra",
+              "-**/e2e",
+              "-**/terraform",
+              "-**/docs",
+              "-**/migrate",
+              "-**/gateway",
+              "-**/z-playground",
+            },
+          }
+        }
+      })
+    elseif server == "typos_lsp" then
+      lspconfig.typos_lsp.setup({
+        on_attach = on_attach_default,
+        capabilities = capabilities,
+        init_options = {
+          config = '~/.config/nvim/.typos.toml'
+        }
+      })
+    else
+      lspconfig[server].setup({
+        on_attach = on_attach_default,
+        capabilities = capabilities,
+      })
+    end
+  end
 
   -- goのimport自動設定
   vim.api.nvim_create_autocmd("BufWritePre", {
