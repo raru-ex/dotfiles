@@ -87,6 +87,11 @@ if ok_mason and ok_mason_lsp then
     and blink.get_lsp_capabilities()
     or vim.lsp.protocol.make_client_capabilities()
 
+  -- Enable semantic tokens support
+  capabilities.textDocument.semanticTokens = {
+    multilineTokenSupport = true,
+  }
+
   mason_lspconfig.setup({
     ensure_installed = {
       'bashls', -- bash
@@ -129,6 +134,10 @@ if ok_mason and ok_mason_lsp then
         capabilities = capabilities,
         settings = {
           gopls = {
+            semanticTokens = true,  -- Enable semantic highlighting
+            analyses = {
+              shadow = true,  -- Detect variable shadowing
+            },
             ["local"] = "github.com/knowledge-work",
             directoryFilters = {
               "-**/node_modules",
