@@ -103,7 +103,7 @@ if ok_mason and ok_mason_lsp then
       'vimls',  -- vimscript
       'yamlls',  -- yaml
       'sqlls',  -- sql
-      'protols',  -- protobuf
+      'buf_ls',  -- protobuf
       'typos_lsp', -- typoチェック
     },
   })
