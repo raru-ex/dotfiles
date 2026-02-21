@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(grep:*)",
+      "Bash(tree:*)",
+      "Bash(echo:*)",
+      "Bash(tee:*)",
+      "Bash(find:*)",
+      "Bash(git add:*)",
+      "Bash(git -C:*)",
+      "Bash(git stash:*)",
+      "Bash(git pop:*)",
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Bash(go:*)",
+      "Bash(docker exec:*)",
+      "Fetch"
+    ]
+  },
+  "alwaysThinkingEnabled": false,
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"処理が完了しました\" with title \"Claude Code\"'"
+          }
+        ]
+      }
+    ]
+  }
+}
