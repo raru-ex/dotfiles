@@ -32,10 +32,10 @@ mkdir -p ~/.claude/scripts
 
 DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
-cp "$DOTFILES_DIR/configs/claude/settings.json" ~/.claude/settings.json
-echo "[INFO] deployed settings.json"
+ln -sf "$DOTFILES_DIR/configs/claude/settings.json" ~/.claude/settings.json
+echo "[INFO] linked settings.json"
 
-cp "$DOTFILES_DIR/configs/claude/scripts/claude-notify.ts" ~/.claude/scripts/claude-notify.ts
-echo "[INFO] deployed claude-notify.ts"
+ln -sf "$DOTFILES_DIR/configs/claude/scripts/claude-notify.ts" ~/.claude/scripts/claude-notify.ts
+echo "[INFO] linked claude-notify.ts"
 
 echo "[INFO] finished"
