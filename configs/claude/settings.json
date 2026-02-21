@@ -133,7 +133,7 @@
       "Write(**/id_ecdsa)"
     ]
   },
-  "alwaysThinkingEnabled": false,
+  "language": "japanese",
   "hooks": {
     "Stop": [
       {
