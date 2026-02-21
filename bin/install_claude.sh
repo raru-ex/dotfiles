@@ -38,4 +38,7 @@ echo "[INFO] linked settings.json"
 ln -sf "$DOTFILES_DIR/configs/claude/scripts/claude-notify.ts" ~/.claude/scripts/claude-notify.ts
 echo "[INFO] linked claude-notify.ts"
 
+ln -sf "$DOTFILES_DIR/configs/claude/scripts/approve-piped-commands.ts" ~/.claude/scripts/approve-piped-commands.ts
+echo "[INFO] linked approve-piped-commands.ts"
+
 echo "[INFO] finished"

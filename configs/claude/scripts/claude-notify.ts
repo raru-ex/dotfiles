@@ -185,6 +185,9 @@ async function send(sound: string): Promise<void> {
     } else if (hookEventName === "Notification") {
       subtitle = hookData.message ?? "通知";
       await log(`NOTIFICATION_MESSAGE: ${subtitle}`);
+    } else if (hookEventName === "PermissionRequest") {
+      subtitle = "確認が必要です";
+      await log("PERMISSION_REQUEST");
     } else {
       subtitle = "Claude Code";
       await log("UNKNOWN_HOOK_TYPE");
