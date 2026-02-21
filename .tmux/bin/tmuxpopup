@@ -1,0 +1,19 @@
+#!/bin/bash
+WIDTH='80%'
+HEIGHT='80%'
+
+SESSION=$(tmux display-message -p -F "#{session_name}")
+CURRENT_DIR=$(basename "$(tmux display-message -p -F "#{pane_current_path}")")
+POPUP_SESSION="popup_${CURRENT_DIR}"
+
+# 既にポップアップセッション内にいればデタッチして閉じる
+if echo "$SESSION" | grep -q "^popup_"; then
+  tmux detach-client
+else
+  # 既存セッションにattach、なければ新規作成
+  tmux display-popup \
+    -d "#{pane_current_path}" \
+    -x C -y C \
+    -w "$WIDTH" -h "$HEIGHT" \
+    -E "tmux attach-session -t ${POPUP_SESSION} || tmux new-session -s ${POPUP_SESSION}"
+fi
