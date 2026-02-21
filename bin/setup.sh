@@ -16,4 +16,5 @@ fi
 
 ~/dotfiles/bin/install_git_settings.sh
 ~/dotfiles/bin/install_go_tools.sh
+~/dotfiles/bin/install_claude.sh
 
