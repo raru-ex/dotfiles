@@ -41,4 +41,10 @@ echo "[INFO] linked claude-notify.ts"
 ln -sf "$DOTFILES_DIR/configs/claude/scripts/approve-piped-commands.ts" ~/.claude/scripts/approve-piped-commands.ts
 echo "[INFO] linked approve-piped-commands.ts"
 
+ln -sf "$DOTFILES_DIR/configs/claude/scripts/check-command-policy.sh" ~/.claude/scripts/check-command-policy.sh
+echo "[INFO] linked check-command-policy.sh"
+
+ln -sf "$DOTFILES_DIR/configs/claude/CLAUDE.md" ~/.claude/CLAUDE.md
+echo "[INFO] linked CLAUDE.md"
+
 echo "[INFO] finished"

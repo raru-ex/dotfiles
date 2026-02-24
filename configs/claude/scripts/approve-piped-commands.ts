@@ -1,21 +1,23 @@
-#!/usr/bin/env -S deno run
+#!/usr/bin/env -S deno run --allow-read --allow-write --allow-env=HOME,TMPDIR,TMUX_PANE,TMUX --allow-run
 
 // PermissionRequest hook for Bash: auto-approve compound commands
 // where all individual commands are in the allowed set.
+// Also handles notification when approval is not granted.
+
+import { sendPermissionNotification } from "./claude-notify.ts";
 
 export const ALLOWED_COMMANDS = new Set([
-  "7z", "ag", "awk", "bat", "cargo", "cat", "chmod", "chown", "claude",
+  "7z", "ag", "awk", "bat", "cargo", "cat", "cd", "chmod", "claude",
   "cp", "curl", "date", "deno", "dig", "docker", "docker-compose", "du",
   "echo", "env", "esbuild", "eslint", "eza", "fd", "ffmpeg", "ffprobe",
-  "find", "fold", "fzf", "gemini", "gh", "git", "go", "grep", "gunzip",
+  "find", "fold", "fzf", "gemini", "gh", "git", "go", "golangci-lint", "grep", "gunzip",
   "gzip", "head", "http", "jq", "kill", "killall", "kubectl", "ln", "ls",
-  "lsof", "make", "mkdir", "mv", "node", "npm", "nix", "nix-build",
-  "nix-env", "nix-store", "oxlint", "pgrep", "pkill", "plutil", "pnpm",
-  "prettier", "ps", "python", "python3", "readlink", "rg", "rm", "rsync",
-  "sed", "sleep", "sort", "ssh", "starship", "tail", "tar", "tee",
+  "lsof", "make", "mkdir", "mv", "node", "npm",
+  "oxlint", "pgrep", "pkill", "plutil", "pnpm",
+  "prettier", "ps", "pwd", "python", "python3", "readlink", "rg", "rsync",
+  "sed", "sleep", "sort", "starship", "tail", "tar", "task", "tee",
   "terminal-notifier", "test", "time", "timeout", "tmux", "tokei", "touch",
   "tr", "tree", "tsx", "wc", "wget", "which", "whoami", "xargs", "yq",
-  "zellij",
 ]);
 
 /** Compound operator (|, &&, ||, ;) またはリダイレクト (2>&1, >/dev/null 等) を含むかチェック */
@@ -55,25 +57,45 @@ export function shouldApprove(
   return cmds.every((cmd) => allowed.has(cmd));
 }
 
+// --- Logging ---
+
+const LOG_FILE = `${Deno.env.get("TMPDIR") ?? "/tmp"}/approve-piped-commands.log`;
+
+async function log(msg: string): Promise<void> {
+  const ts = new Date().toISOString().replace("T", " ").slice(0, 19);
+  await Deno.writeTextFile(LOG_FILE, `[${ts}] ${msg}\n`, { append: true });
+}
+
 // --- Entry point ---
 
 if (import.meta.main) {
   interface HookInput {
     tool_name: string;
-    tool_input: { command: string };
+    tool_input: { command?: string; file_path?: string; url?: string };
   }
 
   const input: HookInput = JSON.parse(
     await new Response(Deno.stdin.readable).text(),
   );
 
-  if (input.tool_name !== "Bash") Deno.exit(0);
-  if (!shouldApprove(input.tool_input.command)) Deno.exit(0);
+  const command = input.tool_input.command ?? "";
 
-  console.log(JSON.stringify({
-    hookSpecificOutput: {
-      hookEventName: "PermissionRequest",
-      decision: { behavior: "allow" },
-    },
-  }));
+  await log(`command: ${command}`);
+  await log(`hasShellSyntax: ${hasShellSyntax(command)}`);
+  await log(`shouldApprove: ${shouldApprove(command)}`);
+
+  if (shouldApprove(command)) {
+    // 承認 → 通知なし
+    await log("decision: allow");
+    console.log(JSON.stringify({
+      hookSpecificOutput: {
+        hookEventName: "PermissionRequest",
+        decision: { behavior: "allow" },
+      },
+    }));
+  } else {
+    // 承認されない → 通知を送る
+    await log("decision: notify");
+    await sendPermissionNotification("Glass", input.tool_name, input.tool_input);
+  }
 }

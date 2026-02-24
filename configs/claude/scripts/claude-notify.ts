@@ -16,6 +16,12 @@ interface TmuxContext {
   paneTitle: string;
 }
 
+export interface ToolInput {
+  command?: string;      // Bash
+  file_path?: string;    // Write, Edit, Read
+  url?: string;          // WebFetch
+}
+
 // --- Constants ---
 
 const LOG_FILE = `${Deno.env.get("TMPDIR") ?? "/tmp"}/claude-notify.log`;
@@ -69,6 +75,28 @@ async function resolveCommandPath(name: string): Promise<string> {
 
 // --- Transcript parsing ---
 
+function formatPermissionMessage(toolName?: string, toolInput?: ToolInput): string {
+  if (!toolName) return "";
+
+  switch (toolName) {
+    case "Bash":
+      return toolInput?.command?.slice(0, 200) ?? "";
+    case "Write":
+    case "Edit":
+    case "Read":
+      return toolInput?.file_path ?? "";
+    case "WebFetch":
+      return toolInput?.url ?? "";
+    default:
+      return `[${toolName}]`;
+  }
+}
+
+async function getCurrentBranch(): Promise<string> {
+  const { code, stdout } = await runCommand("git", ["branch", "--show-current"]);
+  return code === 0 ? stdout : "";
+}
+
 function getLastAssistantMessage(transcriptPath: string): string {
   const content = Deno.readTextFileSync(transcriptPath);
   const lines = content.split("\n").slice(-50);
@@ -96,7 +124,7 @@ function getLastAssistantMessage(transcriptPath: string): string {
 
 // --- Tmux context ---
 
-async function getTmuxContext(tmuxPane: string): Promise<TmuxContext | null> {
+export async function getTmuxContext(tmuxPane: string): Promise<TmuxContext | null> {
   const fields = [
     "session_name",
     "window_index",
@@ -243,6 +271,87 @@ async function send(sound: string): Promise<void> {
   await log("--- send end ---");
 }
 
+/** PermissionRequest用の通知を送信（外部からimport可能） */
+export async function sendPermissionNotification(
+  sound: string,
+  toolName?: string,
+  toolInput?: ToolInput,
+): Promise<void> {
+  await rotateLog();
+  await log("--- sendPermissionNotification start ---");
+  await log(`TOOL: ${toolName ?? "unknown"}`);
+
+  const message = formatPermissionMessage(toolName, toolInput);
+  await log(`MESSAGE: ${message.slice(0, 100)}...`);
+
+  const branch = await getCurrentBranch();
+  await log(`BRANCH: ${branch || "(none)"}`);
+
+  const tmuxPane = Deno.env.get("TMUX_PANE");
+
+  if (tmuxPane) {
+    const ctx = await getTmuxContext(tmuxPane);
+    if (!ctx) {
+      await log("ERROR: failed to get tmux context");
+      return;
+    }
+
+    const title = `Claude Code · ${ctx.paneTitle}`;
+    const subtitle = branch ? `確認が必要です (${branch})` : "確認が必要です";
+
+    const group = `claude-${ctx.session}-${ctx.window}-${ctx.pane}`;
+    const tmuxPath = await resolveCommandPath("tmux");
+
+    const denoPath = Deno.execPath();
+    const scriptPath = `${Deno.env.get("HOME")}/.claude/scripts/claude-notify.ts`;
+    const executeCmd =
+      `${denoPath} run --allow-run --allow-write --allow-env=TMPDIR --allow-read ${scriptPath} activate '${ctx.session}' '${ctx.window}' '${ctx.pane}' '${tmuxPath}'`;
+
+    const notifyArgs = [
+      "-title",
+      title,
+      "-subtitle",
+      subtitle,
+      "-sound",
+      sound,
+      "-group",
+      group,
+      "-execute",
+      executeCmd,
+    ];
+    if (message) {
+      notifyArgs.push("-message", message);
+    }
+
+    const { code, stderr } = await runCommand("terminal-notifier", notifyArgs);
+    if (code === 0) {
+      await log("NOTIFY: success");
+    } else {
+      await log(`NOTIFY_ERROR: exit=${code} output=${stderr}`);
+    }
+  } else {
+    await log("NO_TMUX: sending without execute");
+    const subtitle = branch ? `確認が必要です (${branch})` : "確認が必要です";
+    const notifyArgs = [
+      "-title",
+      "Claude Code",
+      "-subtitle",
+      subtitle,
+      "-sound",
+      sound,
+    ];
+    if (message) {
+      notifyArgs.push("-message", message);
+    }
+    const { code } = await runCommand("terminal-notifier", notifyArgs);
+    if (code !== 0) {
+      await log(`NOTIFY_ERROR: exit=${code}`);
+    }
+  }
+
+  await log("--- sendPermissionNotification end ---");
+}
+
 async function activate(
   session: string,
   window: string,
@@ -318,19 +427,21 @@ async function debug(): Promise<void> {
 
 // --- Main ---
 
-const [subcommand, ...args] = Deno.args;
+if (import.meta.main) {
+  const [subcommand, ...args] = Deno.args;
 
-switch (subcommand) {
-  case "send":
-    await send(args[0] ?? "default");
-    break;
-  case "activate":
-    await activate(args[0], args[1], args[2], args[3] ?? "tmux");
-    break;
-  case "debug":
-    await debug();
-    break;
-  default:
-    console.error("Usage: claude-notify.ts {send|activate|debug}");
-    Deno.exit(1);
+  switch (subcommand) {
+    case "send":
+      await send(args[0] ?? "default");
+      break;
+    case "activate":
+      await activate(args[0], args[1], args[2], args[3] ?? "tmux");
+      break;
+    case "debug":
+      await debug();
+      break;
+    default:
+      console.error("Usage: claude-notify.ts {send|activate|debug}");
+      Deno.exit(1);
+  }
 }
