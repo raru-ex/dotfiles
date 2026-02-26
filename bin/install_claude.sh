@@ -29,6 +29,8 @@ fi
 echo "[INFO] deploy claude config files"
 
 mkdir -p ~/.claude/scripts
+mkdir -p ~/.claude/commands
+mkdir -p ~/.claude/tmp
 
 DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
@@ -44,7 +46,13 @@ echo "[INFO] linked approve-piped-commands.ts"
 ln -sf "$DOTFILES_DIR/configs/claude/scripts/check-command-policy.sh" ~/.claude/scripts/check-command-policy.sh
 echo "[INFO] linked check-command-policy.sh"
 
+ln -sf "$DOTFILES_DIR/configs/claude/scripts/create-pr.sh" ~/.claude/scripts/create-pr.sh
+echo "[INFO] linked create-pr.sh"
+
 ln -sf "$DOTFILES_DIR/configs/claude/CLAUDE.md" ~/.claude/CLAUDE.md
 echo "[INFO] linked CLAUDE.md"
+
+ln -sf "$DOTFILES_DIR/configs/claude/commands/pr.md" ~/.claude/commands/pr.md
+echo "[INFO] linked commands/pr.md"
 
 echo "[INFO] finished"

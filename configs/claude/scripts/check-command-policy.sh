@@ -66,6 +66,10 @@ function match() {
 match "$command" "git -C*" "Do not use 'git -C' option. Use git commands in the repository directory."
 match "$command" "git pull --rebase" "Do not use 'git pull --rebase'. Use 'git fetch && git rebase origin/main' instead."
 
+# gh
+match "$command" "gh pr create*" "Do not use 'gh pr create' directly. Use '/pr' slash command instead."
+match "$command" "gh pr edit*" "Do not use 'gh pr edit' directly. Use '/pr' slash command instead."
+
 # コマンドを許可
 log "ALLOWED: $command"
 exit 0

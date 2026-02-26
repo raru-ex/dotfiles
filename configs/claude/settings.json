@@ -101,6 +101,8 @@
       "Bash(yarn *)",
       "Bash(zoxide *)",
       "Bash(npx tsc *)",
+      "Bash(~/.claude/scripts/*)",
+      "Write(~/.claude/tmp/*)",
       "Glob(**)",
       "Grep(**)",
       "Read(**)",
