@@ -53,6 +53,7 @@
       "Bash(git stash *)",
       "Bash(git status *)",
       "Bash(git tag *)",
+      "Bash(git rm *)",
       "Bash(go *)",
       "Bash(GOWORK=off go build *)",
       "Bash(golangci-lint *)",
@@ -106,6 +107,7 @@
       "Glob(**)",
       "Grep(**)",
       "Read(**)",
+      "Read(~/.claude/tmp/*)",
       "WebFetch",
       "WebSearch"
     ],
