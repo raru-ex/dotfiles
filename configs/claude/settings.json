@@ -147,7 +147,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/raru/.claude/scripts/check-command-policy.sh"
+            "command": "$HOME/.claude/scripts/check-command-policy.sh"
           }
         ]
       }
@@ -158,7 +158,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/opt/homebrew/bin/deno run --allow-read --allow-write --allow-env=HOME,TMPDIR,TMUX_PANE,TMUX --allow-run /Users/raru/.claude/scripts/approve-piped-commands.ts"
+            "command": "/opt/homebrew/bin/deno run --allow-read --allow-write --allow-env=HOME,TMPDIR,TMUX_PANE,TMUX --allow-run $HOME/.claude/scripts/approve-piped-commands.ts"
           }
         ]
       }
@@ -168,7 +168,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/opt/homebrew/bin/deno run --allow-read --allow-write --allow-env=HOME,TMPDIR,TMUX_PANE,TMUX --allow-run /Users/raru/.claude/scripts/claude-notify.ts send Hero"
+            "command": "/opt/homebrew/bin/deno run --allow-read --allow-write --allow-env=HOME,TMPDIR,TMUX_PANE,TMUX --allow-run $HOME/.claude/scripts/claude-notify.ts send Hero"
           }
         ]
       }
